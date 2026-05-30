@@ -19,7 +19,7 @@
   --serif:'Cormorant Garamond',Georgia,serif;
   --sans:'Outfit',sans-serif;
   --bdr:rgba(184,134,11,0.25);--bdr-strong:rgba(184,134,11,0.5);
-  --img-base:https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/images;
+  --img-base:https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text-dark);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
@@ -285,7 +285,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
 <!-- ════ NAV ════ -->
 <nav id="mainNav">
   <a href="#home" class="nav-logo">
-    <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/images/logo.png" alt="GKS Logo" onerror="this.style.display='none'">
+    <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/logo.png" alt="GKS Logo" onerror="this.style.display='none'">
     <div class="nav-logo-text">
       <span class="nl-top">God's Kingdom Society</span>
       <span class="nl-sub">Worldwide Christian Fellowship</span>
@@ -397,42 +397,79 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
 <!-- ════ SCHEDULE ════ -->
 <section class="schedule-section section-pad" id="schedule">
   <div class="section-tag">Regular Services</div>
-  <h2 class="section-title">House of <em>Worship</em></h2>
+  <h2 class="section-title">Days of <em>Worship</em></h2>
   <div class="schedule-grid">
+
+    <!-- Weekly Services -->
     <div class="schedule-card reveal">
-      <div class="schedule-card-title">Weekly Divine Services</div>
+      <div class="schedule-card-title">Days of Worship</div>
       <div class="schedule-items">
         <div class="schedule-item">
           <div class="s-day">Sun</div>
-          <div class="s-info"><div class="s-name">Sunday Divine Service</div><div class="s-time">9:00 AM — In-Person &amp; Live Stream</div></div>
+          <div class="s-info">
+            <div class="s-name">Sunday Divine Service</div>
+            <div class="s-time">9:00 AM – 11:00 AM</div>
+          </div>
         </div>
         <div class="schedule-item">
           <div class="s-day">Wed</div>
-          <div class="s-info"><div class="s-name">Midweek Service</div><div class="s-time">6:30 PM — In-Person &amp; Live Stream</div></div>
+          <div class="s-info">
+            <div class="s-name">Sisters (Women) Fellowship</div>
+            <div class="s-time">4:00 PM – 5:00 PM</div>
+          </div>
         </div>
         <div class="schedule-item">
-          <div class="s-day">Fri</div>
-          <div class="s-info"><div class="s-name">Bible Study &amp; Prayer Night</div><div class="s-time">7:00 PM — In-Person Only</div></div>
+          <div class="s-day">Wed</div>
+          <div class="s-info">
+            <div class="s-name">Brothers (Men) Fellowship</div>
+            <div class="s-time">5:00 PM – 6:00 PM</div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Notable Dates -->
     <div class="schedule-card reveal">
-      <div class="schedule-card-title">Special Events — 2025</div>
+      <div class="schedule-card-title">Notable Dates</div>
       <div class="schedule-items">
         <div class="schedule-item">
           <div class="s-day">Apr</div>
-          <div class="s-info"><div class="s-name">Easter Convocation</div><div class="s-time">Good Friday through Easter Sunday</div></div>
+          <div class="s-info">
+            <div class="s-name">Annual Conferences</div>
+            <div class="s-time">Laymembers · Youth Fellowship · Women Fellowship · Choir</div>
+          </div>
         </div>
         <div class="schedule-item">
           <div class="s-day">Jun</div>
-          <div class="s-info"><div class="s-name">Mid-Year Ministerial</div><div class="s-time">To be announced</div></div>
+          <div class="s-info">
+            <div class="s-name">Ministers Conference</div>
+            <div class="s-time">Nationwide — All Ordained Ministers</div>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="s-day">Aug</div>
+          <div class="s-info">
+            <div class="s-name">Annual Youth Fellowship Assembly</div>
+            <div class="s-time">Nationwide Youth Gathering</div>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="s-day">Oct</div>
+          <div class="s-info">
+            <div class="s-name">Freedom Day Celebration</div>
+            <div class="s-time">Nationwide Commemoration</div>
+          </div>
         </div>
         <div class="schedule-item">
           <div class="s-day">Dec</div>
-          <div class="s-info"><div class="s-name">Annual Tabernacles</div><div class="s-time">December — Worldwide</div></div>
+          <div class="s-info">
+            <div class="s-name">Christian Feast of Tabernacles</div>
+            <div class="s-time">Language Speaking Conference · Worldwide</div>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -534,9 +571,9 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
       <h3>Experience the <em>Living Word</em> in Real Time</h3>
       <p>Join thousands of brethren worldwide as we gather in spirit to hear the undiluted Word of God. Stream our Sunday services, midweek teachings, and special convocations from anywhere in the world.</p>
       <div class="live-schedule-mini">
-        <div class="ls-row"><span class="ls-day">Sun</span><span class="ls-info">9:00 AM — Sunday Divine Service</span></div>
-        <div class="ls-row"><span class="ls-day">Wed</span><span class="ls-info">6:30 PM — Midweek Service</span></div>
-        <div class="ls-row"><span class="ls-day">Fri</span><span class="ls-info">7:00 PM — Bible Study & Prayer</span></div>
+        <div class="ls-row"><span class="ls-day">Sun</span><span class="ls-info">9:00 AM – 11:00 AM — Sunday Divine Service</span></div>
+        <div class="ls-row"><span class="ls-day">Wed</span><span class="ls-info">4:00 PM – 5:00 PM — Sisters (Women) Fellowship</span></div>
+        <div class="ls-row"><span class="ls-day">Wed</span><span class="ls-info">5:00 PM – 6:00 PM — Brothers (Men) Fellowship</span></div>
       </div>
       <a href="https://www.youtube.com/@GKS" target="_blank" class="btn-primary">Subscribe on YouTube</a>
     </div>
@@ -558,7 +595,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
     <!-- PAST LEADER 1 -->
     <div class="board-card reveal">
       <div class="board-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/images/ST.G.M.URHOBO.webp"
+        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
              alt="St. G. M. Urhobo"
              onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>I</div></div>'">
       </div>
@@ -573,7 +610,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
     <!-- PAST LEADER 2 -->
     <div class="board-card reveal">
       <div class="board-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/images/E.T.OTOMEWO.webp"
+        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/E.T.OTOMEWO.webp"
              alt="Late Bro. E. T. Otomewo"
              onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>II</div></div>'">
       </div>
@@ -588,7 +625,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
     <!-- PAST LEADER 3 -->
     <div class="board-card reveal">
       <div class="board-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/images/O.E.AIGHALUA.webp"
+        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/O.E.AIGHALUA.webp"
              alt="Late Bro. O. E. Aighalua"
              onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>III</div></div>'">
       </div>
@@ -603,7 +640,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
     <!-- PAST LEADER 4 -->
     <div class="board-card reveal">
       <div class="board-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/images/G.O.IFEACHO.webp"
+        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/G.O.IFEACHO.webp"
              alt="Late Bro. G. O. Ifeacho"
              onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>IV</div></div>'">
       </div>
@@ -624,7 +661,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
     <!-- EXEC 1 -->
     <div class="board-card reveal">
       <div class="board-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/images/F.E.ADEDOKUN.webp"
+        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/F.E.ADEDOKUN.webp"
              alt="Bro. F. E. Adedokun"
              onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>E</div></div>'">
       </div>
@@ -639,7 +676,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
     <!-- EXEC 2 -->
     <div class="board-card reveal">
       <div class="board-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/images/T.M.EKISEOWEI.webp"
+        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/T.M.EKISEOWEI.webp"
              alt="Bro. T. M. Ekiseowei"
              onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>E</div></div>'">
       </div>
@@ -654,7 +691,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
     <!-- EXEC 3 -->
     <div class="board-card reveal">
       <div class="board-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/images/B.T.HART.webp"
+        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/B.T.HART.webp"
              alt="Bro. B. T. Hart"
              onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>E</div></div>'">
       </div>
@@ -669,7 +706,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
     <!-- EXEC 4 -->
     <div class="board-card reveal">
       <div class="board-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/images/O.D.AKINWALE.webp"
+        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/O.D.AKINWALE.webp"
              alt="Bro. O. D. Akinwale"
              onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>E</div></div>'">
       </div>
@@ -684,7 +721,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
     <!-- EXEC 5 -->
     <div class="board-card reveal">
       <div class="board-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/images/A.A.ERHA.webp"
+        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/A.A.ERHA.webp"
              alt="Bro. A. A. Erha"
              onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>E</div></div>'">
       </div>
@@ -699,7 +736,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
     <!-- EXEC 6 -->
     <div class="board-card reveal">
       <div class="board-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/images/J.N.W.CHUKWUDI.webp"
+        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/J.N.W.CHUKWUDI.webp"
              alt="Bro. J. N. W. Chukwudi"
              onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>E</div></div>'">
       </div>
@@ -831,7 +868,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
 
 <script>
 /* ── IMAGE BASE URL ── */
-const IMG = 'https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/images/';
+const IMG = 'https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/';
 
 /* ── HERO SLIDES DATA ──
    KENNEDY: Replace placeholder names/titles/filenames below
