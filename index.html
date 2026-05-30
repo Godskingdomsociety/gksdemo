@@ -235,6 +235,23 @@ nav{
 .board-desc{font-size:0.76rem;color:var(--muted);line-height:1.7}
 .board-divider{height:2px;width:30px;background:var(--gold);margin:0.75rem 0;opacity:0.5}
 
+/* ── LEADERSHIP REDESIGN ── */
+.founder-row{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:center;margin-bottom:4rem;padding:3rem;background:#fff;border:1px solid var(--bdr)}
+.founder-img{width:100%;max-width:420px}
+.founder-img img{width:100%;display:block;object-fit:cover}
+.founder-label{font-size:0.6rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:600}
+.founder-name{font-family:var(--serif);font-size:2.2rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-dark);margin-bottom:0.6rem;line-height:1.1}
+.founder-title{font-size:0.8rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--muted);line-height:1.6;max-width:380px}
+.past-heading{font-size:0.6rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;font-weight:600;padding-bottom:0.7rem;border-bottom:1px solid var(--bdr)}
+.exec-heading{font-family:var(--serif);font-size:1.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-dark);text-align:center;margin:3.5rem 0 2.5rem;padding-top:3rem;border-top:1px solid var(--bdr)}
+.leader-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:0.5rem}
+.leader-card{text-align:center}
+.leader-card-img{width:100%;aspect-ratio:4/5;overflow:hidden;margin-bottom:1rem;border:1px solid var(--bdr);background:var(--bg2)}
+.leader-card-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.4s ease}
+.leader-card:hover .leader-card-img img{transform:scale(1.03)}
+.leader-card-name{font-family:var(--serif);font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-dark);margin-bottom:0.3rem;line-height:1.3}
+.leader-card-title{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--muted)}
+
 /* ── NEWS ── */
 .news-section{background:var(--bg);border-top:1px solid var(--bdr)}
 .news-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem}
@@ -384,15 +401,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
   </div>
 </section>
 
-<div class="gold-divider"></div>
 
-<!-- ════ STATS ════ -->
-<div class="stats-bar">
-  <div class="stat-box reveal"><div class="stat-num">1930s</div><div class="stat-label">Founded</div></div>
-  <div class="stat-box reveal"><div class="stat-num">100+</div><div class="stat-label">Branches Worldwide</div></div>
-  <div class="stat-box reveal"><div class="stat-num">50K+</div><div class="stat-label">Members & Counting</div></div>
-  <div class="stat-box reveal"><div class="stat-num">90+</div><div class="stat-label">Years of Ministry</div></div>
-</div>
 
 <!-- ════ SCHEDULE ════ -->
 <section class="schedule-section section-pad" id="schedule">
@@ -414,15 +423,8 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
         <div class="schedule-item">
           <div class="s-day">Wed</div>
           <div class="s-info">
-            <div class="s-name">Sisters (Women) Fellowship</div>
-            <div class="s-time">4:00 PM – 5:00 PM</div>
-          </div>
-        </div>
-        <div class="schedule-item">
-          <div class="s-day">Wed</div>
-          <div class="s-info">
-            <div class="s-name">Brothers (Men) Fellowship</div>
-            <div class="s-time">5:00 PM – 6:00 PM</div>
+            <div class="s-name">Sisters (Women) &nbsp;·&nbsp; 4:00 PM – 5:00 PM</div>
+            <div class="s-time">Brothers (Men) &nbsp;·&nbsp; 5:00 PM – 6:00 PM</div>
           </div>
         </div>
       </div>
@@ -436,35 +438,31 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
           <div class="s-day">Apr</div>
           <div class="s-info">
             <div class="s-name">Annual Conferences</div>
-            <div class="s-time">Laymembers · Youth Fellowship · Women Fellowship · Choir</div>
+            <div class="s-time">Laymembers · Youth Fellowship · Women Fellowship · Choir · Language Speaking Groups</div>
           </div>
         </div>
         <div class="schedule-item">
           <div class="s-day">Jun</div>
           <div class="s-info">
             <div class="s-name">Ministers Conference</div>
-            <div class="s-time">Nationwide — All Ordained Ministers</div>
           </div>
         </div>
         <div class="schedule-item">
           <div class="s-day">Aug</div>
           <div class="s-info">
-            <div class="s-name">Annual Youth Fellowship Assembly</div>
-            <div class="s-time">Nationwide Youth Gathering</div>
+            <div class="s-name">Youth Assembly</div>
           </div>
         </div>
         <div class="schedule-item">
           <div class="s-day">Oct</div>
           <div class="s-info">
             <div class="s-name">Freedom Day Celebration</div>
-            <div class="s-time">Nationwide Commemoration</div>
           </div>
         </div>
         <div class="schedule-item">
           <div class="s-day">Dec</div>
           <div class="s-info">
             <div class="s-name">Christian Feast of Tabernacles</div>
-            <div class="s-time">Language Speaking Conference · Worldwide</div>
           </div>
         </div>
       </div>
@@ -513,7 +511,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
 <!-- ════ MEDIA ════ -->
 <section class="media-section section-pad" id="media">
   <div class="section-tag">Messages &amp; Sermons</div>
-  <h2 class="section-title">The Word <em>Preached</em></h2>
+  <h2 class="section-title">Some of <em>Our Sermons</em></h2>
   <div class="media-grid">
     <div class="media-card reveal">
       <div class="media-thumb-placeholder">
@@ -524,7 +522,6 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
       <div class="media-body">
         <div class="media-tag">Sunday Service</div>
         <div class="media-title">Walking in the Light of God's Word</div>
-        <div class="media-meta">June 2025 · 52 min</div>
       </div>
     </div>
     <div class="media-card reveal">
@@ -534,9 +531,8 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
         </div>
       </div>
       <div class="media-body">
-        <div class="media-tag">Tabernacles 2024</div>
+        <div class="media-tag">Tabernacles</div>
         <div class="media-title">The Kingdom That Shall Never Be Destroyed</div>
-        <div class="media-meta">December 2024 · 1 hr 14 min</div>
       </div>
     </div>
     <div class="media-card reveal">
@@ -548,7 +544,6 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
       <div class="media-body">
         <div class="media-tag">Midweek Teaching</div>
         <div class="media-title">Faith, Patience and the Promise</div>
-        <div class="media-meta">May 2025 · 44 min</div>
       </div>
     </div>
   </div>
@@ -572,8 +567,7 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
       <p>Join thousands of brethren worldwide as we gather in spirit to hear the undiluted Word of God. Stream our Sunday services, midweek teachings, and special convocations from anywhere in the world.</p>
       <div class="live-schedule-mini">
         <div class="ls-row"><span class="ls-day">Sun</span><span class="ls-info">9:00 AM – 11:00 AM — Sunday Divine Service</span></div>
-        <div class="ls-row"><span class="ls-day">Wed</span><span class="ls-info">4:00 PM – 5:00 PM — Sisters (Women) Fellowship</span></div>
-        <div class="ls-row"><span class="ls-day">Wed</span><span class="ls-info">5:00 PM – 6:00 PM — Brothers (Men) Fellowship</span></div>
+        <div class="ls-row"><span class="ls-day">Wed</span><span class="ls-info">Sisters (Women) 4–5 PM &nbsp;·&nbsp; Brothers (Men) 5–6 PM</span></div>
       </div>
       <a href="https://www.youtube.com/@GKS" target="_blank" class="btn-primary">Subscribe on YouTube</a>
     </div>
@@ -583,172 +577,134 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
 <!-- ════ LEADERSHIP / BOARD ════ -->
 <section class="board-section section-pad" id="board">
   <div class="section-tag">Our Leadership</div>
-  <h2 class="section-title">The <em>Executive</em> Board</h2>
+  <h2 class="section-title">Meet Our <em>Leaders</em></h2>
   <div class="board-intro">
     <p>God's Kingdom Society is governed by a dedicated board of leaders who have devoted their lives to advancing the Kingdom of God. Each member brings decades of spiritual service, administrative excellence, and unwavering commitment to the founding vision of GKS.</p>
   </div>
 
-  <!-- ── PAST LEADERS STRIP ── -->
-  <div class="section-tag" style="margin-top:0;margin-bottom:1.5rem;color:var(--muted)">Past Leaders of Blessed Memory</div>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-bottom:3.5rem">
-
-    <!-- PAST LEADER 1 -->
-    <div class="board-card reveal">
-      <div class="board-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
-             alt="St. G. M. Urhobo"
-             onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>I</div></div>'">
-      </div>
-      <div class="board-body">
-        <div class="board-role">Founder &amp; 1st President</div>
-        <div class="board-divider"></div>
-        <div class="board-name">St. G. M. Urhobo</div>
-        <div class="board-desc">The Vessel of Honour used by God to establish the God's Kingdom Society.</div>
-      </div>
+  <!-- ── ST. URHOBO FEATURED ── -->
+  <div class="founder-row reveal">
+    <div class="founder-img">
+      <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
+           alt="St. G. M. Urhobo"
+           onerror="this.parentElement.style.background='var(--bg3)'">
     </div>
+    <div class="founder-text">
+      <div class="founder-label">Founding Instrument</div>
+      <div class="founder-name">St G. M. Urhobo</div>
+      <div class="founder-title">The Vessel of Honour Used by God to Establish the God's Kingdom Society</div>
+    </div>
+  </div>
 
-    <!-- PAST LEADER 2 -->
-    <div class="board-card reveal">
-      <div class="board-img">
+  <!-- ── PAST PRESIDENTS ── -->
+  <div class="past-heading">Past Presidents of Blessed Memory</div>
+  <div class="leader-grid-3" style="margin-bottom:0">
+
+    <div class="leader-card reveal">
+      <div class="leader-card-img">
         <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/E.T.OTOMEWO.webp"
              alt="Late Bro. E. T. Otomewo"
-             onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>II</div></div>'">
+             onerror="this.parentElement.style.background='var(--bg3)'">
       </div>
-      <div class="board-body">
-        <div class="board-role">2nd President of the GKS</div>
-        <div class="board-divider"></div>
-        <div class="board-name">Late Bro. E. T. Otomewo</div>
-        <div class="board-desc">Served faithfully as the 2nd President of the God's Kingdom Society from 1957 to 1997.</div>
-      </div>
+      <div class="leader-card-name">Late Bro. E. T. Otomewo</div>
+      <div class="leader-card-title">2nd President of the GKS · 1957 – 1997</div>
     </div>
 
-    <!-- PAST LEADER 3 -->
-    <div class="board-card reveal">
-      <div class="board-img">
+    <div class="leader-card reveal">
+      <div class="leader-card-img">
         <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/O.E.AIGHALUA.webp"
              alt="Late Bro. O. E. Aighalua"
-             onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>III</div></div>'">
+             onerror="this.parentElement.style.background='var(--bg3)'">
       </div>
-      <div class="board-body">
-        <div class="board-role">3rd President of the GKS</div>
-        <div class="board-divider"></div>
-        <div class="board-name">Late Bro. O. E. Aighalua</div>
-        <div class="board-desc">Served faithfully as the 3rd President of the God's Kingdom Society from 2001 to 2011.</div>
-      </div>
+      <div class="leader-card-name">Late Bro. O. E. Aighalua</div>
+      <div class="leader-card-title">3rd President of the GKS · 2001 – 2011</div>
     </div>
 
-    <!-- PAST LEADER 4 -->
-    <div class="board-card reveal">
-      <div class="board-img">
+    <div class="leader-card reveal">
+      <div class="leader-card-img">
         <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/G.O.IFEACHO.webp"
              alt="Late Bro. G. O. Ifeacho"
-             onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>IV</div></div>'">
+             onerror="this.parentElement.style.background='var(--bg3)'">
       </div>
-      <div class="board-body">
-        <div class="board-role">4th President of the GKS</div>
-        <div class="board-divider"></div>
-        <div class="board-name">Late Bro. G. O. Ifeacho</div>
-        <div class="board-desc">Served faithfully as the 4th President of the God's Kingdom Society from 2016 to 2021.</div>
-      </div>
+      <div class="leader-card-name">Late Bro. G. O. Ifeacho</div>
+      <div class="leader-card-title">4th President of the GKS · 2016 – 2021</div>
     </div>
 
-  </div><!-- end past leaders -->
+  </div>
 
-  <!-- ── CURRENT EXECUTIVE BOARD ── -->
-  <div class="section-tag" style="margin-bottom:2rem">Current Executive Board</div>
-  <div class="board-grid">
+  <!-- ── EXECUTIVE BOARD ── -->
+  <div class="exec-heading">Executive Board Members</div>
 
-    <!-- EXEC 1 -->
-    <div class="board-card reveal">
-      <div class="board-img">
+  <!-- Row 1 -->
+  <div class="leader-grid-3" style="margin-bottom:2rem">
+
+    <div class="leader-card reveal">
+      <div class="leader-card-img">
         <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/F.E.ADEDOKUN.webp"
              alt="Bro. F. E. Adedokun"
-             onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>E</div></div>'">
+             onerror="this.parentElement.style.background='var(--bg3)'">
       </div>
-      <div class="board-body">
-        <div class="board-role">President</div>
-        <div class="board-divider"></div>
-        <div class="board-name">Bro. F. E. Adedokun</div>
-        <div class="board-desc">Serving as the President of God's Kingdom Society, providing spiritual oversight and administrative leadership to all branches worldwide.</div>
-      </div>
+      <div class="leader-card-name">Bro. F. E. Adedokun</div>
+      <div class="leader-card-title">President</div>
     </div>
 
-    <!-- EXEC 2 -->
-    <div class="board-card reveal">
-      <div class="board-img">
+    <div class="leader-card reveal">
+      <div class="leader-card-img">
         <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/T.M.EKISEOWEI.webp"
              alt="Bro. T. M. Ekiseowei"
-             onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>E</div></div>'">
+             onerror="this.parentElement.style.background='var(--bg3)'">
       </div>
-      <div class="board-body">
-        <div class="board-role">Vice President</div>
-        <div class="board-divider"></div>
-        <div class="board-name">Bro. T. M. Ekiseowei</div>
-        <div class="board-desc">Serving as Vice President of God's Kingdom Society, supporting the President in spiritual governance and the strategic direction of the fellowship.</div>
-      </div>
+      <div class="leader-card-name">Bro. T. M. Ekiseowei</div>
+      <div class="leader-card-title">Vice President</div>
     </div>
 
-    <!-- EXEC 3 -->
-    <div class="board-card reveal">
-      <div class="board-img">
+    <div class="leader-card reveal">
+      <div class="leader-card-img">
         <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/B.T.HART.webp"
              alt="Bro. B. T. Hart"
-             onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>E</div></div>'">
+             onerror="this.parentElement.style.background='var(--bg3)'">
       </div>
-      <div class="board-body">
-        <div class="board-role">General Secretary</div>
-        <div class="board-divider"></div>
-        <div class="board-name">Bro. B. T. Hart</div>
-        <div class="board-desc">Serving as General Secretary of God's Kingdom Society, overseeing all official correspondence, records, and administrative operations of the fellowship.</div>
-      </div>
+      <div class="leader-card-name">Bro. B. T. Hart</div>
+      <div class="leader-card-title">General Secretary</div>
     </div>
 
-    <!-- EXEC 4 -->
-    <div class="board-card reveal">
-      <div class="board-img">
+  </div>
+
+  <!-- Row 2 -->
+  <div class="leader-grid-3">
+
+    <div class="leader-card reveal">
+      <div class="leader-card-img">
         <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/O.D.AKINWALE.webp"
              alt="Bro. O. D. Akinwale"
-             onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>E</div></div>'">
+             onerror="this.parentElement.style.background='var(--bg3)'">
       </div>
-      <div class="board-body">
-        <div class="board-role">Treasurer</div>
-        <div class="board-divider"></div>
-        <div class="board-name">Bro. O. D. Akinwale</div>
-        <div class="board-desc">Serving as Treasurer of God's Kingdom Society, responsible for the sound financial stewardship and accountability of the fellowship's resources.</div>
-      </div>
+      <div class="leader-card-name">Bro. O. D. Akinwale</div>
+      <div class="leader-card-title">Treasurer</div>
     </div>
 
-    <!-- EXEC 5 -->
-    <div class="board-card reveal">
-      <div class="board-img">
+    <div class="leader-card reveal">
+      <div class="leader-card-img">
         <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/A.A.ERHA.webp"
              alt="Bro. A. A. Erha"
-             onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>E</div></div>'">
+             onerror="this.parentElement.style.background='var(--bg3)'">
       </div>
-      <div class="board-body">
-        <div class="board-role">Member, Executive Board</div>
-        <div class="board-divider"></div>
-        <div class="board-name">Bro. A. A. Erha</div>
-        <div class="board-desc">A dedicated member of the Executive Board of God's Kingdom Society, contributing to the collective governance and advancement of the fellowship.</div>
-      </div>
+      <div class="leader-card-name">Bro. A. A. Erha</div>
+      <div class="leader-card-title">Member, Executive Board</div>
     </div>
 
-    <!-- EXEC 6 -->
-    <div class="board-card reveal">
-      <div class="board-img">
+    <div class="leader-card reveal">
+      <div class="leader-card-img">
         <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/J.N.W.CHUKWUDI.webp"
              alt="Bro. J. N. W. Chukwudi"
-             onerror="this.parentElement.innerHTML='<div class=\'board-img-placeholder\'><div class=\'bip-initial\'>E</div></div>'">
+             onerror="this.parentElement.style.background='var(--bg3)'">
       </div>
-      <div class="board-body">
-        <div class="board-role">Member, Executive Board</div>
-        <div class="board-divider"></div>
-        <div class="board-name">Bro. J. N. W. Chukwudi</div>
-        <div class="board-desc">A dedicated member of the Executive Board of God's Kingdom Society, contributing to the collective governance and advancement of the fellowship.</div>
-      </div>
+      <div class="leader-card-name">Bro. J. N. W. Chukwudi</div>
+      <div class="leader-card-title">Member, Executive Board</div>
     </div>
 
-  </div><!-- end exec board -->
+  </div>
+
 </section>
 
 <!-- ════ NEWS ════ -->
@@ -764,28 +720,28 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
     <a href="#" class="news-card reveal">
       <div class="news-img">GKS</div>
       <div class="news-body">
-        <div class="news-tag">Announcement</div>
-        <div class="news-title">Annual Tabernacles 2025 — Registration Now Open for All Branches</div>
-        <div class="news-excerpt">The Board of Directors is pleased to announce that registration for the 2025 Annual Tabernacles is now open. All branches are encouraged to register early.</div>
-        <div class="news-date">June 2025</div>
+        <div class="news-tag">Conference Reports</div>
+        <div class="news-title">Annual Conference Reports 2026</div>
+        <div class="news-excerpt">Full reports from the 2026 Annual Conferences — Laymembers Conference, Youth Fellowship Conference, and Women Fellowship Conference. Read highlights, resolutions, and key outcomes from each gathering.</div>
+        <div class="news-date">2026</div>
       </div>
     </a>
     <a href="#" class="news-card reveal">
       <div class="news-img">GKS</div>
       <div class="news-body">
-        <div class="news-tag">Digital Ministry</div>
-        <div class="news-title">GKS Launches New Branch Microsite Network</div>
-        <div class="news-excerpt">Each branch will now have a dedicated online presence linking back to the main mountaingks.org portal.</div>
-        <div class="news-date">May 2025</div>
+        <div class="news-tag">Upcoming Event</div>
+        <div class="news-title">GKS Ministers Conference 2026</div>
+        <div class="news-excerpt">The upcoming Ministers Conference 2026 brings together ordained ministers from all branches for fellowship, instruction, and strategic planning.</div>
+        <div class="news-date">Coming Soon · 2026</div>
       </div>
     </a>
     <a href="#" class="news-card reveal">
       <div class="news-img">GKS</div>
       <div class="news-body">
-        <div class="news-tag">Evangelism</div>
-        <div class="news-title">Youth Evangelism Drive Reaches 12 New Communities</div>
-        <div class="news-excerpt">The evangelism department reports a fruitful outreach season with dozens of new converts in the Delta and Rivers State regions.</div>
-        <div class="news-date">April 2025</div>
+        <div class="news-tag">Event Highlights</div>
+        <div class="news-title">Christian Feast of Tabernacles 2025 — Highlights</div>
+        <div class="news-excerpt">Relive the inspiring moments, powerful messages, and joyful fellowship from the Christian Feast of Tabernacles 2025.</div>
+        <div class="news-date">December 2025</div>
       </div>
     </a>
   </div>
@@ -806,8 +762,16 @@ footer{background:var(--bg-dark2);border-top:2px solid var(--gold);padding:4rem 
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="footer-logo-text">God's Kingdom Society</div>
-      <div class="footer-logo-sub">Worldwide Christian Fellowship</div>
+      <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.4rem">
+        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/logo.png"
+             alt="GKS Logo"
+             style="height:52px;width:auto;display:block"
+             onerror="this.style.display='none'">
+        <div>
+          <div class="footer-logo-text">God's Kingdom Society</div>
+          <div class="footer-logo-sub">Worldwide Christian Fellowship</div>
+        </div>
+      </div>
       <p>Proclaiming the Kingdom of God with uncompromising truth since the 1930s. Join us as we worship, serve, and grow together in Christ.</p>
     </div>
     <div>
