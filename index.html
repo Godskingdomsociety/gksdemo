@@ -16,9 +16,7 @@
      starts fetching it from the very first byte of HTML parsing. -->
 <link rel="preload" as="image"
       href="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
-      fetchpriority="high"
-      imagesrcset="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
-      imagesizes="62vw">
+      fetchpriority="high">
 
 <!-- ═══ PERFORMANCE: Non-render-blocking font load ═══ -->
 <link rel="stylesheet"
@@ -46,6 +44,8 @@
   /* ACCESSIBILITY: Contrast-safe muted colour (replaces #5c4a20 on light bg).
      Old value failed WCAG AA at small sizes. New value passes AA (4.6:1). */
   --muted-aa:#4a3a10;
+  /* ACCESSIBILITY: --gold-aa is #7a5c00 = 4.8:1 on white, passes WCAG AA */
+  --gold-aa:#7a5c00;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
@@ -73,7 +73,7 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .nav-logo img{height:48px;width:48px;display:block}
 .nav-logo-text{display:flex;flex-direction:column;line-height:1.2}
 .nl-top{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--txt);letter-spacing:.03em;white-space:nowrap}
-.nl-sub{font-size:.48rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:500;white-space:nowrap}
+.nl-sub{font-size:.48rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-aa);font-weight:500;white-space:nowrap}
 
 .nav-links{
   display:flex;align-items:center;
@@ -95,7 +95,7 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
   padding:.38rem .85rem!important;border-radius:2px;min-height:44px!important;
 }
 .nav-cta:hover{background:var(--gold-l)!important}
-.nav-donate{color:var(--gold)!important;font-weight:600!important}
+.nav-donate{color:var(--gold-aa)!important;font-weight:600!important}
 
 /* ACCESSIBILITY: Hamburger — visible, labelled, 44×44 touch target */
 .nav-ham{
@@ -146,9 +146,11 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .hero-slide img{
   position:absolute;right:0;top:0;
   height:100%;width:auto;max-width:62%;
+  /* BEST PRACTICES FIX: aspect-ratio:auto lets the browser use the image's
+     natural dimensions for layout, preventing "incorrect aspect ratio" audit
+     failure. object-fit:cover applies AFTER layout so doesn't conflict. */
+  aspect-ratio:auto;
   object-fit:cover;object-position:top center;display:block;
-  /* PERFORMANCE: Prevent sub-pixel reflow */
-  will-change:auto;
 }
 .hero-slide::after{
   content:'';position:absolute;inset:0;
@@ -242,19 +244,19 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 }
 .ql-item:hover .ql-icon{background:var(--gold);color:#fff;border-color:var(--gold)}
 /* ACCESSIBILITY: colour fix — was rgba gold on dark bg; verify passes 4.5:1 */
-.ql-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-b);margin-bottom:.2rem}
+.ql-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:.2rem}
 .ql-title{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:#fff;line-height:1.3}
 
 /* ═══════════════════════════════════════════════════════════
    SECTIONS
 ═══════════════════════════════════════════════════════════ */
 .s-pad{padding:5.5rem 4rem}
-.s-tag{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;display:flex;align-items:center;gap:.7rem;font-weight:600}
+.s-tag{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:.8rem;display:flex;align-items:center;gap:.7rem;font-weight:600}
 .s-tag::after{content:'';display:block;height:1.5px;width:34px;background:var(--gold);opacity:.6}
 .s-tag.ctr{justify-content:center}
 .s-tag.ctr::after{display:none}
 .s-title{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.9rem);font-weight:300;line-height:1.15;color:var(--txt);margin-bottom:1.3rem}
-.s-title em{font-style:italic;color:var(--gold)}
+.s-title em{font-style:italic;color:var(--gold-aa)}
 .s-title.light{color:#fff}
 
 /* ═══════════════════════════════════════════════════════════
@@ -278,10 +280,10 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .sched-section{background:var(--bg2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
 .sched-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2.5rem}
 .sched-card{background:#fff;border:1px solid var(--bdr);padding:2rem}
-.sched-card-title{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;font-weight:600;padding-bottom:.8rem;border-bottom:1px solid var(--bdr)}
+.sched-card-title{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:1.2rem;font-weight:600;padding-bottom:.8rem;border-bottom:1px solid var(--bdr)}
 .sched-item{display:flex;align-items:flex-start;gap:1.2rem;padding:.9rem 0;border-bottom:1px solid var(--bdr)}
 .sched-item:last-child{border-bottom:none}
-.s-day{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--gold);min-width:34px;text-align:center;padding-top:2px}
+.s-day{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--gold-aa);min-width:34px;text-align:center;padding-top:2px}
 .s-name{font-size:.8rem;font-weight:500;color:var(--txt)}
 /* ACCESSIBILITY: contrast fix for time text */
 .s-time{font-size:.7rem;color:var(--muted-aa);margin-top:2px}
@@ -329,7 +331,7 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .play-btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
 .media-card:hover .play-btn{transform:scale(1.1)}
 .media-body{padding:1.2rem}
-.media-tag{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-d);margin-bottom:.4rem;font-weight:600}
+.media-tag{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:.4rem;font-weight:600}
 .media-title{font-family:var(--serif);font-size:.98rem;font-weight:600;color:var(--txt);line-height:1.35}
 
 /* ═══════════════════════════════════════════════════════════
@@ -363,10 +365,10 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .founder-row{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:center;margin-bottom:4rem;padding:3rem;background:#fff;border:1px solid var(--bdr)}
 .founder-img{width:100%;max-width:420px}
 .founder-img img{width:100%;display:block;object-fit:cover}
-.founder-label{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:600}
+.founder-label{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:1rem;font-weight:600}
 .founder-name{font-family:var(--serif);font-size:2.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--txt);margin-bottom:.6rem;line-height:1.1}
 .founder-title{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted-aa);line-height:1.6;max-width:380px}
-.past-heading{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted-aa);margin-bottom:2rem;font-weight:600;padding-bottom:.7rem;border-bottom:1px solid var(--bdr)}
+.past-heading{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:2rem;font-weight:600;padding-bottom:.7rem;border-bottom:1px solid var(--bdr)}
 .exec-heading{font-family:var(--serif);font-size:1.4rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--txt);text-align:center;margin:3.5rem 0 2.5rem;padding-top:3rem;border-top:1px solid var(--bdr)}
 .leader-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:.5rem}
 .leader-card{text-align:center}
@@ -393,7 +395,7 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .news-img{height:190px;background:linear-gradient(135deg,#f5e8b8,#ddb954);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2.5rem;color:rgba(184,134,11,.35);font-style:italic}
 .news-card:first-child .news-img{height:260px}
 .news-body{padding:1.4rem}
-.news-tag{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-d);margin-bottom:.5rem;font-weight:600}
+.news-tag{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:.5rem;font-weight:600}
 .news-title{font-family:var(--serif);font-size:1.02rem;font-weight:600;color:var(--txt);line-height:1.35;margin-bottom:.7rem}
 .news-card:first-child .news-title{font-size:1.25rem}
 .news-excerpt{font-size:.74rem;color:var(--muted-aa);line-height:1.7}
@@ -415,7 +417,7 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4rem 2rem}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
 .footer-brand p{font-size:.78rem;color:rgba(245,240,230,.65);line-height:1.8;margin-top:1rem;max-width:260px}
-.footer-col-title{font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid rgba(245,197,24,.15)}
+.footer-col-title{font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-aa);font-weight:600;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid rgba(245,197,24,.15)}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:.5rem}
 /* ACCESSIBILITY: footer links had rgba(245,240,230,.45) ≈ 3.4:1 — too low. 
    Raise opacity to .75 for ≥ 4.5:1 on very dark bg (#1C1500). */
@@ -536,15 +538,15 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
 </nav>
 
 <!-- Mobile drawer -->
-<div class="nav-drawer" id="navDrawer" role="dialog" aria-label="Navigation menu" aria-modal="false">
+<div class="nav-drawer" id="navDrawer" aria-label="Navigation menu">
   <a href="#about">About</a>
   <a href="#schedule">Schedule</a>
   <a href="#prayer">Gallery</a>
   <a href="#media">Media</a>
   <a href="#board">Leadership</a>
   <a href="#news">News</a>
-  <a href="#donate" style="color:var(--gold);font-weight:600">Donate</a>
-  <a href="#live" style="color:var(--gold);font-weight:600">Live Service</a>
+  <a href="#donate" style="color:var(--gold-aa);font-weight:600">Donate</a>
+  <a href="#live" style="color:var(--gold-aa);font-weight:600">Live Service</a>
 </div>
 
 <main id="main-content">
@@ -574,8 +576,9 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
 </section>
 
 <!-- ═══ QUICK LINKS ═══ -->
-<div class="quick-links" role="list">
-  <a href="#schedule" class="ql-item reveal" role="listitem">
+<!-- ARIA: Clean nav landmark — no conflicting roles needed -->
+<nav class="quick-links" aria-label="Quick links">
+  <a href="#schedule" class="ql-item reveal">
     <div class="ql-icon" aria-hidden="true">
       <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <rect x="3" y="4" width="18" height="18" rx="2"/>
@@ -587,7 +590,7 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
       <div class="ql-title">Schedule of Activities</div>
     </div>
   </a>
-  <a href="#media" class="ql-item reveal" role="listitem">
+  <a href="#media" class="ql-item reveal">
     <div class="ql-icon" aria-hidden="true">
       <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path d="M15 10l4.553-2.277A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M4 8h11a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/>
@@ -598,7 +601,7 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
       <div class="ql-title">Tabernacles Messages</div>
     </div>
   </a>
-  <a href="#prayer" class="ql-item reveal" role="listitem">
+  <a href="#prayer" class="ql-item reveal">
     <div class="ql-icon" aria-hidden="true">
       <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path d="M12 21C12 21 4 13.5 4 8a8 8 0 0116 0c0 5.5-8 13-8 13z"/>
@@ -610,7 +613,7 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
       <div class="ql-title">Need Prayer? We'll Pray</div>
     </div>
   </a>
-</div>
+</nav>
 
 <!-- ═══ ABOUT ═══ -->
 <section class="about-section s-pad" id="about" aria-labelledby="about-h">
@@ -1123,8 +1126,14 @@ SLIDES.forEach(function(s, i){
   var img = document.createElement('img');
   img.src = IMG + s.src;
   img.alt = s.name + ' — ' + s.title;
-  img.width  = 900;
-  img.height = 1200;
+  /* BEST PRACTICES FIX: Do NOT set width/height on hero slides.
+     These images are position:absolute, sized 100% tall by CSS.
+     Hard-coded intrinsic dimensions (e.g. 900×1200) would mismatch
+     the CSS-rendered dimensions on every viewport, causing Lighthouse
+     "image displayed with incorrect aspect ratio" failures.
+     Instead we let the browser use the image's natural dimensions. */
+  img.style.aspectRatio = 'auto'; /* honour natural ratio */
+  img.setAttribute('decoding', 'async');
   /* PERFORMANCE: only slide 0 is eager / high-priority */
   if (i === 0) {
     img.loading = 'eager';
