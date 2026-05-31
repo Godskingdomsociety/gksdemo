@@ -5,287 +5,96 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>God's Kingdom Society — Official Website</title>
 <meta name="description" content="God's Kingdom Society (GKS) — A worldwide Christian fellowship rooted in the teachings of Christ and dedicated to the advancement of His Kingdom.">
-
-<!-- ═══ PERFORMANCE: Preconnect only to origins actually used ═══ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
-
-<!-- ═══ PERFORMANCE: Preload LCP image ═══ -->
 <link rel="preload" as="image"
-      href="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
-      fetchpriority="high">
-
-<!-- ═══ PERFORMANCE: Non-render-blocking font load ═══ -->
+  href="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
+  fetchpriority="high">
 <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
-      media="print" onload="this.media='all'">
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+  media="print" onload="this.media='all'">
 <noscript>
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap">
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap">
 </noscript>
-
 <style>
-/* ═══════════════════════════════════════════════════════════
-   RESET & CUSTOM PROPERTIES
-═══════════════════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --gold:#B8860B;--gold-l:#DAA520;--gold-b:#F5C518;--gold-d:#8B6914;
-  --bg:#FDF8EE;--bg2:#F7F0DC;--bg3:#EFE6C8;
-  --bg-dk:#2A1F06;--bg-dk2:#1C1500;
-  --txt:#1a1206;--txt-m:#4a3c1a;--muted:#5c4a20;--txt-l:#F5F0E8;
-  --serif:'Cormorant Garamond',Georgia,serif;
-  --sans:'Outfit',sans-serif;
-  --bdr:rgba(184,134,11,0.25);
-
-  /*
-    CONTRAST FIX (Accessibility 96→100):
-    All interactive/body text on light backgrounds now uses colours
-    that pass WCAG AA (4.5:1) AND AAA (7:1) where feasible.
-    --muted-aa: #3d3000  = 8.2:1 on #FDF8EE  ✓ AAA
-    --gold-aa:  #6b5200  = 5.6:1 on #FDF8EE  ✓ AA
-    --gold-aa-dk: #b89000 = 4.6:1 on #2A1F06 ✓ AA (dark section labels)
-  */
-  --muted-aa:#3d3000;
-  --gold-aa:#6b5200;
-  --gold-aa-dk:#b89000;
+--gold:#B8860B;--gold-l:#DAA520;--gold-b:#F5C518;--gold-d:#8B6914;
+--bg:#FDF8EE;--bg2:#F7F0DC;--bg3:#EFE6C8;
+--bg-dk:#2A1F06;--bg-dk2:#1C1500;
+--txt:#1a1206;--txt-m:#4a3c1a;--muted:#5c4a20;--txt-l:#F5F0E8;
+--serif:'Cormorant Garamond',Georgia,serif;
+--sans:'Outfit',sans-serif;
+--bdr:rgba(184,134,11,0.25);
+--muted-aa:#3d3000;--gold-aa:#6b5200;--gold-aa-dk:#b89000;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
-
-/* ═══════════════════════════════════════════════════════════
-   SKIP LINK
-═══════════════════════════════════════════════════════════ */
 .skip-link{position:absolute;top:-100px;left:1rem;z-index:9999;background:var(--gold);color:#fff;padding:.5rem 1rem;font-size:.8rem;text-decoration:none;font-weight:600;transition:top .2s}
 .skip-link:focus{top:1rem}
-
-/* ═══════════════════════════════════════════════════════════
-   NAV
-═══════════════════════════════════════════════════════════ */
-#mainNav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.6rem 2rem;
-  background:rgba(253,248,238,0.97);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--bdr);
-  box-shadow:0 2px 20px rgba(184,134,11,0.08);
-  min-height:70px;gap:1rem;
-  /* PERF: will-change omitted — triggers compositor layers unnecessarily */
-}
+#mainNav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:.6rem 2rem;background:rgba(253,248,238,0.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);box-shadow:0 2px 20px rgba(184,134,11,0.08);min-height:70px;gap:1rem}
 .nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
-/* FIX: explicit width+height on logo img prevents CLS */
 .nav-logo img{height:48px;width:48px;display:block}
 .nav-logo-text{display:flex;flex-direction:column;line-height:1.2}
 .nl-top{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--txt);letter-spacing:.03em;white-space:nowrap}
-/* CONTRAST FIX: was var(--gold-aa)=#7a5c00 on rgba bg; new value #6b5200 ✓ */
 .nl-sub{font-size:.48rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-aa);font-weight:500;white-space:nowrap}
-
-.nav-links{
-  display:flex;align-items:center;
-  gap:.8rem;list-style:none;flex-shrink:1;flex-wrap:wrap;
-}
-.nav-links a{
-  display:inline-flex;align-items:center;min-height:44px;padding:0 .25rem;
-  color:var(--txt-m);text-decoration:none;
-  font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
-  font-weight:500;transition:color .2s;white-space:nowrap;
-}
+.nav-links{display:flex;align-items:center;gap:.8rem;list-style:none;flex-shrink:1;flex-wrap:wrap}
+.nav-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 .25rem;color:var(--txt-m);text-decoration:none;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:color .2s;white-space:nowrap}
 .nav-links a:hover{color:var(--gold)}
 .nav-links a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:2px}
-
-.nav-cta{
-  background:var(--gold)!important;color:#fff!important;
-  padding:.38rem .85rem!important;border-radius:2px;min-height:44px!important;
-}
+.nav-cta{background:var(--gold)!important;color:#fff!important;padding:.38rem .85rem!important;border-radius:2px;min-height:44px!important}
 .nav-cta:hover{background:var(--gold-l)!important}
-/* CONTRAST FIX: donate link now uses --gold-aa for proper contrast */
 .nav-donate{color:var(--gold-aa)!important;font-weight:600!important}
-
-.nav-ham{
-  display:none;background:none;border:1.5px solid var(--bdr);
-  padding:.5rem .6rem;cursor:pointer;color:var(--txt-m);flex-shrink:0;
-  line-height:0;min-width:44px;min-height:44px;align-items:center;justify-content:center;
-}
+.nav-ham{display:none;background:none;border:1.5px solid var(--bdr);padding:.5rem .6rem;cursor:pointer;color:var(--txt-m);flex-shrink:0;line-height:0;min-width:44px;min-height:44px;align-items:center;justify-content:center}
 .nav-ham:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-
-/* Mobile drawer */
-.nav-drawer{
-  position:fixed;top:70px;left:0;right:0;z-index:999;
-  background:rgba(253,248,238,0.98);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-bottom:2px solid var(--gold);
-  flex-direction:column;padding:1rem 2rem 1.5rem;gap:0;
-  box-shadow:0 8px 32px rgba(184,134,11,0.12);
-  display:none;
-}
+.nav-drawer{position:fixed;top:70px;left:0;right:0;z-index:999;background:rgba(253,248,238,0.98);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:2px solid var(--gold);flex-direction:column;padding:1rem 2rem 1.5rem;gap:0;box-shadow:0 8px 32px rgba(184,134,11,0.12);display:none}
 .nav-drawer.open{display:flex}
-.nav-drawer a{
-  color:var(--txt-m);text-decoration:none;font-size:.78rem;
-  letter-spacing:.12em;text-transform:uppercase;font-weight:500;
-  padding:.75rem 0;border-bottom:1px solid var(--bdr);
-  min-height:44px;display:flex;align-items:center;
-}
+.nav-drawer a{color:var(--txt-m);text-decoration:none;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:.75rem 0;border-bottom:1px solid var(--bdr);min-height:44px;display:flex;align-items:center}
 .nav-drawer a:last-child{border-bottom:none}
 .nav-drawer a:hover,.nav-drawer a:focus-visible{color:var(--gold)}
 .nav-drawer a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-
-/* ═══════════════════════════════════════════════════════════
-   HERO
-   BEST PRACTICES FIX: hero images are position:absolute; we must NOT
-   set width/height attributes because the browser uses those intrinsic
-   dimensions to check rendered vs natural aspect ratio.
-   Instead we set aspect-ratio:auto in CSS so the browser uses the
-   image's own natural ratio — Lighthouse "incorrect aspect ratio" pass.
-
-   MOBILE PERF: hero slide img is 100% wide on mobile, not clipped to
-   62% like desktop. We keep the same background-cover approach via CSS
-   so the image fills the space without stretching.
-═══════════════════════════════════════════════════════════ */
-.hero{
-  position:relative;
-  padding-top:70px;
-  min-height:100svh;
-  display:flex;align-items:center;
-  overflow:hidden;background:#1a1206;
-  contain:layout;
-}
+.hero{position:relative;padding-top:70px;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:#1a1206;contain:layout}
 .hero-slides{position:absolute;top:0;left:0;right:0;bottom:0}
 .hero-slide{position:absolute;inset:0;overflow:hidden;opacity:0;transition:opacity 1.2s ease}
 .hero-slide.active{opacity:1}
-
-/*
-  BEST PRACTICES FIX — "Displays images with incorrect aspect ratio":
-  The root cause: CSS sets width:auto,height:100%,max-width:62%.
-  The browser then compares that rendered size against the image's
-  natural (intrinsic) pixel dimensions — and if the ratio differs even
-  slightly (it does because different portrait shots have different
-  ratios), Lighthouse flags it.
-
-  FIX: Use object-fit:cover inside a fixed-ratio container so the
-  image's display ratio always matches its container, not its natural
-  pixels. We wrap the img in a positioned container that fills the
-  right half of the hero, set aspect-ratio on that, and let
-  object-fit:cover do the cropping without distortion.
-*/
-.hero-img-wrap{
-  position:absolute;right:0;top:0;bottom:0;
-  width:62%;
-  overflow:hidden;
-}
-.hero-img-wrap::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(10,7,0,.92) 0%,rgba(10,7,0,.65) 45%,rgba(10,7,0,.1) 75%,transparent 100%);
-  z-index:1;
-}
-.hero-slide img{
-  /* object-fit:cover so display ratio = container ratio, not natural ratio */
-  position:absolute;top:0;left:0;
-  width:100%;height:100%;
-  object-fit:cover;object-position:top center;
-  display:block;
-  /* BEST PRACTICES: aspect-ratio:auto tells the browser to trust the
-     image's own intrinsic ratio for any CLS calculations. Combined with
-     object-fit:cover the rendered size always matches the container, so
-     the "displayed size ratio" == "container ratio". Lighthouse only
-     compares rendered px to natural px when there's no object-fit, so
-     this approach avoids the flag entirely. */
-  aspect-ratio:auto;
-}
-
-.hero-slide-caption{
-  position:absolute;bottom:2.5rem;right:2.5rem;z-index:3;
-  text-align:right;background:rgba(0,0,0,.55);
-  padding:.6rem 1.2rem;border-left:3px solid var(--gold);
-}
+.hero-img-wrap{position:absolute;right:0;top:0;bottom:0;width:62%;overflow:hidden}
+.hero-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,7,0,.92) 0%,rgba(10,7,0,.65) 45%,rgba(10,7,0,.1) 75%,transparent 100%);z-index:1}
+.hero-slide img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;aspect-ratio:auto}
+.hero-slide-caption{position:absolute;bottom:2.5rem;right:2.5rem;z-index:3;text-align:right;background:rgba(0,0,0,.55);padding:.6rem 1.2rem;border-left:3px solid var(--gold)}
 .cap-name{font-family:var(--serif);font-size:.92rem;color:#fff;font-weight:600;letter-spacing:.06em}
 .cap-title{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-b);margin-top:2px}
-.hero-dots{
-  position:absolute;bottom:2rem;left:50%;
-  transform:translateX(-50%);display:flex;gap:.5rem;z-index:10;
-}
-.hero-dot{
-  width:44px;height:44px;display:flex;align-items:center;justify-content:center;
-  background:transparent;border:none;cursor:pointer;padding:0;
-}
-.hero-dot::before{
-  content:'';display:block;
-  width:8px;height:8px;border-radius:50%;
-  background:rgba(255,255,255,.35);border:1px solid rgba(245,197,24,.5);
-  transition:all .3s;
-}
+.hero-dots{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:10}
+.hero-dot{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;padding:0}
+.hero-dot::before{content:'';display:block;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);border:1px solid rgba(245,197,24,.5);transition:all .3s}
 .hero-dot.active::before{background:var(--gold-b);border-color:var(--gold-b);transform:scale(1.3)}
 .hero-dot:focus-visible{outline:2px solid var(--gold-b);outline-offset:2px;border-radius:50%}
-.hero-content{
-  position:relative;z-index:2;padding:0 4rem;max-width:640px;
-  animation:fadeUp .9s ease both;
-}
+.hero-content{position:relative;z-index:2;padding:0 4rem;max-width:640px;animation:fadeUp .9s ease both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(224,90,78,.6)}50%{box-shadow:0 0 0 6px rgba(224,90,78,0)}}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:.6rem;
-  font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;
-  color:var(--gold-b);margin-bottom:1.4rem;font-weight:600;
-  background:rgba(245,197,24,.12);padding:.32rem .9rem;
-  border:1px solid rgba(245,197,24,.3);
-}
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-b);margin-bottom:1.4rem;font-weight:600;background:rgba(245,197,24,.12);padding:.32rem .9rem;border:1px solid rgba(245,197,24,.3)}
 .live-dot{width:7px;height:7px;border-radius:50%;background:#e05a4e;animation:pulse 2s infinite;flex-shrink:0}
 .hero h1{font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,5rem);font-weight:300;line-height:1.05;color:#fff;margin-bottom:1.3rem}
 .hero h1 em{font-style:italic;color:var(--gold-b)}
 .hero-desc{font-size:.9rem;color:rgba(245,240,230,.75);max-width:440px;margin-bottom:2rem;font-weight:300;line-height:1.85}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-
-/* ═══════════════════════════════════════════════════════════
-   BUTTONS
-═══════════════════════════════════════════════════════════ */
-.btn-primary{
-  background:var(--gold);color:#fff;
-  padding:.82rem 1.9rem;min-height:44px;
-  font-family:var(--sans);font-size:.68rem;font-weight:600;
-  letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
-  display:inline-flex;align-items:center;
-  border:none;cursor:pointer;transition:background .25s,transform .15s;
-}
+.btn-primary{background:var(--gold);color:#fff;padding:.82rem 1.9rem;min-height:44px;font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;border:none;cursor:pointer;transition:background .25s,transform .15s}
 .btn-primary:hover{background:var(--gold-l);transform:translateY(-1px)}
 .btn-primary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.btn-outline{
-  border:1.5px solid var(--gold);color:var(--gold-aa);
-  padding:.82rem 1.9rem;min-height:44px;
-  font-family:var(--sans);font-size:.68rem;font-weight:500;
-  letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
-  display:inline-flex;align-items:center;
-  background:transparent;cursor:pointer;transition:all .25s;
-}
+.btn-outline{border:1.5px solid var(--gold);color:var(--gold-aa);padding:.82rem 1.9rem;min-height:44px;font-family:var(--sans);font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;background:transparent;cursor:pointer;transition:all .25s}
 .btn-outline:hover{background:rgba(184,134,11,.08);transform:translateY(-1px)}
 .btn-outline:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-
-/* ═══════════════════════════════════════════════════════════
-   QUICK LINKS
-═══════════════════════════════════════════════════════════ */
 .quick-links{display:grid;grid-template-columns:repeat(3,1fr);background:var(--bg-dk);border-top:2px solid var(--gold)}
-.ql-item{
-  padding:2rem 2.2rem;display:flex;align-items:center;gap:1.2rem;
-  border-right:1px solid rgba(245,197,24,.15);text-decoration:none;
-  color:var(--txt-l);transition:background .2s;
-  min-height:44px;
-}
+.ql-item{padding:2rem 2.2rem;display:flex;align-items:center;gap:1.2rem;border-right:1px solid rgba(245,197,24,.15);text-decoration:none;color:var(--txt-l);transition:background .2s;min-height:44px}
 .ql-item:last-child{border-right:none}
 .ql-item:hover{background:rgba(245,197,24,.08)}
 .ql-item:focus-visible{outline:2px solid var(--gold-b);outline-offset:-2px}
-.ql-icon{
-  width:48px;height:48px;border:1.5px solid rgba(245,197,24,.4);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--gold-b);flex-shrink:0;transition:all .2s;
-}
+.ql-icon{width:48px;height:48px;border:1.5px solid rgba(245,197,24,.4);display:flex;align-items:center;justify-content:center;color:var(--gold-b);flex-shrink:0;transition:all .2s}
 .ql-item:hover .ql-icon{background:var(--gold);color:#fff;border-color:var(--gold)}
-/* CONTRAST FIX: on dark bg --bg-dk (#2A1F06), --gold-aa-dk (#b89000) = 4.6:1 ✓ */
 .ql-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-aa-dk);margin-bottom:.2rem}
 .ql-title{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:#fff;line-height:1.3}
-
-/* ═══════════════════════════════════════════════════════════
-   SECTIONS
-═══════════════════════════════════════════════════════════ */
 .s-pad{padding:5.5rem 4rem}
 .s-tag{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:.8rem;display:flex;align-items:center;gap:.7rem;font-weight:600}
 .s-tag::after{content:'';display:block;height:1.5px;width:34px;background:var(--gold);opacity:.6}
@@ -294,10 +103,6 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .s-title{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.9rem);font-weight:300;line-height:1.15;color:var(--txt);margin-bottom:1.3rem}
 .s-title em{font-style:italic;color:var(--gold-aa)}
 .s-title.light{color:#fff}
-
-/* ═══════════════════════════════════════════════════════════
-   ABOUT
-═══════════════════════════════════════════════════════════ */
 .about-section{background:var(--bg)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
 .about-text p{font-size:.88rem;color:var(--txt-m);line-height:1.9;margin-bottom:1rem}
@@ -306,53 +111,28 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .pillar:hover{border-color:var(--gold);box-shadow:0 4px 24px rgba(184,134,11,.1);transform:translateY(-2px)}
 .pillar-icon{width:38px;height:38px;margin-bottom:.9rem;color:var(--gold)}
 .pillar-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--txt);margin-bottom:.35rem}
-/* CONTRAST FIX: #3d3000 on bg2 (#F7F0DC) = 8.5:1 ✓ AAA */
 .pillar-text{font-size:.76rem;color:var(--muted-aa);line-height:1.7}
-
-/* ═══════════════════════════════════════════════════════════
-   SCHEDULE
-═══════════════════════════════════════════════════════════ */
 .sched-section{background:var(--bg2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
 .sched-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2.5rem}
 .sched-card{background:#fff;border:1px solid var(--bdr);padding:2rem}
-/* CONTRAST FIX: card title */
 .sched-card-title{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:1.2rem;font-weight:600;padding-bottom:.8rem;border-bottom:1px solid var(--bdr)}
 .sched-item{display:flex;align-items:flex-start;gap:1.2rem;padding:.9rem 0;border-bottom:1px solid var(--bdr)}
 .sched-item:last-child{border-bottom:none}
 .s-day{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--gold-aa);min-width:34px;text-align:center;padding-top:2px}
 .s-name{font-size:.8rem;font-weight:500;color:var(--txt)}
-/* CONTRAST FIX: time text on white card (#fff) → #3d3000 = 9.4:1 ✓ */
 .s-time{font-size:.7rem;color:var(--muted-aa);margin-top:2px}
-
-/* ═══════════════════════════════════════════════════════════
-   PRAYER GALLERY
-═══════════════════════════════════════════════════════════ */
 .prayer-section{background:var(--bg-dk);overflow:hidden}
 .prayer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:3rem}
-.prayer-item{
-  position:relative;overflow:hidden;aspect-ratio:3/4;
-  background:var(--bg-dk2);display:flex;align-items:center;justify-content:center;
-  contain:layout paint;
-}
+.prayer-item{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--bg-dk2);display:flex;align-items:center;justify-content:center;contain:layout paint}
 .prayer-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,filter .3s}
 .prayer-item:hover img{transform:scale(1.05);filter:brightness(.7)}
-.prayer-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(10,7,0,.8) 0%,transparent 50%);
-  display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem;
-  opacity:0;transition:opacity .3s;
-  pointer-events:none;
-}
+.prayer-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,7,0,.8) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem;opacity:0;transition:opacity .3s;pointer-events:none}
 .prayer-item:hover .prayer-overlay{opacity:1}
 .prayer-verse{font-family:var(--serif);font-size:.8rem;color:#fff;font-style:italic;line-height:1.5}
 .prayer-ref{font-size:.56rem;letter-spacing:.18em;color:var(--gold-b);margin-top:.4rem;text-transform:uppercase}
 .pi-inner{text-align:center;padding:1rem}
 .pi-icon{font-family:var(--serif);font-size:3rem;color:rgba(184,134,11,.2);font-style:italic}
 .pi-verse{font-family:var(--serif);font-size:.8rem;color:rgba(245,240,230,.4);font-style:italic;margin-top:.5rem;line-height:1.5}
-
-/* ═══════════════════════════════════════════════════════════
-   MEDIA
-═══════════════════════════════════════════════════════════ */
 .media-section{background:var(--bg)}
 .media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
 .media-card{background:#fff;border:1px solid var(--bdr);cursor:pointer;transition:all .2s;box-shadow:0 2px 12px rgba(184,134,11,.06)}
@@ -364,101 +144,80 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .play-btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
 .media-card:hover .play-btn{transform:scale(1.1)}
 .media-body{padding:1.2rem}
-/* CONTRAST FIX: media tag */
 .media-tag{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:.4rem;font-weight:600}
 .media-title{font-family:var(--serif);font-size:.98rem;font-weight:600;color:var(--txt);line-height:1.35}
-
-/* ═══════════════════════════════════════════════════════════
-   LIVE STREAM
-═══════════════════════════════════════════════════════════ */
+/* ── LIVE SECTION ── */
 .live-section{background:var(--bg-dk2);border-top:2px solid var(--gold)}
-.live-inner{display:grid;grid-template-columns:1.4fr 1fr;gap:4rem;align-items:center}
-.live-embed{position:relative;width:100%;aspect-ratio:16/9;background:#000;border:2px solid rgba(245,197,24,.2);overflow:hidden;cursor:pointer}
-.yt-facade{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a0f00,#0a0700);position:relative}
+.live-embed{position:relative;width:100%;aspect-ratio:16/9;background:#000;border:2px solid rgba(245,197,24,.2);overflow:hidden;cursor:pointer;max-width:760px;margin:0 auto}
+.live-embed:hover{border-color:rgba(245,197,24,.5)}
+.yt-facade{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;background:linear-gradient(135deg,#1a0f00,#0a0700);position:relative;padding:2rem}
 .yt-play-btn{width:72px;height:72px;border-radius:50%;background:rgba(255,0,0,.85);display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;z-index:2}
-.yt-facade:hover .yt-play-btn{transform:scale(1.1);background:rgba(255,0,0,1)}
+.live-embed:hover .yt-play-btn{transform:scale(1.1);background:rgba(255,0,0,1)}
 .yt-play-btn svg{margin-left:5px}
-.yt-label{position:absolute;bottom:1rem;left:0;right:0;text-align:center;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)}
-.live-badge-row{display:flex;align-items:center;gap:.5rem;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(224,90,78,.85);padding:.28rem .7rem;margin-bottom:1.5rem;width:fit-content}
-.live-dot-sm{width:6px;height:6px;border-radius:50%;background:#fff;animation:pulse 2s infinite;flex-shrink:0}
-.live-text h3{font-family:var(--serif);font-size:clamp(1.5rem,2.4vw,2.3rem);font-weight:300;color:#fff;margin-bottom:.8rem}
-.live-text h3 em{color:var(--gold-b);font-style:italic}
-.live-text p{font-size:.82rem;color:rgba(245,240,230,.85);line-height:1.85;margin-bottom:1.5rem}
-.live-sched{display:flex;flex-direction:column;gap:.55rem;margin-bottom:2rem}
-.ls-row{display:flex;gap:.8rem;align-items:flex-start;font-size:.76rem}
-.ls-day{font-family:var(--serif);font-weight:600;color:var(--gold-b);min-width:38px;flex-shrink:0}
-.ls-info{color:rgba(245,240,230,.85)}
-
-/* ═══════════════════════════════════════════════════════════
-   LEADERSHIP
-═══════════════════════════════════════════════════════════ */
+.yt-label{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);text-align:center}
+.live-badge-row{display:flex;align-items:center;gap:.5rem;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(224,90,78,.85);padding:.28rem .7rem;width:fit-content}
+.live-dot-sm{width:6px;height:6px;border-radius:50%;background:#fff;animation:livePulse 1.8s ease-in-out infinite;flex-shrink:0}
+/* stream service cards */
+.gks-stream-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.5rem;margin-bottom:3rem}
+.gks-stream-card{background:rgba(255,255,255,.05);border:1px solid rgba(245,197,24,.2);border-radius:8px;padding:1.8rem;display:flex;flex-direction:column;gap:.8rem;transition:border-color .2s}
+.gks-stream-card:hover{border-color:rgba(245,197,24,.6)}
+.gks-stream-card.featured{background:rgba(245,197,24,.08);border-color:rgba(245,197,24,.4);position:relative}
+.gks-stream-card.featured:hover{border-color:rgba(245,197,24,.9)}
+.gks-featured-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--bg-dk2);font-size:.58rem;font-weight:800;letter-spacing:.12em;padding:3px 12px;text-transform:uppercase;white-space:nowrap}
+.gks-card-day{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,230,.4);font-weight:600}
+.gks-card-title{font-family:var(--serif);font-size:1.2rem;color:#fff;font-weight:600;margin:0}
+.gks-card-sub{font-size:.8rem;color:rgba(245,240,230,.6);margin:0}
+.gks-time-row{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.06);padding:.6rem 1rem;border-radius:6px}
+.gks-time-label{font-size:.72rem;color:rgba(245,240,230,.5);font-weight:500}
+.gks-time-val{font-size:.88rem;color:var(--gold-b);font-weight:700}
+.gks-watch-btn{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(245,197,24,.5);color:var(--gold-b);padding:.65rem 1.2rem;border-radius:4px;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-decoration:none;text-transform:uppercase;transition:background .2s;margin-top:.4rem}
+.gks-watch-btn:hover{background:rgba(245,197,24,.12)}
+.gks-watch-btn:focus-visible{outline:2px solid var(--gold-b);outline-offset:2px}
+.gks-social-row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem}
+.btn-yt{display:inline-flex;align-items:center;gap:.8rem;background:#ff0000;color:#fff;padding:.85rem 1.8rem;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:opacity .2s;min-height:44px}
+.btn-yt:hover{opacity:.88}
+.btn-fb{display:inline-flex;align-items:center;gap:.8rem;background:#1877f2;color:#fff;padding:.85rem 1.8rem;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:opacity .2s;min-height:44px}
+.btn-fb:hover{opacity:.88}
+/* ── SOCIAL CONNECT SECTION ── */
+.social-connect{background:#111a26;padding:5rem 4rem;text-align:center;border-top:1px solid rgba(245,197,24,.15)}
+.social-connect h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;color:#fff;margin-bottom:.8rem}
+.social-connect h2 em{color:var(--gold-b);font-style:italic}
+.social-connect p{font-size:.84rem;color:rgba(245,240,230,.6);max-width:520px;margin:0 auto 2.5rem;line-height:1.85}
+.social-cards{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;max-width:620px;margin:0 auto}
+.social-card{display:flex;flex-direction:column;align-items:center;gap:.9rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2.2rem 2.8rem;text-decoration:none;flex:1;min-width:200px;transition:transform .2s,border-color .2s}
+.social-card:hover{transform:translateY(-4px)}
+.social-card.yt-card{border-top:3px solid #ff0000}
+.social-card.yt-card:hover{border-color:#ff0000}
+.social-card.fb-card{border-top:3px solid #1877f2}
+.social-card.fb-card:hover{border-color:#1877f2}
+.social-icon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.yt-icon{background:#ff0000}
+.fb-icon{background:#1877f2}
+.social-icon svg{width:26px;height:26px}
+.social-name{font-size:.95rem;font-weight:700;color:#fff}
+.social-handle{font-size:.8rem;color:var(--gold-b);font-weight:600}
+.social-cta{font-size:.72rem;color:rgba(245,240,230,.4);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:4px 14px;margin-top:4px}
+/* ── BOARD ── */
 .board-section{background:var(--bg3);border-top:1px solid var(--bdr)}
 .board-intro{max-width:580px;margin-bottom:3.5rem}
 .board-intro p{font-size:.86rem;color:var(--txt-m);line-height:1.9}
 .founder-row{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:center;margin-bottom:4rem;padding:3rem;background:#fff;border:1px solid var(--bdr)}
-
-/*
-  BEST PRACTICES FIX — "Displays images with incorrect aspect ratio":
-  The leadership card images are portrait shots but each leader has a
-  different natural aspect ratio. Previously we set width:100% and no
-  height, plus object-fit:cover — which is correct — but the outer
-  .leader-card-img div had aspect-ratio:4/5 set in CSS only with no
-  width/height attributes on the <img>. Chrome/Lighthouse computes the
-  "expected" ratio from the container CSS aspect-ratio (4:5 = 0.8) and
-  compares it to the intrinsic ratio of each image. If any photo is not
-  exactly 0.8, it gets flagged.
-
-  FIX: Remove the CSS aspect-ratio from .leader-card-img and instead
-  use a padding-top percentage trick (125% = 4:5 ratio) to set a fixed
-  container ratio without any ratio stored in CSS that Lighthouse can
-  compare against. The img itself stays with object-fit:cover.
-  Lighthouse only flags the ratio if it detects a mismatch between
-  rendered and natural dimensions; with object-fit:cover the rendered
-  content is cropped, not stretched, so Lighthouse should not flag it.
-
-  Additionally, we set width="300" height="375" on every leader <img>
-  (300:375 = 4:5 = 0.8) so the aspect-ratio Lighthouse derives from
-  attributes matches the container ratio exactly. This satisfies both
-  the "correct aspect ratio" and "explicit dimensions" audits.
-*/
 .founder-img{width:100%;max-width:420px}
-/* FOUNDER: 3:4 ratio = 133.33% padding-top */
 .founder-img-inner{position:relative;width:100%;padding-top:133.33%;overflow:hidden}
-.founder-img-inner img{
-  position:absolute;top:0;left:0;
-  width:100%;height:100%;
-  object-fit:cover;object-position:top center;
-  display:block;
-}
+.founder-img-inner img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 .founder-label{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:1rem;font-weight:600}
 .founder-name{font-family:var(--serif);font-size:2.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--txt);margin-bottom:.6rem;line-height:1.1}
-/* CONTRAST FIX: #3d3000 on white = 9.4:1 ✓ */
 .founder-title{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted-aa);line-height:1.6;max-width:380px}
 .past-heading{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:2rem;font-weight:600;padding-bottom:.7rem;border-bottom:1px solid var(--bdr)}
 .exec-heading{font-family:var(--serif);font-size:1.4rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--txt);text-align:center;margin:3.5rem 0 2.5rem;padding-top:3rem;border-top:1px solid var(--bdr)}
 .leader-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:.5rem}
 .leader-card{text-align:center}
-.leader-card-img{
-  width:100%;overflow:hidden;margin-bottom:1rem;
-  border:1px solid var(--bdr);background:var(--bg2);
-  /* Use padding-top trick for 4:5 ratio so no CSS aspect-ratio property
-     is stored (which Lighthouse would compare against image natural ratio) */
-  position:relative;padding-top:125%; /* 125% = 5/4 = 4:5 portrait */
-}
-.leader-card-img img{
-  position:absolute;top:0;left:0;
-  width:100%;height:100%;
-  object-fit:cover;object-position:center top;
-  display:block;transition:transform .4s;
-}
+.leader-card-img{width:100%;overflow:hidden;margin-bottom:1rem;border:1px solid var(--bdr);background:var(--bg2);position:relative;padding-top:125%}
+.leader-card-img img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s}
 .leader-card:hover .leader-card-img img{transform:scale(1.03)}
 .leader-card-name{font-family:var(--serif);font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--txt);margin-bottom:.3rem;line-height:1.3}
-/* CONTRAST FIX: on bg3 (#EFE6C8), #3d3000 = 7.9:1 ✓ AAA */
 .leader-card-title{font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted-aa)}
-
-/* ═══════════════════════════════════════════════════════════
-   NEWS
-═══════════════════════════════════════════════════════════ */
+/* ── NEWS ── */
 .news-section{background:var(--bg);border-top:1px solid var(--bdr)}
 .news-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem}
 .news-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.5rem}
@@ -468,127 +227,62 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .news-img{height:190px;background:linear-gradient(135deg,#f5e8b8,#ddb954);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2.5rem;color:rgba(184,134,11,.35);font-style:italic}
 .news-card:first-child .news-img{height:260px}
 .news-body{padding:1.4rem}
-/* CONTRAST FIX: news tags */
 .news-tag{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:.5rem;font-weight:600}
 .news-title{font-family:var(--serif);font-size:1.02rem;font-weight:600;color:var(--txt);line-height:1.35;margin-bottom:.7rem}
 .news-card:first-child .news-title{font-size:1.25rem}
-/* CONTRAST FIX: excerpt on white = #3d3000 = 9.4:1 ✓ */
 .news-excerpt{font-size:.74rem;color:var(--muted-aa);line-height:1.7}
 .news-date{font-size:.61rem;color:var(--muted-aa);margin-top:.9rem;padding-top:.7rem;border-top:1px solid var(--bdr)}
-
-/* ═══════════════════════════════════════════════════════════
-   DONATE
-═══════════════════════════════════════════════════════════ */
+/* ── DONATE ── */
 .donate-section{background:var(--bg-dk);padding:5rem 4rem;text-align:center;border-top:2px solid var(--gold)}
 .donate-section h2{font-family:var(--serif);font-size:clamp(1.9rem,3.3vw,3rem);font-weight:300;color:#fff;margin-bottom:.8rem}
 .donate-section h2 em{color:var(--gold-b);font-style:italic}
-/* CONTRAST FIX: body copy on dark bg — solid colour, not opacity */
 .donate-section p{font-size:.86rem;color:#e8dfc8;max-width:480px;margin:0 auto 2rem;line-height:1.85}
 .donate-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-
-/* ═══════════════════════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════════════════════ */
+/* ── FOOTER ── */
 footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4rem 2rem}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
-/* CONTRAST FIX: footer body text raised from .65 to .85 opacity for ≥4.5:1 */
 .footer-brand p{font-size:.78rem;color:rgba(245,240,230,.85);line-height:1.8;margin-top:1rem;max-width:260px}
-/* CONTRAST FIX: col title on dark bg, now uses --gold-aa-dk */
 .footer-col-title{font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-aa-dk);font-weight:600;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid rgba(245,197,24,.15)}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:.5rem}
-/* CONTRAST FIX: raised to .85 opacity → ~5.2:1 on #1C1500 ✓ */
 .footer-links a{font-size:.76rem;color:rgba(245,240,230,.85);text-decoration:none;transition:color .2s;min-height:44px;display:flex;align-items:center}
 .footer-links a:hover{color:var(--gold-b)}
 .footer-links a:focus-visible{outline:2px solid var(--gold-b);outline-offset:2px}
 .footer-contact{list-style:none;display:flex;flex-direction:column;gap:.5rem}
-/* CONTRAST FIX: contact text raised opacity */
 .footer-contact li{font-size:.76rem;color:rgba(245,240,230,.85);display:flex;gap:.6rem;align-items:flex-start}
 .footer-contact li svg{flex-shrink:0;margin-top:2px;color:var(--gold)}
 .footer-contact a{color:inherit;text-decoration:none}
 .footer-contact a:focus-visible{outline:2px solid var(--gold-b)}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:1px solid rgba(245,197,24,.1)}
-/* CONTRAST FIX: copyright raised from .25 to .65 → ≈3.8:1; use solid for safety */
 .footer-copy{font-size:.66rem;color:rgba(245,240,232,.7);letter-spacing:.08em}
 .footer-socials{display:flex;gap:.75rem}
-.footer-social{
-  width:44px;height:44px;border:1px solid rgba(245,197,24,.2);
-  display:flex;align-items:center;justify-content:center;
-  /* CONTRAST FIX: icon colour raised to .75 */
-  color:rgba(245,240,230,.75);transition:all .2s;text-decoration:none;
-}
+.footer-social{width:44px;height:44px;border:1px solid rgba(245,197,24,.2);display:flex;align-items:center;justify-content:center;color:rgba(245,240,230,.75);transition:all .2s;text-decoration:none}
 .footer-social:hover{border-color:var(--gold);color:var(--gold-b)}
 .footer-social:focus-visible{outline:2px solid var(--gold-b);outline-offset:2px}
 .footer-logo-text{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:rgba(245,240,230,.9)}
 .footer-logo-sub{font-size:.48rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-aa-dk);opacity:.85;margin-top:2px}
-
-/* ═══════════════════════════════════════════════════════════
-   REVEAL ANIMATION
-═══════════════════════════════════════════════════════════ */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-
-/* ═══════════════════════════════════════════════════════════
-   REDUCED MOTION
-═══════════════════════════════════════════════════════════ */
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-  .hero-slide{transition:none}
-}
-
-/* ═══════════════════════════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════════════════════════ */
-@media(min-width:769px){
-  .nav-links{display:flex!important}
-  .nav-ham{display:none!important}
-}
-@media(max-width:1080px){
-  .nav-links{gap:.55rem}
-  .nav-links a{font-size:.56rem;letter-spacing:.07em}
-}
-@media(max-width:900px){
-  .about-grid,.sched-grid,.live-inner,.founder-row,.footer-grid{grid-template-columns:1fr;gap:2rem}
-  .quick-links{grid-template-columns:1fr}
-  .ql-item{border-right:none;border-bottom:1px solid rgba(245,197,24,.15)}
-  .prayer-grid{grid-template-columns:repeat(2,1fr)}
-  .media-grid,.news-grid,.leader-grid{grid-template-columns:1fr}
-  .s-pad{padding:3.5rem 1.5rem}
-  .founder-img{max-width:100%}
-  .pillars-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:768px){
-  .nav-links{display:none!important}
-  .nav-ham{display:flex!important;align-items:center;justify-content:center}
-  .hero-content{padding:0 1.5rem}
-  /* MOBILE FIX: hero img wrap fills full width on mobile */
-  .hero-img-wrap{width:100%;opacity:.35}
-  .pillars-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){
-  .prayer-grid{grid-template-columns:1fr 1fr}
-  .footer-grid{grid-template-columns:1fr}
-  .hero-content{padding:0 1.2rem}
-  .s-pad{padding:3rem 1.2rem}
-}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.hero-slide{transition:none}}
+@media(min-width:769px){.nav-links{display:flex!important}.nav-ham{display:none!important}}
+@media(max-width:1080px){.nav-links{gap:.55rem}.nav-links a{font-size:.56rem;letter-spacing:.07em}}
+@media(max-width:900px){.about-grid,.sched-grid,.founder-row,.footer-grid{grid-template-columns:1fr;gap:2rem}.quick-links{grid-template-columns:1fr}.ql-item{border-right:none;border-bottom:1px solid rgba(245,197,24,.15)}.prayer-grid{grid-template-columns:repeat(2,1fr)}.media-grid,.news-grid,.leader-grid{grid-template-columns:1fr}.s-pad{padding:3.5rem 1.5rem}.founder-img{max-width:100%}.pillars-grid{grid-template-columns:1fr 1fr}.gks-stream-grid{grid-template-columns:1fr}.social-cards{flex-direction:column;align-items:stretch}.social-connect{padding:4rem 1.5rem}}
+@media(max-width:768px){.nav-links{display:none!important}.nav-ham{display:flex!important;align-items:center;justify-content:center}.hero-content{padding:0 1.5rem}.hero-img-wrap{width:100%;opacity:.35}.pillars-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.s-pad{padding:3.5rem 1.5rem}}
+@media(max-width:480px){.prayer-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}.hero-content{padding:0 1.2rem}.s-pad{padding:3rem 1.2rem}}
 </style>
 </head>
 <body>
-
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- ═══ NAV ═══ -->
 <nav id="mainNav" aria-label="Primary navigation">
   <a href="#home" class="nav-logo" aria-label="God's Kingdom Society — Home">
     <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/logo.png"
-         alt="GKS Logo" width="48" height="48"
-         onerror="this.style.display='none'">
+      alt="GKS Logo" width="48" height="48" onerror="this.style.display='none'">
     <div class="nav-logo-text">
       <span class="nl-top">God's Kingdom Society</span>
       <span class="nl-sub">Worldwide Christian Fellowship</span>
     </div>
   </a>
-
   <ul class="nav-links" role="list">
     <li><a href="#about">About</a></li>
     <li><a href="#schedule">Schedule</a></li>
@@ -599,28 +293,15 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
     <li><a href="#donate" class="nav-donate">Donate</a></li>
     <li><a href="#live" class="nav-cta">Live Service</a></li>
   </ul>
-
-  <button class="nav-ham" id="navHam"
-          aria-label="Open navigation menu"
-          aria-expanded="false"
-          aria-controls="navDrawer">
-    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
-         viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <line x1="3" y1="6" x2="21" y2="6"/>
-      <line x1="3" y1="12" x2="21" y2="12"/>
-      <line x1="3" y1="18" x2="21" y2="18"/>
+  <button class="nav-ham" id="navHam" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navDrawer">
+    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
     </svg>
   </button>
 </nav>
-
-<!-- Mobile drawer -->
 <div class="nav-drawer" id="navDrawer" aria-label="Navigation menu">
-  <a href="#about">About</a>
-  <a href="#schedule">Schedule</a>
-  <a href="#prayer">Gallery</a>
-  <a href="#media">Media</a>
-  <a href="#board">Leadership</a>
-  <a href="#news">News</a>
+  <a href="#about">About</a><a href="#schedule">Schedule</a><a href="#prayer">Gallery</a>
+  <a href="#media">Media</a><a href="#board">Leadership</a><a href="#news">News</a>
   <a href="#donate" style="color:var(--gold-aa);font-weight:600">Donate</a>
   <a href="#live" style="color:var(--gold-aa);font-weight:600">Live Service</a>
 </div>
@@ -631,17 +312,13 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
 <section class="hero" id="home" aria-label="Leadership gallery slideshow">
   <div class="hero-slides" id="heroSlides"></div>
   <div class="hero-dots" id="heroDots" role="group" aria-label="Slide navigation"></div>
-
   <div class="hero-content">
-    <div class="hero-badge" aria-hidden="true">
-      <span class="live-dot"></span> Live Divine Service
-    </div>
+    <div class="hero-badge" aria-hidden="true"><span class="live-dot"></span> Live Divine Service</div>
     <h1>Rooted in <em>Christ,</em><br>Kingdom in Purpose</h1>
     <p class="hero-desc">Join us every Sunday and Wednesday and stream live from your mobile phones and all electronic devices. Experience the transforming power of God's Word.</p>
     <div class="hero-actions">
       <a href="#live" class="btn-primary">Watch Live Now</a>
-      <a href="#schedule" class="btn-outline"
-         style="border-color:rgba(245,197,24,.6);color:var(--gold-b)">View Schedule</a>
+      <a href="#schedule" class="btn-outline" style="border-color:rgba(245,197,24,.6);color:var(--gold-b)">View Schedule</a>
     </div>
   </div>
 </section>
@@ -650,38 +327,21 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
 <nav class="quick-links" aria-label="Quick links">
   <a href="#schedule" class="ql-item reveal">
     <div class="ql-icon" aria-hidden="true">
-      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <rect x="3" y="4" width="18" height="18" rx="2"/>
-        <path d="M16 2v4M8 2v4M3 10h18"/>
-      </svg>
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
     </div>
-    <div>
-      <div class="ql-label">2026 Programme</div>
-      <div class="ql-title">Schedule of Activities</div>
-    </div>
+    <div><div class="ql-label">2026 Programme</div><div class="ql-title">Schedule of Activities</div></div>
   </a>
   <a href="#media" class="ql-item reveal">
     <div class="ql-icon" aria-hidden="true">
-      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M15 10l4.553-2.277A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M4 8h11a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/>
-      </svg>
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 10l4.553-2.277A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M4 8h11a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/></svg>
     </div>
-    <div>
-      <div class="ql-label">Archive 2011–2025</div>
-      <div class="ql-title">Tabernacles Messages</div>
-    </div>
+    <div><div class="ql-label">Archive 2011–2025</div><div class="ql-title">Tabernacles Messages</div></div>
   </a>
   <a href="#prayer" class="ql-item reveal">
     <div class="ql-icon" aria-hidden="true">
-      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M12 21C12 21 4 13.5 4 8a8 8 0 0116 0c0 5.5-8 13-8 13z"/>
-        <circle cx="12" cy="8" r="2"/>
-      </svg>
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21C12 21 4 13.5 4 8a8 8 0 0116 0c0 5.5-8 13-8 13z"/><circle cx="12" cy="8" r="2"/></svg>
     </div>
-    <div>
-      <div class="ql-label">Submit a Request</div>
-      <div class="ql-title">Need Prayer? We'll Pray</div>
-    </div>
+    <div><div class="ql-label">Submit a Request</div><div class="ql-title">Need Prayer? We'll Pray</div></div>
   </a>
 </nav>
 
@@ -728,18 +388,20 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
     <div class="sched-card reveal">
       <div class="sched-card-title">Days of Worship</div>
       <div class="sched-item">
-        <div class="s-day" aria-hidden="true">Sun</div>
-        <div>
-          <div class="s-name">Sunday Divine Service</div>
-          <div class="s-time">9:00 AM – 11:00 AM</div>
-        </div>
+        <div class="s-day" aria-hidden="true">Daily</div>
+        <div><div class="s-name">Watch and Pray — Morning Prayer</div><div class="s-time">7:00 AM (streamed live)</div></div>
+      </div>
+      <div class="sched-item">
+        <div class="s-day" aria-hidden="true">Daily</div>
+        <div><div class="s-name">Watch and Pray — Evening Prayer</div><div class="s-time">7:00 PM (streamed live)</div></div>
       </div>
       <div class="sched-item">
         <div class="s-day" aria-hidden="true">Wed</div>
-        <div>
-          <div class="s-name">Sisters (Women) · 4:00 PM – 5:00 PM</div>
-          <div class="s-time">Brothers (Men) · 5:00 PM – 6:00 PM</div>
-        </div>
+        <div><div class="s-name">Mid-Week Bible Study</div><div class="s-time">5:00 PM – 6:00 PM (streamed live)</div></div>
+      </div>
+      <div class="sched-item">
+        <div class="s-day" aria-hidden="true">Sun</div>
+        <div><div class="s-name">Sunday Divine Service</div><div class="s-time">9:00 AM – 11:00 AM (streamed live)</div></div>
       </div>
     </div>
     <div class="sched-card reveal">
@@ -758,37 +420,12 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
   <div class="s-tag" style="color:var(--gold-b)" aria-hidden="true">Prayer &amp; Worship</div>
   <h2 class="s-title light" id="prayer-h">A Gallery of <em>Faith</em></h2>
   <div class="prayer-grid">
-    <div class="prayer-item reveal">
-      <div class="pi-inner">
-        <div class="pi-icon" aria-hidden="true">✦</div>
-        <blockquote class="pi-verse">"The Lord is my shepherd; I shall not want."</blockquote>
-        <cite class="prayer-ref">Psalm 23:1</cite>
-      </div>
-    </div>
-    <div class="prayer-item reveal">
-      <div class="pi-inner">
-        <div class="pi-icon" aria-hidden="true">✦</div>
-        <blockquote class="pi-verse">"Trust in the Lord with all your heart."</blockquote>
-        <cite class="prayer-ref">Proverbs 3:5</cite>
-      </div>
-    </div>
-    <div class="prayer-item reveal">
-      <div class="pi-inner">
-        <div class="pi-icon" aria-hidden="true">✦</div>
-        <blockquote class="pi-verse">"I can do all things through Christ who strengthens me."</blockquote>
-        <cite class="prayer-ref">Philippians 4:13</cite>
-      </div>
-    </div>
-    <div class="prayer-item reveal">
-      <div class="pi-inner">
-        <div class="pi-icon" aria-hidden="true">✦</div>
-        <blockquote class="pi-verse">"For God so loved the world that He gave His only Son."</blockquote>
-        <cite class="prayer-ref">John 3:16</cite>
-      </div>
-    </div>
+    <div class="prayer-item reveal"><div class="pi-inner"><div class="pi-icon" aria-hidden="true">✦</div><blockquote class="pi-verse">"The Lord is my shepherd; I shall not want."</blockquote><cite class="prayer-ref">Psalm 23:1</cite></div></div>
+    <div class="prayer-item reveal"><div class="pi-inner"><div class="pi-icon" aria-hidden="true">✦</div><blockquote class="pi-verse">"Trust in the Lord with all your heart."</blockquote><cite class="prayer-ref">Proverbs 3:5</cite></div></div>
+    <div class="prayer-item reveal"><div class="pi-inner"><div class="pi-icon" aria-hidden="true">✦</div><blockquote class="pi-verse">"I can do all things through Christ who strengthens me."</blockquote><cite class="prayer-ref">Philippians 4:13</cite></div></div>
+    <div class="prayer-item reveal"><div class="pi-inner"><div class="pi-icon" aria-hidden="true">✦</div><blockquote class="pi-verse">"For God so loved the world that He gave His only Son."</blockquote><cite class="prayer-ref">John 3:16</cite></div></div>
   </div>
-  <p style="text-align:center;margin-top:1.5rem;font-size:.74rem;color:rgba(245,240,230,.45);font-style:italic"
-     aria-hidden="true">Gallery photos will appear here once uploaded to the repository.</p>
+  <p style="text-align:center;margin-top:1.5rem;font-size:.74rem;color:rgba(245,240,230,.45);font-style:italic" aria-hidden="true">Gallery photos will appear here once uploaded to the repository.</p>
 </section>
 
 <!-- ═══ MEDIA ═══ -->
@@ -797,89 +434,128 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
   <h2 class="s-title" id="media-h">Some of <em>Our Sermons</em></h2>
   <div class="media-grid">
     <article class="media-card reveal">
-      <div class="media-thumb">
-        <div class="media-play">
-          <button class="play-btn" aria-label="Play sermon: Walking in the Light of God's Word">
-            <svg width="18" height="18" fill="#fff" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="media-body">
-        <div class="media-tag">Sunday Service</div>
-        <h3 class="media-title">Walking in the Light of God's Word</h3>
-      </div>
+      <div class="media-thumb"><div class="media-play"><button class="play-btn" aria-label="Play sermon: Walking in the Light of God's Word"><svg width="18" height="18" fill="#fff" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg></button></div></div>
+      <div class="media-body"><div class="media-tag">Sunday Service</div><h3 class="media-title">Walking in the Light of God's Word</h3></div>
     </article>
     <article class="media-card reveal">
-      <div class="media-thumb">
-        <div class="media-play">
-          <button class="play-btn" aria-label="Play sermon: The Kingdom That Shall Never Be Destroyed">
-            <svg width="18" height="18" fill="#fff" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="media-body">
-        <div class="media-tag">Tabernacles</div>
-        <h3 class="media-title">The Kingdom That Shall Never Be Destroyed</h3>
-      </div>
+      <div class="media-thumb"><div class="media-play"><button class="play-btn" aria-label="Play sermon: The Kingdom That Shall Never Be Destroyed"><svg width="18" height="18" fill="#fff" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg></button></div></div>
+      <div class="media-body"><div class="media-tag">Tabernacles</div><h3 class="media-title">The Kingdom That Shall Never Be Destroyed</h3></div>
     </article>
     <article class="media-card reveal">
-      <div class="media-thumb">
-        <div class="media-play">
-          <button class="play-btn" aria-label="Play sermon: Faith, Patience and the Promise">
-            <svg width="18" height="18" fill="#fff" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="media-body">
-        <div class="media-tag">Midweek Teaching</div>
-        <h3 class="media-title">Faith, Patience and the Promise</h3>
-      </div>
+      <div class="media-thumb"><div class="media-play"><button class="play-btn" aria-label="Play sermon: Faith, Patience and the Promise"><svg width="18" height="18" fill="#fff" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg></button></div></div>
+      <div class="media-body"><div class="media-tag">Midweek Teaching</div><h3 class="media-title">Faith, Patience and the Promise</h3></div>
     </article>
   </div>
-  <div style="text-align:center;margin-top:2.5rem">
-    <a href="#" class="btn-outline">View Full Archive</a>
-  </div>
+  <div style="text-align:center;margin-top:2.5rem"><a href="#" class="btn-outline">View Full Archive</a></div>
 </section>
 
 <!-- ═══ LIVE STREAM ═══ -->
 <section class="live-section s-pad" id="live" aria-labelledby="live-h">
-  <div class="live-inner">
-    <a class="live-embed" id="ytFacade"
-            aria-label="Open GKS Watch & Pray YouTube Channel"
-            href="https://www.youtube.com/@gkswatchpray"
-            target="_blank" rel="noopener noreferrer">
-      <div class="yt-facade">
-        <div class="yt-play-btn" aria-hidden="true">
-          <svg width="28" height="28" fill="#fff" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        </div>
-        <span class="yt-label">🔴 Watch Live on YouTube</span>
+
+  <!-- Header -->
+  <div style="text-align:center;margin-bottom:3rem">
+    <div class="live-badge-row" style="justify-content:center;width:auto;margin:0 auto 1.2rem">
+      <span class="live-dot-sm" aria-hidden="true"></span> Live Broadcasts
+    </div>
+    <h2 id="live-h" style="font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;color:#fff;margin-bottom:.8rem">
+      Watch GKS <em style="color:var(--gold-b);font-style:italic">Live on YouTube</em>
+    </h2>
+    <p style="font-size:.85rem;color:rgba(245,240,230,.7);max-width:580px;margin:0 auto;line-height:1.85">
+      Join thousands of brethren worldwide as we gather in spirit to hear the undiluted Word of God.
+      Stream live every Sunday, Wednesday, and daily from our official YouTube channel
+      <strong style="color:var(--gold-b)">@gkswatchpray</strong>.
+    </p>
+  </div>
+
+  <!-- 3 Service Cards -->
+  <div class="gks-stream-grid">
+
+    <!-- Daily Watch & Pray -->
+    <div class="gks-stream-card">
+      <div class="live-badge-row"><span class="live-dot-sm" aria-hidden="true"></span>Live Daily</div>
+      <div class="gks-card-day">Monday – Saturday</div>
+      <h3 class="gks-card-title">Daily Watch &amp; Pray</h3>
+      <p class="gks-card-sub">Corporate Prayer Meeting</p>
+      <div style="display:flex;flex-direction:column;gap:.5rem;margin:.4rem 0">
+        <div class="gks-time-row"><span class="gks-time-label">Morning</span><span class="gks-time-val">7:00 AM</span></div>
+        <div class="gks-time-row"><span class="gks-time-label">Evening</span><span class="gks-time-val">7:00 PM</span></div>
       </div>
-    </a>
-    <div class="live-text">
-      <div class="live-badge-row" aria-label="Broadcasting live">
-        <span class="live-dot-sm" aria-hidden="true"></span> Broadcasting Live
-      </div>
-      <h3 id="live-h">Experience the <em>Living Word</em> in Real Time</h3>
-      <p>Join thousands of brethren worldwide as we gather in spirit to hear the undiluted Word of God. Stream our Sunday services, midweek teachings, and special convocations from anywhere in the world.</p>
-      <div class="live-sched" aria-label="Live stream schedule">
-        <div class="ls-row"><span class="ls-day">Daily</span><span class="ls-info">Morning Prayer Meeting</span></div>
-        <div class="ls-row"><span class="ls-day">Daily</span><span class="ls-info">Evening Prayer Meeting</span></div>
-        <div class="ls-row"><span class="ls-day">Wed</span><span class="ls-info">Bible Study Fellowship</span></div>
-        <div class="ls-row"><span class="ls-day">Sun</span><span class="ls-info">Sunday Divine Service</span></div>
-      </div>
-      <a href="https://www.youtube.com/@GKS" target="_blank" rel="noopener noreferrer" class="btn-primary">
-        Subscribe on YouTube
+      <a href="https://www.youtube.com/@gkswatchpray/live" target="_blank" rel="noopener noreferrer" class="gks-watch-btn" aria-label="Watch Daily Watch and Pray live on YouTube">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        Watch Live on YouTube
       </a>
     </div>
+
+    <!-- Mid-Week Bible Study -->
+    <div class="gks-stream-card featured">
+      <span class="gks-featured-badge" aria-hidden="true">Featured Service</span>
+      <div class="live-badge-row"><span class="live-dot-sm" aria-hidden="true"></span>Live Wednesday</div>
+      <div class="gks-card-day">Every Wednesday</div>
+      <h3 class="gks-card-title">Mid-Week Bible Study</h3>
+      <p class="gks-card-sub">In-depth Scripture Teaching</p>
+      <div style="display:flex;flex-direction:column;gap:.5rem;margin:.4rem 0">
+        <div class="gks-time-row"><span class="gks-time-label">Time</span><span class="gks-time-val">5:00 – 6:00 PM</span></div>
+      </div>
+      <a href="https://www.youtube.com/@gkswatchpray/live" target="_blank" rel="noopener noreferrer" class="gks-watch-btn" aria-label="Watch Mid-Week Bible Study live on YouTube">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        Watch Live on YouTube
+      </a>
+    </div>
+
+    <!-- Sunday Divine Service -->
+    <div class="gks-stream-card">
+      <div class="live-badge-row"><span class="live-dot-sm" aria-hidden="true"></span>Live Sunday</div>
+      <div class="gks-card-day">Every Sunday</div>
+      <h3 class="gks-card-title">Sunday Divine Service</h3>
+      <p class="gks-card-sub">Main Worship Service</p>
+      <div style="display:flex;flex-direction:column;gap:.5rem;margin:.4rem 0">
+        <div class="gks-time-row"><span class="gks-time-label">Time</span><span class="gks-time-val">9:00 – 11:00 AM</span></div>
+      </div>
+      <a href="https://www.youtube.com/@gkswatchpray/live" target="_blank" rel="noopener noreferrer" class="gks-watch-btn" aria-label="Watch Sunday Divine Service live on YouTube">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        Watch Live on YouTube
+      </a>
+    </div>
+
   </div>
+
+  <!-- YouTube Player (click to load) -->
+  <div style="max-width:760px;margin:0 auto 2.5rem">
+    <div class="live-embed" id="ytFacade"
+         role="button" tabindex="0"
+         aria-label="Click to load GKS Watch and Pray live stream"
+         onclick="gksLoadYT()"
+         onkeydown="if(event.key==='Enter'||event.key===' ')gksLoadYT()">
+      <div class="yt-facade">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:.6rem;margin-bottom:.5rem">
+          <!-- YouTube icon -->
+          <div style="background:#ff0000;border-radius:10px;padding:10px 16px;display:flex;align-items:center;justify-content:center">
+            <svg width="0" height="0" viewBox="0 0 0 0" aria-hidden="true"></svg>
+            <div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:22px solid #fff;margin-left:4px"></div>
+          </div>
+          <div style="font-family:var(--serif);font-size:1rem;font-weight:700;color:#fff;letter-spacing:.06em">GKS WATCH &amp; PRAY</div>
+          <div style="font-size:.78rem;color:var(--gold-b);font-weight:600">@gkswatchpray</div>
+        </div>
+        <div class="yt-play-btn" aria-hidden="true">
+          <svg width="28" height="28" fill="#fff" viewBox="0 0 24 24" focusable="false"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <span class="yt-label">Click to load live stream · Broadcasts live Sunday 9AM · Wednesday 5PM · Daily 7AM &amp; 7PM (WAT)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Subscribe & Follow Buttons -->
+  <div class="gks-social-row">
+    <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer" class="btn-yt" aria-label="Subscribe to GKS Watch and Pray on YouTube">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6a3 3 0 00-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zm-14 9.37V8.43L15.82 12l-6.32 3.57z"/></svg>
+      Subscribe — @gkswatchpray
+    </a>
+    <a href="https://www.facebook.com/share/1Ch6xErMPc/" target="_blank" rel="noopener noreferrer" class="btn-fb" aria-label="Follow God's Kingdom Society on Facebook">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M24 12.07C24 5.43 18.63 0 12 0S0 5.43 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.8-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97H15.83c-1.49 0-1.96.93-1.96 1.88v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+      Follow on Facebook
+    </a>
+  </div>
+
 </section>
 
 <!-- ═══ LEADERSHIP ═══ -->
@@ -889,22 +565,13 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
   <div class="board-intro">
     <p>God's Kingdom Society is governed by dedicated leaders who have devoted their lives to advancing the Kingdom of God. Each member brings decades of spiritual service, administrative excellence, and unwavering commitment to the founding vision of GKS.</p>
   </div>
-
   <div class="founder-row reveal">
     <div class="founder-img">
-      <!--
-        BEST PRACTICES FIX:
-        width="420" height="560" gives ratio 420:560 = 3:4 = 0.75.
-        The .founder-img-inner container uses padding-top:133.33% = 4:3 portrait.
-        object-fit:cover fills container → rendered ratio = container ratio.
-        Lighthouse compares img attributes ratio (0.75) vs rendered ratio (0.75) ✓
-      -->
       <div class="founder-img-inner">
         <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
-             alt="St. G. M. Urhobo — Founding Instrument of God's Kingdom Society"
-             width="420" height="560"
-             fetchpriority="high"
-             onerror="this.parentElement.style.background='var(--bg3)'">
+          alt="St. G. M. Urhobo — Founding Instrument of God's Kingdom Society"
+          width="420" height="560" fetchpriority="high"
+          onerror="this.parentElement.style.background='var(--bg3)'">
       </div>
     </div>
     <div>
@@ -913,112 +580,48 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
       <div class="founder-title">The Vessel of Honour Used by God to Establish the God's Kingdom Society</div>
     </div>
   </div>
-
   <h3 class="past-heading">Past Presidents of Blessed Memory</h3>
   <div class="leader-grid" style="margin-bottom:0">
-    <!--
-      BEST PRACTICES FIX for all leader cards:
-      width="300" height="375" → ratio = 300:375 = 4:5 = 0.8
-      .leader-card-img uses padding-top:125% (= 5/4) for same 4:5 ratio container.
-      object-fit:cover fills it → rendered ratio = 0.8 = attribute ratio ✓
-      Lighthouse "incorrect aspect ratio" audit passes.
-    -->
     <div class="leader-card reveal">
-      <div class="leader-card-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/E.T.OTOMEWO.webp"
-             alt="Late Bro. E. T. Otomewo — 2nd President, 1957 to 1997"
-             width="300" height="375" loading="lazy"
-             onerror="this.parentElement.style.background='var(--bg3)'">
-      </div>
-      <div class="leader-card-name">Late Bro. E. T. Otomewo</div>
-      <div class="leader-card-title">2nd President · 1957 – 1997</div>
+      <div class="leader-card-img"><img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/E.T.OTOMEWO.webp" alt="Late Bro. E. T. Otomewo — 2nd President, 1957 to 1997" width="300" height="375" loading="lazy" onerror="this.parentElement.style.background='var(--bg3)'"></div>
+      <div class="leader-card-name">Late Bro. E. T. Otomewo</div><div class="leader-card-title">2nd President · 1957 – 1997</div>
     </div>
     <div class="leader-card reveal">
-      <div class="leader-card-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/O.E.AIGHALUA.webp"
-             alt="Late Bro. O. E. Aighalua — 3rd President, 2001 to 2011"
-             width="300" height="375" loading="lazy"
-             onerror="this.parentElement.style.background='var(--bg3)'">
-      </div>
-      <div class="leader-card-name">Late Bro. O. E. Aighalua</div>
-      <div class="leader-card-title">3rd President · 2001 – 2011</div>
+      <div class="leader-card-img"><img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/O.E.AIGHALUA.webp" alt="Late Bro. O. E. Aighalua — 3rd President, 2001 to 2011" width="300" height="375" loading="lazy" onerror="this.parentElement.style.background='var(--bg3)'"></div>
+      <div class="leader-card-name">Late Bro. O. E. Aighalua</div><div class="leader-card-title">3rd President · 2001 – 2011</div>
     </div>
     <div class="leader-card reveal">
-      <div class="leader-card-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/G.O.IFEACHO.webp"
-             alt="Late Bro. G. O. Ifeacho — 4th President, 2016 to 2021"
-             width="300" height="375" loading="lazy"
-             onerror="this.parentElement.style.background='var(--bg3)'">
-      </div>
-      <div class="leader-card-name">Late Bro. G. O. Ifeacho</div>
-      <div class="leader-card-title">4th President · 2016 – 2021</div>
+      <div class="leader-card-img"><img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/G.O.IFEACHO.webp" alt="Late Bro. G. O. Ifeacho — 4th President, 2016 to 2021" width="300" height="375" loading="lazy" onerror="this.parentElement.style.background='var(--bg3)'"></div>
+      <div class="leader-card-name">Late Bro. G. O. Ifeacho</div><div class="leader-card-title">4th President · 2016 – 2021</div>
     </div>
   </div>
-
   <div class="exec-heading" role="heading" aria-level="3">Executive Board Members</div>
   <div class="leader-grid" style="margin-bottom:2rem">
     <div class="leader-card reveal">
-      <div class="leader-card-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/F.E.ADEDOKUN.webp"
-             alt="Bro. F. E. Adedokun — President"
-             width="300" height="375" loading="lazy"
-             onerror="this.parentElement.style.background='var(--bg3)'">
-      </div>
-      <div class="leader-card-name">Bro. F. E. Adedokun</div>
-      <div class="leader-card-title">President</div>
+      <div class="leader-card-img"><img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/F.E.ADEDOKUN.webp" alt="Bro. F. E. Adedokun — President" width="300" height="375" loading="lazy" onerror="this.parentElement.style.background='var(--bg3)'"></div>
+      <div class="leader-card-name">Bro. F. E. Adedokun</div><div class="leader-card-title">President</div>
     </div>
     <div class="leader-card reveal">
-      <div class="leader-card-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/T.M.EKISEOWEI.webp"
-             alt="Bro. T. M. Ekiseowei — Vice President"
-             width="300" height="375" loading="lazy"
-             onerror="this.parentElement.style.background='var(--bg3)'">
-      </div>
-      <div class="leader-card-name">Bro. T. M. Ekiseowei</div>
-      <div class="leader-card-title">Vice President</div>
+      <div class="leader-card-img"><img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/T.M.EKISEOWEI.webp" alt="Bro. T. M. Ekiseowei — Vice President" width="300" height="375" loading="lazy" onerror="this.parentElement.style.background='var(--bg3)'"></div>
+      <div class="leader-card-name">Bro. T. M. Ekiseowei</div><div class="leader-card-title">Vice President</div>
     </div>
     <div class="leader-card reveal">
-      <div class="leader-card-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/B.T.HART.webp"
-             alt="Bro. B. T. Hart — General Secretary"
-             width="300" height="375" loading="lazy"
-             onerror="this.parentElement.style.background='var(--bg3)'">
-      </div>
-      <div class="leader-card-name">Bro. B. T. Hart</div>
-      <div class="leader-card-title">General Secretary</div>
+      <div class="leader-card-img"><img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/B.T.HART.webp" alt="Bro. B. T. Hart — General Secretary" width="300" height="375" loading="lazy" onerror="this.parentElement.style.background='var(--bg3)'"></div>
+      <div class="leader-card-name">Bro. B. T. Hart</div><div class="leader-card-title">General Secretary</div>
     </div>
   </div>
-
   <div class="leader-grid">
     <div class="leader-card reveal">
-      <div class="leader-card-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/O.D.AKINWALE.webp"
-             alt="Bro. O. D. Akinwale — Treasurer"
-             width="300" height="375" loading="lazy"
-             onerror="this.parentElement.style.background='var(--bg3)'">
-      </div>
-      <div class="leader-card-name">Bro. O. D. Akinwale</div>
-      <div class="leader-card-title">Treasurer</div>
+      <div class="leader-card-img"><img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/O.D.AKINWALE.webp" alt="Bro. O. D. Akinwale — Treasurer" width="300" height="375" loading="lazy" onerror="this.parentElement.style.background='var(--bg3)'"></div>
+      <div class="leader-card-name">Bro. O. D. Akinwale</div><div class="leader-card-title">Treasurer</div>
     </div>
     <div class="leader-card reveal">
-      <div class="leader-card-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/A.A.ERHA.webp"
-             alt="Bro. A. A. Erha — Member, Executive Board"
-             width="300" height="375" loading="lazy"
-             onerror="this.parentElement.style.background='var(--bg3)'">
-      </div>
-      <div class="leader-card-name">Bro. A. A. Erha</div>
-      <div class="leader-card-title">Member, Executive Board</div>
+      <div class="leader-card-img"><img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/A.A.ERHA.webp" alt="Bro. A. A. Erha — Member, Executive Board" width="300" height="375" loading="lazy" onerror="this.parentElement.style.background='var(--bg3)'"></div>
+      <div class="leader-card-name">Bro. A. A. Erha</div><div class="leader-card-title">Member, Executive Board</div>
     </div>
     <div class="leader-card reveal">
-      <div class="leader-card-img">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/J.N.W.CHUKWUDI.webp"
-             alt="Bro. J. N. W. Chukwudi — Member, Executive Board"
-             width="300" height="375" loading="lazy"
-             onerror="this.parentElement.style.background='var(--bg3)'">
-      </div>
-      <div class="leader-card-name">Bro. J. N. W. Chukwudi</div>
-      <div class="leader-card-title">Member, Executive Board</div>
+      <div class="leader-card-img"><img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/J.N.W.CHUKWUDI.webp" alt="Bro. J. N. W. Chukwudi — Member, Executive Board" width="300" height="375" loading="lazy" onerror="this.parentElement.style.background='var(--bg3)'"></div>
+      <div class="leader-card-name">Bro. J. N. W. Chukwudi</div><div class="leader-card-title">Member, Executive Board</div>
     </div>
   </div>
 </section>
@@ -1030,48 +633,41 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
       <div class="s-tag" aria-hidden="true">Announcements</div>
       <h2 class="s-title" id="news-h">News &amp; <em>Updates</em></h2>
     </div>
-    <a href="#" class="btn-outline" style="font-size:.63rem">All News</a>
+    <a href="#" class="btn-outline" style="font-size:.6rem;padding:.6rem 1.2rem">All News</a>
   </div>
   <div class="news-grid">
-    <article>
-      <a href="#" class="news-card reveal">
-        <div class="news-img" aria-hidden="true">GKS</div>
-        <div class="news-body">
-          <div class="news-tag">Conference Reports</div>
-          <h3 class="news-title">Annual Conference Reports 2026</h3>
-          <p class="news-excerpt">Full reports from the 2026 Annual Conferences — Laymembers, Youth Fellowship, and Women Fellowship. Read highlights, resolutions, and key outcomes.</p>
-          <div class="news-date"><time datetime="2026">2026</time></div>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a href="#" class="news-card reveal">
-        <div class="news-img" aria-hidden="true">GKS</div>
-        <div class="news-body">
-          <div class="news-tag">Upcoming Event</div>
-          <h3 class="news-title">GKS Ministers Conference 2026</h3>
-          <p class="news-excerpt">Ordained ministers from all branches gather for fellowship, instruction, and strategic planning.</p>
-          <div class="news-date">Coming Soon · <time datetime="2026">2026</time></div>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a href="#" class="news-card reveal">
-        <div class="news-img" aria-hidden="true">GKS</div>
-        <div class="news-body">
-          <div class="news-tag">Event Highlights</div>
-          <h3 class="news-title">Christian Feast of Tabernacles 2025</h3>
-          <p class="news-excerpt">Relive the inspiring moments, powerful messages, and joyful fellowship from the Christian Feast of Tabernacles 2025.</p>
-          <div class="news-date"><time datetime="2025-12">December 2025</time></div>
-        </div>
-      </a>
-    </article>
+    <a href="#" class="news-card reveal" aria-label="Read: Annual Conference Reports 2026">
+      <div class="news-img" aria-hidden="true">GKS</div>
+      <div class="news-body">
+        <div class="news-tag">GKS Conference Reports</div>
+        <h3 class="news-title">Annual Conference Reports 2026</h3>
+        <p class="news-excerpt">Full reports from the 2026 Annual Conferences — Laymembers, Youth Fellowship, and Women Fellowship. Read highlights, resolutions, and key outcomes.</p>
+        <div class="news-date">2026</div>
+      </div>
+    </a>
+    <a href="#" class="news-card reveal" aria-label="Read: GKS Ministers Conference 2026">
+      <div class="news-img" aria-hidden="true">GKS</div>
+      <div class="news-body">
+        <div class="news-tag">GKS Upcoming Event</div>
+        <h3 class="news-title">GKS Ministers Conference 2026</h3>
+        <p class="news-excerpt">Ordained ministers from all branches gather for fellowship, instruction, and strategic planning.</p>
+        <div class="news-date">Coming Soon · 2026</div>
+      </div>
+    </a>
+    <a href="#" class="news-card reveal" aria-label="Read: Christian Feast of Tabernacles 2025">
+      <div class="news-img" aria-hidden="true">GKS</div>
+      <div class="news-body">
+        <div class="news-tag">GKS Event Highlights</div>
+        <h3 class="news-title">Christian Feast of Tabernacles 2025</h3>
+        <p class="news-excerpt">Relive the inspiring moments, powerful messages, and joyful fellowship from the Christian Feast of Tabernacles 2025.</p>
+        <div class="news-date">December 2025</div>
+      </div>
+    </a>
   </div>
 </section>
 
 <!-- ═══ DONATE ═══ -->
 <section class="donate-section" id="donate" aria-labelledby="donate-h">
-  <div class="s-tag ctr" aria-hidden="true">Support the Ministry</div>
   <h2 id="donate-h">Give to the <em>Kingdom</em> Work</h2>
   <p>Your generous giving enables the propagation of the Gospel, supports our branches worldwide, and sustains the digital and media ministry of God's Kingdom Society.</p>
   <div class="donate-actions">
@@ -1080,25 +676,46 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
   </div>
 </section>
 
+<!-- ═══ SOCIAL CONNECT ═══ -->
+<section class="social-connect" aria-labelledby="social-h">
+  <div class="s-tag ctr" aria-hidden="true">Connect With Us</div>
+  <h2 id="social-h">Find GKS on <em>Social Media</em></h2>
+  <p>Follow our official handles to stay updated with live services, messages, announcements, and community updates from God's Kingdom Society worldwide.</p>
+  <div class="social-cards">
+    <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer"
+       class="social-card yt-card" aria-label="Visit GKS Watch and Pray on YouTube">
+      <div class="social-icon yt-icon">
+        <svg viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6a3 3 0 00-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zm-14 9.37V8.43L15.82 12l-6.32 3.57z"/></svg>
+      </div>
+      <div class="social-name">YouTube</div>
+      <div class="social-handle">@gkswatchpray</div>
+      <div class="social-cta">Watch &amp; Subscribe →</div>
+    </a>
+    <a href="https://www.facebook.com/share/1Ch6xErMPc/" target="_blank" rel="noopener noreferrer"
+       class="social-card fb-card" aria-label="Follow God's Kingdom Society on Facebook">
+      <div class="social-icon fb-icon">
+        <svg viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M24 12.07C24 5.43 18.63 0 12 0S0 5.43 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.8-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97H15.83c-1.49 0-1.96.93-1.96 1.88v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+      </div>
+      <div class="social-name">Facebook</div>
+      <div class="social-handle">God's Kingdom Society</div>
+      <div class="social-cta">Follow the Page →</div>
+    </a>
+  </div>
+</section>
+
 </main>
 
 <!-- ═══ FOOTER ═══ -->
-<footer aria-label="Site footer">
+<footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.4rem">
-        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/logo.png"
-             alt="GKS Logo" width="52" height="52" loading="lazy"
-             style="height:52px;width:52px;display:block"
-             onerror="this.style.display='none'">
-        <div>
-          <div class="footer-logo-text">God's Kingdom Society</div>
-          <div class="footer-logo-sub">Worldwide Christian Fellowship</div>
-        </div>
-      </div>
+      <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/logo.png"
+        alt="GKS Logo" width="52" height="52" loading="lazy" onerror="this.style.display='none'">
+      <div class="footer-logo-text" style="margin-top:.6rem">God's Kingdom Society</div>
+      <div class="footer-logo-sub">Worldwide Christian Fellowship</div>
       <p>Proclaiming the Kingdom of God with uncompromising truth since the 1930s. Join us as we worship, serve, and grow together in Christ.</p>
     </div>
-    <nav aria-label="Footer navigation">
+    <div>
       <div class="footer-col-title">Navigation</div>
       <ul class="footer-links">
         <li><a href="#about">About GKS</a></li>
@@ -1108,8 +725,8 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
         <li><a href="#news">News</a></li>
         <li><a href="#donate">Give / Donate</a></li>
       </ul>
-    </nav>
-    <nav aria-label="Branch locations">
+    </div>
+    <div>
       <div class="footer-col-title">Branches</div>
       <ul class="footer-links">
         <li><a href="#">Headquarters</a></li>
@@ -1117,236 +734,101 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
         <li><a href="#">Warri Branch</a></li>
         <li><a href="#">Lagos Branch</a></li>
         <li><a href="#">Abuja Branch</a></li>
-        <li><a href="#">All Branches →</a></li>
+        <li><a href="#">All Branches &rarr;</a></li>
       </ul>
-    </nav>
+    </div>
     <div>
       <div class="footer-col-title">Contact</div>
       <ul class="footer-contact">
         <li>
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M12 21C12 21 4 13.5 4 8a8 8 0 0116 0c0 5.5-8 13-8 13z"/>
-            <circle cx="12" cy="8" r="2"/>
-          </svg>
-          <span>GKS Headquarters, Nigeria</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21C12 21 4 13.5 4 8a8 8 0 0116 0c0 5.5-8 13-8 13z"/><circle cx="12" cy="8" r="2"/></svg>
+          GKS Headquarters, Nigeria
         </li>
         <li>
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-          </svg>
-          <span>+234 — Contact HQ</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07A19.5 19.5 0 013.26 9a19.8 19.8 0 01-3.06-8.67A2 2 0 012.18 0h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +234 810 098 7661
         </li>
         <li>
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-          <a href="mailto:info@mountaingks.org">info@mountaingks.org</a>
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:gksinfo@mountaingks.org">gksinfo@mountaingks.org</a>
         </li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <small class="footer-copy">© 2025 God's Kingdom Society. All rights reserved. | mountaingks.org</small>
+    <p class="footer-copy">&copy; 2025 God's Kingdom Society. All rights reserved. | mountaingks.org</p>
     <div class="footer-socials">
-      <a href="#" class="footer-social" aria-label="Facebook">
-        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-        </svg>
+      <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer"
+         class="footer-social" title="GKS Watch &amp; Pray — YouTube" aria-label="GKS YouTube channel @gkswatchpray">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6a3 3 0 00-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zm-14 9.37V8.43L15.82 12l-6.32 3.57z"/></svg>
       </a>
-      <a href="https://www.youtube.com/@GKS" class="footer-social" aria-label="YouTube channel"
-         target="_blank" rel="noopener noreferrer">
-        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/>
-        </svg>
-      </a>
-      <a href="#" class="footer-social" aria-label="WhatsApp">
-        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
+      <a href="https://www.facebook.com/share/1Ch6xErMPc/" target="_blank" rel="noopener noreferrer"
+         class="footer-social" title="God's Kingdom Society — Facebook" aria-label="GKS Facebook page">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.43 18.63 0 12 0S0 5.43 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.8-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97H15.83c-1.49 0-1.96.93-1.96 1.88v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
       </a>
     </div>
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════════════════════════
-  JAVASCRIPT
-═══════════════════════════════════════════════════════════ -->
 <script>
-(function(){
-'use strict';
-
-var IMG = 'https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/';
-var YT_CH = 'UC3UdJu8Q1iWUDbWuZSsetbA'; /* GKS Watch & Pray */
-
-/*
-  BEST PRACTICES FIX for hero slides:
-  Each slide img is inside .hero-img-wrap (position:absolute, width:62%/100%,
-  height:100% of hero). The img has width:100%;height:100%;object-fit:cover.
-
-  We do NOT set width/height attributes on the hero slide imgs.
-  Reason: Lighthouse "incorrect aspect ratio" audit compares the img element's
-  rendered size to its natural (intrinsic) pixel dimensions. For hero images
-  that are position:absolute and stretched to fill the container via CSS,
-  the rendered w:h will differ from every portrait photo's natural ratio.
-
-  The correct fix is to NOT provide width/height attributes (so Lighthouse
-  has no attribute-derived ratio to compare against) AND use object-fit:cover
-  (so the image is cropped, not stretched). Without attributes, Lighthouse
-  cannot compute an "expected" ratio and skips the check.
-
-  However we set decoding=async and loading=lazy/eager for performance.
-*/
-var SLIDES = [
-  {src:'ST.G.M.URHOBO.webp', name:'St. G. M. Urhobo',           title:'Vessel of Honour — Founder of the GKS'},
-  {src:'E.T.OTOMEWO.webp',   name:'Late Bro. E. T. Otomewo',    title:'2nd President · 1957 – 1997'},
-  {src:'O.E.AIGHALUA.webp',  name:'Late Bro. O. E. Aighalua',   title:'3rd President · 2001 – 2011'},
-  {src:'G.O.IFEACHO.webp',   name:'Late Bro. G. O. Ifeacho',    title:'4th President · 2016 – 2021'},
-  {src:'F.E.ADEDOKUN.webp',  name:'Bro. F. E. Adedokun',        title:'President, God\'s Kingdom Society'},
-  {src:'T.M.EKISEOWEI.webp', name:'Bro. T. M. Ekiseowei',       title:'Vice President'},
-  {src:'B.T.HART.webp',      name:'Bro. B. T. Hart',            title:'General Secretary'},
-  {src:'O.D.AKINWALE.webp',  name:'Bro. O. D. Akinwale',        title:'Treasurer'},
-  {src:'A.A.ERHA.webp',      name:'Bro. A. A. Erha',            title:'Member, Executive Board'},
-  {src:'J.N.W.CHUKWUDI.webp',name:'Bro. J. N. W. Chukwudi',     title:'Member, Executive Board'}
+// ── Hero slideshow ──────────────────────────────────────────
+const slides=[
+  {src:'https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/F.E.ADEDOKUN.webp',name:'Bro. F. E. Adedokun',title:'President'},
+  {src:'https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/T.M.EKISEOWEI.webp',name:'Bro. T. M. Ekiseowei',title:'Vice President'},
+  {src:'https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/B.T.HART.webp',name:'Bro. B. T. Hart',title:'General Secretary'},
+  {src:'https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/O.D.AKINWALE.webp',name:'Bro. O. D. Akinwale',title:'Treasurer'},
 ];
-
-var slidesEl = document.getElementById('heroSlides');
-var dotsEl   = document.getElementById('heroDots');
-var current  = 0;
-var timer;
-
-SLIDES.forEach(function(s, i){
-  var div = document.createElement('div');
-  div.className = 'hero-slide' + (i === 0 ? ' active' : '');
-
-  /* BEST PRACTICES FIX: wrap img in .hero-img-wrap so it fills the right
-     side of the hero with object-fit:cover, preventing ratio mismatch. */
-  var wrap = document.createElement('div');
-  wrap.className = 'hero-img-wrap';
-
-  var img = document.createElement('img');
-  img.src = IMG + s.src;
-  img.alt = s.name + ' — ' + s.title;
-  img.setAttribute('decoding', 'async');
-  /* No width/height attributes on hero imgs — see comment above */
-  if (i === 0) {
-    img.loading = 'eager';
-    img.setAttribute('fetchpriority', 'high');
-  } else {
-    img.loading = 'lazy';
-  }
-
-  var cap = document.createElement('div');
-  cap.className = 'hero-slide-caption';
-  cap.setAttribute('aria-hidden', 'true');
-  cap.innerHTML = '<div class="cap-name">' + s.name + '</div>'
-                + '<div class="cap-title">' + s.title + '</div>';
-
-  wrap.appendChild(img);
-  div.appendChild(wrap);
-  div.appendChild(cap);
+const slidesEl=document.getElementById('heroSlides');
+const dotsEl=document.getElementById('heroDots');
+let cur=0,timer;
+slides.forEach((s,i)=>{
+  const div=document.createElement('div');
+  div.className='hero-slide'+(i===0?' active':'');
+  div.innerHTML=`<div class="hero-img-wrap"><img src="${s.src}" alt="${s.name}" loading="${i===0?'eager':'lazy'}" fetchpriority="${i===0?'high':'auto'}"></div><div class="hero-slide-caption"><div class="cap-name">${s.name}</div><div class="cap-title">${s.title}</div></div>`;
   slidesEl.appendChild(div);
-
-  var dot = document.createElement('button');
-  dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
-  dot.setAttribute('aria-label', 'Show slide ' + (i + 1) + ': ' + s.name);
-  dot.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
-  dot.addEventListener('click', (function(n){ return function(){ goTo(n); }; })(i));
-  dotsEl.appendChild(dot);
+  const btn=document.createElement('button');
+  btn.className='hero-dot'+(i===0?' active':'');
+  btn.setAttribute('aria-label','Show slide '+(i+1));
+  btn.onclick=()=>goTo(i);
+  dotsEl.appendChild(btn);
 });
-
-var allSlides = slidesEl.querySelectorAll('.hero-slide');
-var allDots   = dotsEl.querySelectorAll('.hero-dot');
-
-function goTo(n) {
-  allSlides[current].classList.remove('active');
-  allDots[current].classList.remove('active');
-  allDots[current].setAttribute('aria-pressed', 'false');
-  current = (n + allSlides.length) % allSlides.length;
-  allSlides[current].classList.add('active');
-  allDots[current].classList.add('active');
-  allDots[current].setAttribute('aria-pressed', 'true');
-}
-
-function startTimer() {
+function goTo(n){
+  document.querySelectorAll('.hero-slide')[cur].classList.remove('active');
+  document.querySelectorAll('.hero-dot')[cur].classList.remove('active');
+  cur=n;
+  document.querySelectorAll('.hero-slide')[cur].classList.add('active');
+  document.querySelectorAll('.hero-dot')[cur].classList.add('active');
   clearInterval(timer);
-  timer = setInterval(function(){ goTo(current + 1); }, 5000);
+  timer=setInterval(()=>goTo((cur+1)%slides.length),5000);
 }
-startTimer();
+timer=setInterval(()=>goTo((cur+1)%slides.length),5000);
 
-var heroEl = document.querySelector('.hero');
-heroEl.addEventListener('mouseenter', function(){ clearInterval(timer); });
-heroEl.addEventListener('mouseleave', startTimer);
-
-/* ── NAV SHRINK ─────────────────────────────────────── */
-var nav = document.getElementById('mainNav');
-window.addEventListener('scroll', function(){
-  nav.style.padding = window.scrollY > 60 ? '.45rem 2rem' : '.6rem 2rem';
-}, { passive: true });
-
-/* ── REVEAL ──────────────────────────────────────────── */
-var io = new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      io.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-
-/* ── YOUTUBE FACADE ───────────────────────────────────── */
-window.loadYT = function() { window.open('https://www.youtube.com/@gkswatchpray','_blank'); return; }
-/* legacy code retained below */
-/*
-  var f   = document.getElementById('ytFacade');
-  var ifr = document.createElement('iframe');
-  ifr.src = 'https://www.youtube.com/embed/live_stream?channel=' + YT_CH + '&autoplay=1';
-  ifr.allow = 'accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
-  ifr.allowFullscreen = true;
-  ifr.title = 'GKS Live Stream';
-  ifr.style.cssText = 'width:100%;height:100%;border:none;display:block';
-  f.innerHTML = '';
-  f.appendChild(ifr);
-  f.style.cursor = 'default';
-*/
-
-/* ── HAMBURGER ────────────────────────────────────────── */
-var ham    = document.getElementById('navHam');
-var drawer = document.getElementById('navDrawer');
-
-ham.addEventListener('click', function(){
-  var open = drawer.classList.toggle('open');
-  ham.setAttribute('aria-expanded', String(open));
-  ham.querySelector('svg').innerHTML = open
-    ? '<line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/>'
-    : '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
+// ── Nav hamburger ───────────────────────────────────────────
+const ham=document.getElementById('navHam');
+const drawer=document.getElementById('navDrawer');
+ham.addEventListener('click',()=>{
+  const open=drawer.classList.toggle('open');
+  ham.setAttribute('aria-expanded',open);
+  ham.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');
 });
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  drawer.classList.remove('open');
+  ham.setAttribute('aria-expanded','false');
+  ham.setAttribute('aria-label','Open navigation menu');
+}));
 
-drawer.querySelectorAll('a').forEach(function(a){
-  a.addEventListener('click', function(){
-    drawer.classList.remove('open');
-    ham.setAttribute('aria-expanded', 'false');
-    ham.querySelector('svg').innerHTML = '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
-  });
-});
+// ── Scroll reveal ───────────────────────────────────────────
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-document.addEventListener('click', function(e){
-  if (!ham.contains(e.target) && !drawer.contains(e.target)) {
-    drawer.classList.remove('open');
-    ham.setAttribute('aria-expanded', 'false');
-  }
-});
-
-document.addEventListener('keydown', function(e){
-  if (e.key === 'Escape' && drawer.classList.contains('open')) {
-    drawer.classList.remove('open');
-    ham.setAttribute('aria-expanded', 'false');
-    ham.focus();
-  }
-});
-
-})();
+// ── YouTube click-to-load ───────────────────────────────────
+// Channel: GKS Watch & Pray | @gkswatchpray | ID: UC3UdJu8Q1iWUDbWuZSsetbA
+// Shows live stream if broadcasting, falls back to latest video if not.
+function gksLoadYT(){
+  const el=document.getElementById('ytFacade');
+  el.innerHTML='<iframe src="https://www.youtube.com/embed/live_stream?channel=UC3UdJu8Q1iWUDbWuZSsetbA&autoplay=1&rel=0&modestbranding=1" title="GKS Watch and Pray — Live Stream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe>';
+  el.style.cursor='default';
+}
 </script>
 </body>
 </html>
