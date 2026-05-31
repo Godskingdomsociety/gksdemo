@@ -850,18 +850,19 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
 <!-- ═══ LIVE STREAM ═══ -->
 <section class="live-section s-pad" id="live" aria-labelledby="live-h">
   <div class="live-inner">
-    <button class="live-embed" id="ytFacade"
-            aria-label="Load GKS Live Stream on YouTube"
-            onclick="loadYT()">
+    <a class="live-embed" id="ytFacade"
+            aria-label="Open GKS Watch & Pray YouTube Channel"
+            href="https://www.youtube.com/@gkswatchpray"
+            target="_blank" rel="noopener noreferrer">
       <div class="yt-facade">
         <div class="yt-play-btn" aria-hidden="true">
           <svg width="28" height="28" fill="#fff" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M8 5v14l11-7z"/>
           </svg>
         </div>
-        <span class="yt-label">Click to load GKS Live Stream</span>
+        <span class="yt-label">🔴 Watch Live on YouTube</span>
       </div>
-    </button>
+    </a>
     <div class="live-text">
       <div class="live-badge-row" aria-label="Broadcasting live">
         <span class="live-dot-sm" aria-hidden="true"></span> Broadcasting Live
@@ -874,11 +875,8 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
         <div class="ls-row"><span class="ls-day">Wed</span><span class="ls-info">Bible Study Fellowship</span></div>
         <div class="ls-row"><span class="ls-day">Sun</span><span class="ls-info">Sunday Divine Service</span></div>
       </div>
-      <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer" class="btn-primary">
-        Watch on YouTube
-      </a>
-      <a href="https://www.facebook.com/mountaingks" target="_blank" rel="noopener noreferrer" class="btn-outline">
-        Follow on Facebook
+      <a href="https://www.youtube.com/@GKS" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Subscribe on YouTube
       </a>
     </div>
   </div>
@@ -1298,7 +1296,9 @@ var io = new IntersectionObserver(function(entries){
 document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 
 /* ── YOUTUBE FACADE ───────────────────────────────────── */
-window.loadYT = function() {
+window.loadYT = function() { window.open('https://www.youtube.com/@gkswatchpray','_blank'); return; }
+/* legacy code retained below */
+/*
   var f   = document.getElementById('ytFacade');
   var ifr = document.createElement('iframe');
   ifr.src = 'https://www.youtube.com/embed/live_stream?channel=' + YT_CH + '&autoplay=1';
@@ -1309,7 +1309,7 @@ window.loadYT = function() {
   f.innerHTML = '';
   f.appendChild(ifr);
   f.style.cursor = 'default';
-};
+*/
 
 /* ── HAMBURGER ────────────────────────────────────────── */
 var ham    = document.getElementById('navHam');
