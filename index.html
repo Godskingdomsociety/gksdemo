@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
 <link rel="preload" as="image"
-  href="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
+  href="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/F.E.ADEDOKUN.webp"
   fetchpriority="high">
 <link rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
@@ -310,7 +310,21 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="home" aria-label="Leadership gallery slideshow">
-  <div class="hero-slides" id="heroSlides"></div>
+  <div class="hero-slides" id="heroSlides">
+  <div class="hero-slide active" id="heroSlide0">
+    <div class="hero-img-wrap">
+      <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/F.E.ADEDOKUN.webp"
+           alt="Bro. F. E. Adedokun — President, God's Kingdom Society"
+           width="800" height="1000"
+           fetchpriority="high"
+           decoding="async">
+    </div>
+    <div class="hero-slide-caption">
+      <div class="cap-name">Bro. F. E. Adedokun</div>
+      <div class="cap-title">President</div>
+    </div>
+  </div>
+</div>
   <div class="hero-dots" id="heroDots" role="group" aria-label="Slide navigation"></div>
   <div class="hero-content">
     <div class="hero-badge" aria-hidden="true"><span class="live-dot"></span> Live Divine Service</div>
@@ -570,7 +584,7 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
       <div class="founder-img-inner">
         <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
           alt="St. G. M. Urhobo — Founding Instrument of God's Kingdom Society"
-          width="420" height="560" fetchpriority="high"
+          width="420" height="560"
           onerror="this.parentElement.style.background='var(--bg3)'">
       </div>
     </div>
@@ -772,36 +786,49 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
 
 <script>
 // ── Hero slideshow ──────────────────────────────────────────
+// Slide 0 is pre-rendered in HTML — JS only builds slides 1-3
+const BASE='https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/';
 const slides=[
-  {src:'https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/F.E.ADEDOKUN.webp',name:'Bro. F. E. Adedokun',title:'President'},
-  {src:'https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/T.M.EKISEOWEI.webp',name:'Bro. T. M. Ekiseowei',title:'Vice President'},
-  {src:'https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/B.T.HART.webp',name:'Bro. B. T. Hart',title:'General Secretary'},
-  {src:'https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/O.D.AKINWALE.webp',name:'Bro. O. D. Akinwale',title:'Treasurer'},
+  {src:'F.E.ADEDOKUN.webp', name:'Bro. F. E. Adedokun',   title:'President'},
+  {src:'T.M.EKISEOWEI.webp',name:'Bro. T. M. Ekiseowei',  title:'Vice President'},
+  {src:'B.T.HART.webp',     name:'Bro. B. T. Hart',        title:'General Secretary'},
+  {src:'O.D.AKINWALE.webp', name:'Bro. O. D. Akinwale',    title:'Treasurer'},
 ];
 const slidesEl=document.getElementById('heroSlides');
 const dotsEl=document.getElementById('heroDots');
+// Cache all slide/dot refs — avoids querySelectorAll on every tick
+const slideEls=[document.getElementById('heroSlide0')];
+const dotEls=[];
 let cur=0,timer;
+// Use DocumentFragment for batch DOM insert — no forced reflow
+const frag=document.createDocumentFragment();
 slides.forEach((s,i)=>{
-  const div=document.createElement('div');
-  div.className='hero-slide'+(i===0?' active':'');
-  div.innerHTML=`<div class="hero-img-wrap"><img src="${s.src}" alt="${s.name}" loading="${i===0?'eager':'lazy'}" fetchpriority="${i===0?'high':'auto'}"></div><div class="hero-slide-caption"><div class="cap-name">${s.name}</div><div class="cap-title">${s.title}</div></div>`;
-  slidesEl.appendChild(div);
+  if(i>0){
+    const d=document.createElement('div');
+    d.className='hero-slide';
+    d.innerHTML='<div class="hero-img-wrap"><img src="'+BASE+s.src+'" alt="'+s.name+'" loading="lazy" decoding="async" width="800" height="1000"></div><div class="hero-slide-caption"><div class="cap-name">'+s.name+'</div><div class="cap-title">'+s.title+'</div></div>';
+    frag.appendChild(d);
+    slideEls.push(d);
+  }
   const btn=document.createElement('button');
   btn.className='hero-dot'+(i===0?' active':'');
   btn.setAttribute('aria-label','Show slide '+(i+1));
-  btn.onclick=()=>goTo(i);
+  btn.addEventListener('click',function(){goTo(i);});
   dotsEl.appendChild(btn);
+  dotEls.push(btn);
 });
+slidesEl.appendChild(frag); // single DOM write for all new slides
 function goTo(n){
-  document.querySelectorAll('.hero-slide')[cur].classList.remove('active');
-  document.querySelectorAll('.hero-dot')[cur].classList.remove('active');
+  slideEls[cur].classList.remove('active');
+  dotEls[cur].classList.remove('active');
   cur=n;
-  document.querySelectorAll('.hero-slide')[cur].classList.add('active');
-  document.querySelectorAll('.hero-dot')[cur].classList.add('active');
+  slideEls[cur].classList.add('active');
+  dotEls[cur].classList.add('active');
   clearInterval(timer);
-  timer=setInterval(()=>goTo((cur+1)%slides.length),5000);
+  timer=setInterval(next,5000);
 }
-timer=setInterval(()=>goTo((cur+1)%slides.length),5000);
+function next(){goTo((cur+1)%slides.length);}
+timer=setInterval(next,5000);
 
 // ── Nav hamburger ───────────────────────────────────────────
 const ham=document.getElementById('navHam');
@@ -832,3 +859,4 @@ function gksLoadYT(){
 </script>
 </body>
 </html>
+  
