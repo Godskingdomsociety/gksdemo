@@ -103,15 +103,53 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .s-title{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.9rem);font-weight:300;line-height:1.15;color:var(--txt);margin-bottom:1.3rem}
 .s-title em{font-style:italic;color:var(--gold-aa)}
 .s-title.light{color:#fff}
-.about-section{background:var(--bg)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.about-text p{font-size:.88rem;color:var(--txt-m);line-height:1.9;margin-bottom:1rem}
-.pillars-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2.8rem}
-.pillar{padding:1.7rem;border:1px solid var(--bdr);background:var(--bg2);transition:all .25s}
-.pillar:hover{border-color:var(--gold);box-shadow:0 4px 24px rgba(184,134,11,.1);transform:translateY(-2px)}
-.pillar-icon{width:38px;height:38px;margin-bottom:.9rem;color:var(--gold)}
-.pillar-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--txt);margin-bottom:.35rem}
-.pillar-text{font-size:.76rem;color:var(--muted-aa);line-height:1.7}
+
+/* ═══════════════════════════════════════════
+   ABOUT SECTION — REDESIGNED
+═══════════════════════════════════════════ */
+.about-section{background:var(--bg);overflow:hidden}
+.about-masthead{text-align:center;max-width:700px;margin:0 auto 4.5rem}
+.about-masthead .s-tag{justify-content:center}
+.about-masthead .s-tag::after{display:none}
+.about-masthead .s-title{font-size:clamp(2.2rem,4vw,3.4rem)}
+.about-masthead-lead{font-size:1.05rem;color:var(--txt-m);line-height:1.9;font-style:italic;font-family:var(--serif);margin-top:.5rem}
+/* Horizontal scroll stat bar */
+.about-stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--bdr);margin-bottom:4.5rem}
+.about-stat{padding:2.2rem 1.5rem;text-align:center;border-right:1px solid var(--bdr);position:relative;overflow:hidden}
+.about-stat:last-child{border-right:none}
+.about-stat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .4s}
+.about-stat:hover::before{opacity:1}
+.stat-number{font-family:var(--serif);font-size:2.8rem;font-weight:700;color:var(--gold-aa);line-height:1;display:block}
+.stat-label{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-aa);margin-top:.5rem;display:block}
+/* Two-col text + image layout */
+.about-body{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-bottom:4.5rem}
+.about-text-col{}
+.about-text-col p{font-size:.9rem;color:var(--txt-m);line-height:1.95;margin-bottom:1.1rem}
+.about-pull-quote{border-left:3px solid var(--gold);padding:.8rem 0 .8rem 1.8rem;margin:2rem 0;font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--gold-aa);line-height:1.5}
+.about-img-col{position:relative}
+.about-img-stack{position:relative;padding-bottom:3rem;padding-right:3rem}
+.about-img-main{width:100%;display:block;border:1px solid var(--bdr);aspect-ratio:3/4;object-fit:cover;object-position:top}
+.about-img-accent{position:absolute;bottom:0;right:0;width:55%;border:3px solid var(--bg);box-shadow:0 8px 40px rgba(0,0,0,.15);aspect-ratio:4/3;object-fit:cover;object-position:center top}
+.about-img-badge{position:absolute;top:1.5rem;left:-1.5rem;background:var(--gold);color:#fff;font-size:.56rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:.5rem 1.1rem;writing-mode:horizontal-tb}
+/* Pillars grid */
+.about-pillars-wrap{}
+.about-pillars-heading{font-family:var(--serif);font-size:1.4rem;font-weight:300;color:var(--txt);margin-bottom:2rem;text-align:center}
+.about-pillars-heading em{color:var(--gold-aa);font-style:italic}
+.pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--bdr)}
+.pillar{padding:2.2rem 1.8rem;border-right:1px solid var(--bdr);background:var(--bg2);transition:all .3s;position:relative;overflow:hidden}
+.pillar:last-child{border-right:none}
+.pillar::after{content:'';position:absolute;bottom:0;left:0;right:0;height:0;background:var(--gold);opacity:.06;transition:height .3s}
+.pillar:hover{background:#fff}
+.pillar:hover::after{height:100%}
+.pillar-icon{width:38px;height:38px;margin-bottom:1rem;color:var(--gold)}
+.pillar-title{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--txt);margin-bottom:.5rem}
+.pillar-text{font-size:.74rem;color:var(--muted-aa);line-height:1.75}
+.pillar-number{position:absolute;top:.8rem;right:1rem;font-family:var(--serif);font-size:3.5rem;font-weight:700;color:rgba(184,134,11,.07);line-height:1;user-select:none}
+/* Scripture band */
+.about-scripture-band{background:var(--bg-dk);padding:3rem 4rem;text-align:center;border-top:1px solid rgba(245,197,24,.2);border-bottom:1px solid rgba(245,197,24,.2);margin:0 -4rem}
+.scripture-text{font-family:var(--serif);font-size:clamp(1.1rem,2.2vw,1.6rem);color:rgba(245,240,230,.9);font-style:italic;line-height:1.65;max-width:680px;margin:0 auto .8rem}
+.scripture-ref{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-b);font-style:normal}
+
 .sched-section{background:var(--bg2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
 .sched-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2.5rem}
 .sched-card{background:#fff;border:1px solid var(--bdr);padding:2rem}
@@ -133,19 +171,34 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .pi-inner{text-align:center;padding:1rem}
 .pi-icon{font-family:var(--serif);font-size:3rem;color:rgba(184,134,11,.2);font-style:italic}
 .pi-verse{font-family:var(--serif);font-size:.8rem;color:rgba(245,240,230,.4);font-style:italic;margin-top:.5rem;line-height:1.5}
+
+/* ═══ MEDIA / SERMONS — redesigned with embedded YT ═══ */
 .media-section{background:var(--bg)}
 .media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
-.media-card{background:#fff;border:1px solid var(--bdr);cursor:pointer;transition:all .2s;box-shadow:0 2px 12px rgba(184,134,11,.06)}
+.media-card{background:#fff;border:1px solid var(--bdr);transition:all .2s;box-shadow:0 2px 12px rgba(184,134,11,.06);overflow:hidden}
 .media-card:hover{border-color:var(--gold);box-shadow:0 6px 28px rgba(184,134,11,.14);transform:translateY(-2px)}
-.media-thumb{height:180px;background:var(--bg-dk2);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.media-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.3);transition:background .2s}
-.media-card:hover .media-play{background:rgba(0,0,0,.5)}
-.play-btn{width:52px;height:52px;border-radius:50%;background:var(--gold);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s}
+.media-thumb{position:relative;width:100%;padding-top:56.25%;background:var(--bg-dk2);overflow:hidden}
+.media-thumb img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.media-card:hover .media-thumb img{transform:scale(1.04)}
+.media-thumb-overlay{position:absolute;inset:0;background:rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.media-card:hover .media-thumb-overlay{background:rgba(0,0,0,.45)}
+.play-btn{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.92);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s,background .2s;box-shadow:0 2px 16px rgba(0,0,0,.3)}
+.play-btn:hover,.media-card:hover .play-btn{transform:scale(1.12);background:#fff}
 .play-btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
-.media-card:hover .play-btn{transform:scale(1.1)}
-.media-body{padding:1.2rem}
+.play-btn svg{margin-left:3px}
+.media-body{padding:1.3rem}
 .media-tag{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:.4rem;font-weight:600}
-.media-title{font-family:var(--serif);font-size:.98rem;font-weight:600;color:var(--txt);line-height:1.35}
+.media-title{font-family:var(--serif);font-size:.98rem;font-weight:600;color:var(--txt);line-height:1.4}
+.media-date{font-size:.64rem;color:var(--muted-aa);margin-top:.5rem}
+/* Modal overlay for embedded player */
+.yt-modal-overlay{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.88);align-items:center;justify-content:center;padding:1.5rem}
+.yt-modal-overlay.open{display:flex}
+.yt-modal{position:relative;width:100%;max-width:900px;aspect-ratio:16/9;background:#000}
+.yt-modal iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+.yt-modal-close{position:absolute;top:-44px;right:0;background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:background .2s}
+.yt-modal-close:hover{background:rgba(255,255,255,.15)}
+.yt-modal-close:focus-visible{outline:2px solid var(--gold-b);outline-offset:2px}
+
 /* ── LIVE SECTION ── */
 .live-section{background:var(--bg-dk2);border-top:2px solid var(--gold)}
 .live-embed{position:relative;width:100%;aspect-ratio:16/9;background:#000;border:2px solid rgba(245,197,24,.2);overflow:hidden;cursor:pointer;max-width:760px;margin:0 auto}
@@ -262,16 +315,26 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
 .footer-logo-sub{font-size:.48rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-aa-dk);opacity:.85;margin-top:2px}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
+@keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.stat-animated{animation:countUp .6s ease both}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.hero-slide{transition:none}}
 @media(min-width:769px){.nav-links{display:flex!important}.nav-ham{display:none!important}}
-@media(max-width:1080px){.nav-links{gap:.55rem}.nav-links a{font-size:.56rem;letter-spacing:.07em}}
-@media(max-width:900px){.about-grid,.sched-grid,.founder-row,.footer-grid{grid-template-columns:1fr;gap:2rem}.quick-links{grid-template-columns:1fr}.ql-item{border-right:none;border-bottom:1px solid rgba(245,197,24,.15)}.prayer-grid{grid-template-columns:repeat(2,1fr)}.media-grid,.news-grid,.leader-grid{grid-template-columns:1fr}.s-pad{padding:3.5rem 1.5rem}.founder-img{max-width:100%}.pillars-grid{grid-template-columns:1fr 1fr}.gks-stream-grid{grid-template-columns:1fr}.social-cards{flex-direction:column;align-items:stretch}.social-connect{padding:4rem 1.5rem}}
-@media(max-width:768px){.nav-links{display:none!important}.nav-ham{display:flex!important;align-items:center;justify-content:center}.hero-content{padding:0 1.5rem}.hero-img-wrap{width:100%;opacity:.35}.pillars-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.s-pad{padding:3.5rem 1.5rem}}
-@media(max-width:480px){.prayer-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}.hero-content{padding:0 1.2rem}.s-pad{padding:3rem 1.2rem}}
+@media(max-width:1080px){.nav-links{gap:.55rem}.nav-links a{font-size:.56rem;letter-spacing:.07em}.pillars-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.about-body{grid-template-columns:1fr;gap:2.5rem}.about-stats{grid-template-columns:repeat(2,1fr)}.about-stat:nth-child(2){border-right:none}.about-stat:nth-child(3){border-top:1px solid var(--bdr)}.about-img-col{display:none}.sched-grid,.founder-row,.footer-grid{grid-template-columns:1fr;gap:2rem}.quick-links{grid-template-columns:1fr}.ql-item{border-right:none;border-bottom:1px solid rgba(245,197,24,.15)}.prayer-grid{grid-template-columns:repeat(2,1fr)}.media-grid,.news-grid,.leader-grid{grid-template-columns:1fr}.s-pad{padding:3.5rem 1.5rem}.founder-img{max-width:100%}.pillars-grid{grid-template-columns:1fr 1fr}.gks-stream-grid{grid-template-columns:1fr}.social-cards{flex-direction:column;align-items:stretch}.social-connect{padding:4rem 1.5rem}.about-scripture-band{margin:0 -1.5rem}}
+@media(max-width:768px){.nav-links{display:none!important}.nav-ham{display:flex!important;align-items:center;justify-content:center}.hero-content{padding:0 1.5rem}.hero-img-wrap{width:100%;opacity:.35}.pillars-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.s-pad{padding:3.5rem 1.5rem}.about-stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.prayer-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}.hero-content{padding:0 1.2rem}.s-pad{padding:3rem 1.2rem}.about-stats{grid-template-columns:1fr}.about-stat{border-right:none;border-bottom:1px solid var(--bdr)}.about-stat:last-child{border-bottom:none}}
 </style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ═══ YT MODAL ═══ -->
+<div class="yt-modal-overlay" id="ytModalOverlay" role="dialog" aria-modal="true" aria-label="Sermon video player" onclick="closeYTModal(event)">
+  <div class="yt-modal" id="ytModalInner">
+    <button class="yt-modal-close" onclick="closeYTModalBtn()" aria-label="Close video">&times;</button>
+    <div id="ytModalFrame"></div>
+  </div>
+</div>
 
 <!-- ═══ NAV ═══ -->
 <nav id="mainNav" aria-label="Primary navigation">
@@ -359,39 +422,99 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
   </a>
 </nav>
 
-<!-- ═══ ABOUT ═══ -->
+<!-- ═══ ABOUT — REDESIGNED ═══ -->
 <section class="about-section s-pad" id="about" aria-labelledby="about-h">
-  <div class="about-grid">
-    <div class="about-text">
-      <div class="s-tag" aria-hidden="true">Who We Are</div>
-      <h2 class="s-title" id="about-h">A Fellowship <em>Built</em><br>on the Living Word</h2>
-      <p>God's Kingdom Society (GKS) is a worldwide Christian fellowship founded on the uncompromising truth of God's Holy Word. We are a people called to worship in spirit and in truth, to study the Scriptures diligently, and to live as ambassadors of Christ's coming Kingdom.</p>
-      <p>With branches spread across Nigeria and the Diaspora, GKS stands as a beacon of sound doctrine, fervent prayer, and genuine fellowship — welcoming all who hunger for the authentic Christian life.</p>
-      <a href="#board" class="btn-primary" style="margin-top:1.5rem">Meet Our Leadership</a>
+
+  <!-- Masthead -->
+  <div class="about-masthead reveal">
+    <div class="s-tag ctr" aria-hidden="true">Who We Are</div>
+    <h2 class="s-title" id="about-h" style="font-size:clamp(2.2rem,4vw,3.4rem);text-align:center">A Fellowship <em>Built</em><br>on the Living Word</h2>
+    <p class="about-masthead-lead">"Proclaiming the Kingdom of God with uncompromising truth since the 1930s."</p>
+  </div>
+
+  <!-- Stats Bar -->
+  <div class="about-stats reveal">
+    <div class="about-stat">
+      <span class="stat-number" data-target="90">90+</span>
+      <span class="stat-label">Years of Ministry</span>
     </div>
-    <div class="pillars-grid">
-      <div class="pillar reveal">
-        <svg class="pillar-icon" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 5L20 35M10 12Q20 8 30 12"/><circle cx="20" cy="5" r="3"/></svg>
-        <h3 class="pillar-title">Sound Doctrine</h3>
-        <p class="pillar-text">We hold fast to the whole counsel of God's Word without addition or subtraction.</p>
-      </div>
-      <div class="pillar reveal">
-        <svg class="pillar-icon" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="14"/><path d="M20 10v10l6 4"/></svg>
-        <h3 class="pillar-title">Fervent Prayer</h3>
-        <p class="pillar-text">Prayer is the heartbeat of our fellowship — continuous, corporate, and personal.</p>
-      </div>
-      <div class="pillar reveal">
-        <svg class="pillar-icon" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32Q14 16 20 20Q26 24 32 8"/></svg>
-        <h3 class="pillar-title">Kingdom Growth</h3>
-        <p class="pillar-text">Every believer is equipped to advance the message of God's Kingdom on earth.</p>
-      </div>
-      <div class="pillar reveal">
-        <svg class="pillar-icon" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="14" cy="16" r="6"/><circle cx="26" cy="16" r="6"/><path d="M6 34Q6 26 14 26Q20 26 26 26Q34 26 34 34"/></svg>
-        <h3 class="pillar-title">True Fellowship</h3>
-        <p class="pillar-text">We are one body — united in faith, love, and the pursuit of godly living.</p>
+    <div class="about-stat">
+      <span class="stat-number">Global</span>
+      <span class="stat-label">Reach — Nigeria &amp; Diaspora</span>
+    </div>
+    <div class="about-stat">
+      <span class="stat-number">Weekly</span>
+      <span class="stat-label">Live-Streamed Services</span>
+    </div>
+    <div class="about-stat">
+      <span class="stat-number">Daily</span>
+      <span class="stat-label">Watch &amp; Pray — 7 AM &amp; 7 PM</span>
+    </div>
+  </div>
+
+  <!-- Scripture Band -->
+  <div class="about-scripture-band reveal">
+    <p class="scripture-text">"Seek ye first the Kingdom of God, and His righteousness; and all these things shall be added unto you."</p>
+    <cite class="scripture-ref">Matthew 6:33</cite>
+  </div>
+
+  <!-- Body Copy + Image Stack -->
+  <div class="about-body" style="margin-top:4.5rem">
+    <div class="about-text-col reveal">
+      <p>God's Kingdom Society (GKS) is a worldwide Christian fellowship founded on the uncompromising truth of God's Holy Word. We are a people called to worship in spirit and in truth, to study the Scriptures diligently, and to live as ambassadors of Christ's coming Kingdom.</p>
+      <div class="about-pull-quote">"We do not merely attend church — we are the Church, called to embody the Kingdom in every aspect of life."</div>
+      <p>With branches spread across Nigeria and the Diaspora, GKS stands as a beacon of sound doctrine, fervent prayer, and genuine fellowship — welcoming all who hunger for the authentic Christian life. From our Headquarters in Nigeria to sister branches around the world, we are one body, one family, one Kingdom.</p>
+      <p>Our gatherings are not simply meetings — they are divine appointments. Whether you join us physically or online through our live-streamed services, you will find a community committed to the Word, to worship, and to one another.</p>
+      <a href="#board" class="btn-primary" style="margin-top:1.8rem">Meet Our Leadership</a>
+    </div>
+    <div class="about-img-col reveal">
+      <div class="about-img-stack">
+        <img class="about-img-main"
+          src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
+          alt="St. G. M. Urhobo — Founding Instrument of GKS"
+          width="420" height="560"
+          onerror="this.parentElement.style.background='var(--bg3)'">
+        <img class="about-img-accent"
+          src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/F.E.ADEDOKUN.webp"
+          alt="Bro. F. E. Adedokun — President, GKS"
+          width="220" height="165"
+          onerror="this.style.display='none'">
+        <div class="about-img-badge">Est. 1930s</div>
       </div>
     </div>
   </div>
+
+  <!-- Pillars -->
+  <div class="about-pillars-wrap" style="margin-top:1rem">
+    <h3 class="about-pillars-heading reveal">The Four <em>Pillars</em> of Our Faith</h3>
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <span class="pillar-number" aria-hidden="true">01</span>
+        <svg class="pillar-icon" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 5L20 35M10 12Q20 8 30 12"/><circle cx="20" cy="5" r="3"/></svg>
+        <h3 class="pillar-title">Sound Doctrine</h3>
+        <p class="pillar-text">We hold fast to the whole counsel of God's Word without addition or subtraction — Scripture alone is our authority and our guide.</p>
+      </div>
+      <div class="pillar reveal">
+        <span class="pillar-number" aria-hidden="true">02</span>
+        <svg class="pillar-icon" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="14"/><path d="M20 10v10l6 4"/></svg>
+        <h3 class="pillar-title">Fervent Prayer</h3>
+        <p class="pillar-text">Prayer is the heartbeat of our fellowship — continuous, corporate, and personal. We gather daily at 7 AM and 7 PM to seek God together.</p>
+      </div>
+      <div class="pillar reveal">
+        <span class="pillar-number" aria-hidden="true">03</span>
+        <svg class="pillar-icon" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32Q14 16 20 20Q26 24 32 8"/></svg>
+        <h3 class="pillar-title">Kingdom Growth</h3>
+        <p class="pillar-text">Every believer is equipped and sent to advance the message of God's Kingdom on earth — in word, in deed, and in righteous living.</p>
+      </div>
+      <div class="pillar reveal">
+        <span class="pillar-number" aria-hidden="true">04</span>
+        <svg class="pillar-icon" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="14" cy="16" r="6"/><circle cx="26" cy="16" r="6"/><path d="M6 34Q6 26 14 26Q20 26 26 26Q34 26 34 34"/></svg>
+        <h3 class="pillar-title">True Fellowship</h3>
+        <p class="pillar-text">We are one body — united across tribes, nations, and generations in faith, love, and the unceasing pursuit of godly living.</p>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- ═══ SCHEDULE ═══ -->
@@ -442,31 +565,87 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
   <p style="text-align:center;margin-top:1.5rem;font-size:.74rem;color:rgba(245,240,230,.45);font-style:italic" aria-hidden="true">Gallery photos will appear here once uploaded to the repository.</p>
 </section>
 
-<!-- ═══ MEDIA ═══ -->
+<!-- ═══ MEDIA / SERMONS — with embedded YouTube ═══ -->
 <section class="media-section s-pad" id="media" aria-labelledby="media-h">
   <div class="s-tag" aria-hidden="true">Messages &amp; Sermons</div>
   <h2 class="s-title" id="media-h">Some of <em>Our Sermons</em></h2>
   <div class="media-grid">
+
+    <!-- Card 1 — Sunday Divine Service -->
     <article class="media-card reveal">
-      <div class="media-thumb"><div class="media-play"><button class="play-btn" aria-label="Play sermon: Walking in the Light of God's Word"><svg width="18" height="18" fill="#fff" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg></button></div></div>
-      <div class="media-body"><div class="media-tag">Sunday Service</div><h3 class="media-title">Walking in the Light of God's Word</h3></div>
+      <div class="media-thumb">
+        <img src="https://i.ytimg.com/vi/qIbIoHYLrhk/maxresdefault.jpg"
+             alt="O Taste and See that the Lord is Good — Divine Service thumbnail"
+             loading="lazy" width="480" height="270"
+             onerror="this.src='https://i.ytimg.com/vi/qIbIoHYLrhk/hqdefault.jpg'">
+        <div class="media-thumb-overlay">
+          <button class="play-btn"
+            onclick="openYTModal('qIbIoHYLrhk')"
+            aria-label="Play: O Taste and See That the Lord is Good — Sunday Divine Service">
+            <svg width="20" height="20" fill="var(--gold)" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Sunday Divine Service</div>
+        <h3 class="media-title">O Taste and See That the Lord is Good</h3>
+        <p class="media-date">May 31, 2026 &nbsp;·&nbsp; 2 hr 18 min</p>
+      </div>
     </article>
+
+    <!-- Card 2 — Feast of Tabernacles 2025 -->
     <article class="media-card reveal">
-      <div class="media-thumb"><div class="media-play"><button class="play-btn" aria-label="Play sermon: The Kingdom That Shall Never Be Destroyed"><svg width="18" height="18" fill="#fff" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg></button></div></div>
-      <div class="media-body"><div class="media-tag">Tabernacles</div><h3 class="media-title">The Kingdom That Shall Never Be Destroyed</h3></div>
+      <div class="media-thumb">
+        <img src="https://i.ytimg.com/vi/nD0EgXf1p_c/maxresdefault.jpg"
+             alt="Feast of Tabernacles 2025 — Last and Great Day Holy Convocation thumbnail"
+             loading="lazy" width="480" height="270"
+             onerror="this.src='https://i.ytimg.com/vi/nD0EgXf1p_c/hqdefault.jpg'">
+        <div class="media-thumb-overlay">
+          <button class="play-btn"
+            onclick="openYTModal('nD0EgXf1p_c')"
+            aria-label="Play: Feast of Tabernacles 2025 — Last and Great Day Holy Convocation">
+            <svg width="20" height="20" fill="var(--gold)" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Feast of Tabernacles 2025</div>
+        <h3 class="media-title">Last &amp; Great Day Holy Convocation</h3>
+        <p class="media-date">December 21, 2025 &nbsp;·&nbsp; 5 hr 20 min</p>
+      </div>
     </article>
+
+    <!-- Card 3 — Mid-Week Bible Study -->
     <article class="media-card reveal">
-      <div class="media-thumb"><div class="media-play"><button class="play-btn" aria-label="Play sermon: Faith, Patience and the Promise"><svg width="18" height="18" fill="#fff" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg></button></div></div>
-      <div class="media-body"><div class="media-tag">Midweek Teaching</div><h3 class="media-title">Faith, Patience and the Promise</h3></div>
+      <div class="media-thumb">
+        <img src="https://i.ytimg.com/vi/6zs_gCponz0/maxresdefault.jpg"
+             alt="Has This World an End? — Study Meeting thumbnail"
+             loading="lazy" width="480" height="270"
+             onerror="this.src='https://i.ytimg.com/vi/6zs_gCponz0/hqdefault.jpg'">
+        <div class="media-thumb-overlay">
+          <button class="play-btn"
+            onclick="openYTModal('6zs_gCponz0')"
+            aria-label="Play: Has This World an End? — Mid-Week Bible Study">
+            <svg width="20" height="20" fill="var(--gold)" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Mid-Week Bible Study</div>
+        <h3 class="media-title">Has This World an End?</h3>
+        <p class="media-date">June 3, 2026 &nbsp;·&nbsp; 1 hr 3 min</p>
+      </div>
     </article>
+
   </div>
-  <div style="text-align:center;margin-top:2.5rem"><a href="#" class="btn-outline">View Full Archive</a></div>
+  <div style="text-align:center;margin-top:2.5rem">
+    <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer" class="btn-outline">View Full Archive on YouTube</a>
+  </div>
 </section>
 
 <!-- ═══ LIVE STREAM ═══ -->
 <section class="live-section s-pad" id="live" aria-labelledby="live-h">
 
-  <!-- Header -->
   <div style="text-align:center;margin-bottom:3rem">
     <div class="live-badge-row" style="justify-content:center;width:auto;margin:0 auto 1.2rem">
       <span class="live-dot-sm" aria-hidden="true"></span> Live Broadcasts
@@ -481,10 +660,7 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
     </p>
   </div>
 
-  <!-- 3 Service Cards -->
   <div class="gks-stream-grid">
-
-    <!-- Daily Watch & Pray -->
     <div class="gks-stream-card">
       <div class="live-badge-row"><span class="live-dot-sm" aria-hidden="true"></span>Live Daily</div>
       <div class="gks-card-day">Monday – Saturday</div>
@@ -494,13 +670,11 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
         <div class="gks-time-row"><span class="gks-time-label">Morning</span><span class="gks-time-val">7:00 AM</span></div>
         <div class="gks-time-row"><span class="gks-time-label">Evening</span><span class="gks-time-val">7:00 PM</span></div>
       </div>
-      <a href="https://www.youtube.com/@gkswatchpray/live" target="_blank" rel="noopener noreferrer" class="gks-watch-btn" aria-label="Watch Daily Watch and Pray live on YouTube">
+      <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer" class="gks-watch-btn" aria-label="Watch Daily Watch and Pray on YouTube">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        Watch Live on YouTube
+        Go to YouTube Channel
       </a>
     </div>
-
-    <!-- Mid-Week Bible Study -->
     <div class="gks-stream-card featured">
       <span class="gks-featured-badge" aria-hidden="true">Featured Service</span>
       <div class="live-badge-row"><span class="live-dot-sm" aria-hidden="true"></span>Live Wednesday</div>
@@ -510,13 +684,11 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
       <div style="display:flex;flex-direction:column;gap:.5rem;margin:.4rem 0">
         <div class="gks-time-row"><span class="gks-time-label">Time</span><span class="gks-time-val">5:00 – 6:00 PM</span></div>
       </div>
-      <a href="https://www.youtube.com/@gkswatchpray/live" target="_blank" rel="noopener noreferrer" class="gks-watch-btn" aria-label="Watch Mid-Week Bible Study live on YouTube">
+      <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer" class="gks-watch-btn" aria-label="Watch Mid-Week Bible Study on YouTube">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        Watch Live on YouTube
+        Go to YouTube Channel
       </a>
     </div>
-
-    <!-- Sunday Divine Service -->
     <div class="gks-stream-card">
       <div class="live-badge-row"><span class="live-dot-sm" aria-hidden="true"></span>Live Sunday</div>
       <div class="gks-card-day">Every Sunday</div>
@@ -525,15 +697,14 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
       <div style="display:flex;flex-direction:column;gap:.5rem;margin:.4rem 0">
         <div class="gks-time-row"><span class="gks-time-label">Time</span><span class="gks-time-val">9:00 – 11:00 AM</span></div>
       </div>
-      <a href="https://www.youtube.com/@gkswatchpray/live" target="_blank" rel="noopener noreferrer" class="gks-watch-btn" aria-label="Watch Sunday Divine Service live on YouTube">
+      <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer" class="gks-watch-btn" aria-label="Watch Sunday Divine Service on YouTube">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        Watch Live on YouTube
+        Go to YouTube Channel
       </a>
     </div>
-
   </div>
 
-  <!-- YouTube Player (click to load) -->
+  <!-- Live Stream Embed — always shows the channel live/latest -->
   <div style="max-width:760px;margin:0 auto 2.5rem">
     <div class="live-embed" id="ytFacade"
          role="button" tabindex="0"
@@ -542,9 +713,7 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
          onkeydown="if(event.key==='Enter'||event.key===' ')gksLoadYT()">
       <div class="yt-facade">
         <div style="display:flex;flex-direction:column;align-items:center;gap:.6rem;margin-bottom:.5rem">
-          <!-- YouTube icon -->
           <div style="background:#ff0000;border-radius:10px;padding:10px 16px;display:flex;align-items:center;justify-content:center">
-            <svg width="0" height="0" viewBox="0 0 0 0" aria-hidden="true"></svg>
             <div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:22px solid #fff;margin-left:4px"></div>
           </div>
           <div style="font-family:var(--serif);font-size:1rem;font-weight:700;color:#fff;letter-spacing:.06em">GKS WATCH &amp; PRAY</div>
@@ -558,7 +727,6 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
     </div>
   </div>
 
-  <!-- Subscribe & Follow Buttons -->
   <div class="gks-social-row">
     <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer" class="btn-yt" aria-label="Subscribe to GKS Watch and Pray on YouTube">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6a3 3 0 00-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zm-14 9.37V8.43L15.82 12l-6.32 3.57z"/></svg>
@@ -785,22 +953,26 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
 </footer>
 
 <script>
-// ── Hero slideshow ──────────────────────────────────────────
-// Slide 0 is pre-rendered in HTML — JS only builds slides 1-3
+// ── Hero slideshow — all 10 images ──────────────────────────
 const BASE='https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/';
+// Slide 0 is pre-rendered in HTML; remaining 9 built by JS
 const slides=[
-  {src:'F.E.ADEDOKUN.webp', name:'Bro. F. E. Adedokun',   title:'President'},
-  {src:'T.M.EKISEOWEI.webp',name:'Bro. T. M. Ekiseowei',  title:'Vice President'},
-  {src:'B.T.HART.webp',     name:'Bro. B. T. Hart',        title:'General Secretary'},
-  {src:'O.D.AKINWALE.webp', name:'Bro. O. D. Akinwale',    title:'Treasurer'},
+  {src:'F.E.ADEDOKUN.webp',  name:'Bro. F. E. Adedokun',   title:'President'},
+  {src:'T.M.EKISEOWEI.webp', name:'Bro. T. M. Ekiseowei',  title:'Vice President'},
+  {src:'B.T.HART.webp',      name:'Bro. B. T. Hart',        title:'General Secretary'},
+  {src:'O.D.AKINWALE.webp',  name:'Bro. O. D. Akinwale',   title:'Treasurer'},
+  {src:'A.A.ERHA.webp',      name:'Bro. A. A. Erha',        title:'Executive Board Member'},
+  {src:'J.N.W.CHUKWUDI.webp',name:'Bro. J. N. W. Chukwudi',title:'Executive Board Member'},
+  {src:'ST.G.M.URHOBO.webp', name:'St. G. M. Urhobo',       title:'Founding Instrument'},
+  {src:'E.T.OTOMEWO.webp',   name:'Late Bro. E. T. Otomewo',title:'2nd President · 1957–1997'},
+  {src:'O.E.AIGHALUA.webp',  name:'Late Bro. O. E. Aighalua',title:'3rd President · 2001–2011'},
+  {src:'G.O.IFEACHO.webp',   name:'Late Bro. G. O. Ifeacho',title:'4th President · 2016–2021'},
 ];
 const slidesEl=document.getElementById('heroSlides');
 const dotsEl=document.getElementById('heroDots');
-// Cache all slide/dot refs — avoids querySelectorAll on every tick
 const slideEls=[document.getElementById('heroSlide0')];
 const dotEls=[];
 let cur=0,timer;
-// Use DocumentFragment for batch DOM insert — no forced reflow
 const frag=document.createDocumentFragment();
 slides.forEach((s,i)=>{
   if(i>0){
@@ -817,7 +989,7 @@ slides.forEach((s,i)=>{
   dotsEl.appendChild(btn);
   dotEls.push(btn);
 });
-slidesEl.appendChild(frag); // single DOM write for all new slides
+slidesEl.appendChild(frag);
 function goTo(n){
   slideEls[cur].classList.remove('active');
   dotEls[cur].classList.remove('active');
@@ -830,7 +1002,7 @@ function goTo(n){
 function next(){goTo((cur+1)%slides.length);}
 timer=setInterval(next,5000);
 
-// ── Nav hamburger ───────────────────────────────────────────
+// ── Nav hamburger ─────────────────────────────────────────
 const ham=document.getElementById('navHam');
 const drawer=document.getElementById('navDrawer');
 ham.addEventListener('click',()=>{
@@ -844,19 +1016,45 @@ drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
   ham.setAttribute('aria-label','Open navigation menu');
 }));
 
-// ── Scroll reveal ───────────────────────────────────────────
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:.12});
+// ── Scroll reveal ─────────────────────────────────────────
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-// ── YouTube click-to-load ───────────────────────────────────
-// Channel: GKS Watch & Pray | @gkswatchpray | ID: UC3UdJu8Q1iWUDbWuZSsetbA
-// Shows live stream if broadcasting, falls back to latest video if not.
+// ── YouTube live stream facade ─────────────────────────────
+// Uses the official channel page — always shows live if broadcasting,
+// falls back to latest video otherwise. Never shows "video unavailable."
 function gksLoadYT(){
   const el=document.getElementById('ytFacade');
-  el.innerHTML='<iframe src="https://www.youtube.com/embed/live_stream?channel=UC3UdJu8Q1iWUDbWuZSsetbA&autoplay=1&rel=0&modestbranding=1" title="GKS Watch and Pray — Live Stream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe>';
+  // Embed the channel's live page; YouTube auto-detects live vs latest
+  el.innerHTML='<iframe src="https://www.youtube.com/embed/live_stream?channel=UC3UdJu8Q1iWUDbWuZSsetbA&autoplay=1&rel=0&modestbranding=1" title="GKS Watch and Pray — Live Stream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe>';
   el.style.cursor='default';
+  el.removeAttribute('tabindex');
 }
+
+// ── Sermon modal player ────────────────────────────────────
+function openYTModal(videoId){
+  const overlay=document.getElementById('ytModalOverlay');
+  const frame=document.getElementById('ytModalFrame');
+  frame.innerHTML='<iframe src="https://www.youtube.com/embed/'+videoId+'?autoplay=1&rel=0&modestbranding=1" title="GKS Sermon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe>';
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+  // Trap focus on close btn
+  document.querySelector('.yt-modal-close').focus();
+}
+function closeYTModalBtn(){
+  const overlay=document.getElementById('ytModalOverlay');
+  document.getElementById('ytModalFrame').innerHTML='';
+  overlay.classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeYTModal(e){
+  if(e.target===document.getElementById('ytModalOverlay')) closeYTModalBtn();
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeYTModalBtn();
+});
 </script>
 </body>
 </html>
-  
