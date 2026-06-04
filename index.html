@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
 <link rel="preload" as="image"
-  href="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/F.E.ADEDOKUN.webp"
+  href="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
   fetchpriority="high">
 <link rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
@@ -105,7 +105,7 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .s-title.light{color:#fff}
 
 /* ═══════════════════════════════════════════
-   ABOUT SECTION — REDESIGNED
+   ABOUT SECTION — REDESIGNED WITH SEPARATE PAGE FEEL
 ═══════════════════════════════════════════ */
 .about-section{background:var(--bg);overflow:hidden}
 .about-masthead{text-align:center;max-width:700px;margin:0 auto 4.5rem}
@@ -113,7 +113,6 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .about-masthead .s-tag::after{display:none}
 .about-masthead .s-title{font-size:clamp(2.2rem,4vw,3.4rem)}
 .about-masthead-lead{font-size:1.05rem;color:var(--txt-m);line-height:1.9;font-style:italic;font-family:var(--serif);margin-top:.5rem}
-/* Horizontal scroll stat bar */
 .about-stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--bdr);margin-bottom:4.5rem}
 .about-stat{padding:2.2rem 1.5rem;text-align:center;border-right:1px solid var(--bdr);position:relative;overflow:hidden}
 .about-stat:last-child{border-right:none}
@@ -121,17 +120,30 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .about-stat:hover::before{opacity:1}
 .stat-number{font-family:var(--serif);font-size:2.8rem;font-weight:700;color:var(--gold-aa);line-height:1;display:block}
 .stat-label{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-aa);margin-top:.5rem;display:block}
-/* Two-col text + image layout */
+
+/* FOUNDER FEATURE — redesigned as editorial spread */
+.founder-feature{background:var(--bg-dk2);position:relative;overflow:hidden;margin:0 -4rem 4.5rem;padding:0}
+.founder-feature-inner{display:grid;grid-template-columns:380px 1fr;min-height:520px}
+.founder-feature-img{position:relative;overflow:hidden}
+.founder-feature-img img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;filter:sepia(20%) contrast(1.05)}
+.founder-feature-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,var(--bg-dk2) 100%)}
+.founder-feature-content{padding:3.5rem 4rem 3.5rem 3rem;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.founder-feature-eyebrow{font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-b);font-weight:700;margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem}
+.founder-feature-eyebrow::before{content:'';display:block;width:28px;height:1.5px;background:var(--gold-b)}
+.founder-feature-name{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:#fff;line-height:1.05;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.5rem}
+.founder-feature-role{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,197,24,.6);margin-bottom:2rem;font-weight:500}
+.founder-feature-text{font-size:.88rem;color:rgba(245,240,230,.78);line-height:2;max-width:520px}
+.founder-feature-text p{margin-bottom:1rem}
+.founder-feature-est{position:absolute;bottom:3rem;right:4rem;font-family:var(--serif);font-size:8rem;font-weight:700;color:rgba(245,197,24,.04);line-height:1;user-select:none;pointer-events:none}
+
+/* About body */
 .about-body{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-bottom:4.5rem}
-.about-text-col{}
 .about-text-col p{font-size:.9rem;color:var(--txt-m);line-height:1.95;margin-bottom:1.1rem}
 .about-pull-quote{border-left:3px solid var(--gold);padding:.8rem 0 .8rem 1.8rem;margin:2rem 0;font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--gold-aa);line-height:1.5}
 .about-img-col{position:relative}
 .about-img-stack{position:relative;padding-bottom:3rem;padding-right:3rem}
 .about-img-main{width:100%;display:block;border:1px solid var(--bdr);aspect-ratio:3/4;object-fit:cover;object-position:top}
-.about-img-accent{position:absolute;bottom:0;right:0;width:55%;border:3px solid var(--bg);box-shadow:0 8px 40px rgba(0,0,0,.15);aspect-ratio:4/3;object-fit:cover;object-position:center top}
 .about-img-badge{position:absolute;top:1.5rem;left:-1.5rem;background:var(--gold);color:#fff;font-size:.56rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:.5rem 1.1rem;writing-mode:horizontal-tb}
-/* Pillars grid */
 .about-pillars-wrap{}
 .about-pillars-heading{font-family:var(--serif);font-size:1.4rem;font-weight:300;color:var(--txt);margin-bottom:2rem;text-align:center}
 .about-pillars-heading em{color:var(--gold-aa);font-style:italic}
@@ -145,7 +157,6 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .pillar-title{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--txt);margin-bottom:.5rem}
 .pillar-text{font-size:.74rem;color:var(--muted-aa);line-height:1.75}
 .pillar-number{position:absolute;top:.8rem;right:1rem;font-family:var(--serif);font-size:3.5rem;font-weight:700;color:rgba(184,134,11,.07);line-height:1;user-select:none}
-/* Scripture band */
 .about-scripture-band{background:var(--bg-dk);padding:3rem 4rem;text-align:center;border-top:1px solid rgba(245,197,24,.2);border-bottom:1px solid rgba(245,197,24,.2);margin:0 -4rem}
 .scripture-text{font-family:var(--serif);font-size:clamp(1.1rem,2.2vw,1.6rem);color:rgba(245,240,230,.9);font-style:italic;line-height:1.65;max-width:680px;margin:0 auto .8rem}
 .scripture-ref{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-b);font-style:normal}
@@ -172,9 +183,15 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .pi-icon{font-family:var(--serif);font-size:3rem;color:rgba(184,134,11,.2);font-style:italic}
 .pi-verse{font-family:var(--serif);font-size:.8rem;color:rgba(245,240,230,.4);font-style:italic;margin-top:.5rem;line-height:1.5}
 
-/* ═══ MEDIA / SERMONS — redesigned with embedded YT ═══ */
+/* ═══ MEDIA / SERMONS ═══ */
 .media-section{background:var(--bg)}
-.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+/* Bigger, bolder media heading */
+.media-section-head{margin-bottom:2.5rem}
+.media-section-head .s-tag{font-size:.62rem}
+.media-section-title{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.6rem);font-weight:700;line-height:1.1;color:var(--txt);margin-bottom:.5rem}
+.media-section-title em{font-style:italic;color:var(--gold-aa)}
+.media-section-sub{font-size:.9rem;color:var(--txt-m);line-height:1.8}
+.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .media-card{background:#fff;border:1px solid var(--bdr);transition:all .2s;box-shadow:0 2px 12px rgba(184,134,11,.06);overflow:hidden}
 .media-card:hover{border-color:var(--gold);box-shadow:0 6px 28px rgba(184,134,11,.14);transform:translateY(-2px)}
 .media-thumb{position:relative;width:100%;padding-top:56.25%;background:var(--bg-dk2);overflow:hidden}
@@ -188,9 +205,10 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .play-btn svg{margin-left:3px}
 .media-body{padding:1.3rem}
 .media-tag{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:.4rem;font-weight:600}
-.media-title{font-family:var(--serif);font-size:.98rem;font-weight:600;color:var(--txt);line-height:1.4}
+/* Bigger bold sermon title */
+.media-title{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--txt);line-height:1.35}
 .media-date{font-size:.64rem;color:var(--muted-aa);margin-top:.5rem}
-/* Modal overlay for embedded player */
+/* Modal */
 .yt-modal-overlay{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.88);align-items:center;justify-content:center;padding:1.5rem}
 .yt-modal-overlay.open{display:flex}
 .yt-modal{position:relative;width:100%;max-width:900px;aspect-ratio:16/9;background:#000}
@@ -199,8 +217,51 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .yt-modal-close:hover{background:rgba(255,255,255,.15)}
 .yt-modal-close:focus-visible{outline:2px solid var(--gold-b);outline-offset:2px}
 
-/* ── LIVE SECTION ── */
-.live-section{background:var(--bg-dk2);border-top:2px solid var(--gold)}
+/* ═══════════════════════════════════════════
+   LIVE BROADCASTS — SCROLL-STOPPING REDESIGN
+═══════════════════════════════════════════ */
+.live-section{background:var(--bg-dk2);border-top:2px solid var(--gold);overflow:hidden}
+/* Hero header */
+.live-hero-head{text-align:center;margin-bottom:4rem;position:relative;padding:0 2rem}
+.live-hero-head::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(184,134,11,.08) 0%,transparent 70%);pointer-events:none}
+/* BROADCAST CARDS — large immersive tiles */
+.broadcast-grid{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:0;border:1px solid rgba(245,197,24,.2);margin-bottom:4rem;position:relative}
+.broadcast-card{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:3rem 2.5rem;border-right:1px solid rgba(245,197,24,.12);min-height:420px;cursor:pointer;transition:background .4s}
+.broadcast-card:last-child{border-right:none}
+/* Animated gradient sweep on hover */
+.broadcast-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,134,11,0) 0%,rgba(184,134,11,.06) 50%,rgba(184,134,11,0) 100%);opacity:0;transition:opacity .4s;pointer-events:none}
+.broadcast-card:hover::before{opacity:1}
+/* Vertical gold accent bar */
+.broadcast-card::after{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold-b);transition:height .5s ease;pointer-events:none}
+.broadcast-card:hover::after{height:100%}
+.broadcast-card.featured{background:rgba(245,197,24,.05)}
+.broadcast-card.featured::after{height:100%;width:4px;background:linear-gradient(to bottom,var(--gold-b),var(--gold))}
+/* Card top label */
+.bc-status{display:flex;align-items:center;gap:.6rem;margin-bottom:2rem}
+.bc-live-pill{display:flex;align-items:center;gap:.45rem;background:rgba(224,90,78,.15);border:1px solid rgba(224,90,78,.35);padding:.28rem .75rem;font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:#e05a4e;font-weight:700}
+.bc-featured-pill{background:rgba(245,197,24,.2);border:1px solid rgba(245,197,24,.4);color:var(--gold-b);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:.28rem .75rem}
+.bc-pulse{width:6px;height:6px;border-radius:50%;background:#e05a4e;animation:livePulse 1.8s ease-in-out infinite;flex-shrink:0}
+/* Card content */
+.bc-body{flex:1;display:flex;flex-direction:column;gap:1rem}
+.bc-number{font-family:var(--serif);font-size:5rem;font-weight:700;color:rgba(245,197,24,.06);line-height:1;user-select:none;position:absolute;right:1.5rem;top:2.5rem}
+.bc-day-tag{font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(245,240,230,.4);font-weight:600}
+.bc-title{font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;color:#fff;line-height:1.1;margin:0}
+.bc-subtitle{font-size:.8rem;color:rgba(245,240,230,.55);margin:0;line-height:1.6}
+/* Times display */
+.bc-times{display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem}
+.bc-time-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem;background:rgba(255,255,255,.04);border:1px solid rgba(245,197,24,.1)}
+.bc-time-label{font-size:.65rem;color:rgba(245,240,230,.45);letter-spacing:.08em;font-weight:500}
+.bc-time-val{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--gold-b)}
+/* Watch CTA */
+.bc-cta{display:inline-flex;align-items:center;gap:.6rem;background:transparent;border:1px solid rgba(245,197,24,.35);color:var(--gold-b);padding:.75rem 1.4rem;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:all .3s;margin-top:1.5rem;width:fit-content}
+.bc-cta:hover,.broadcast-card:hover .bc-cta{background:var(--gold);color:var(--bg-dk2);border-color:var(--gold)}
+.bc-cta svg{transition:transform .2s}
+.bc-cta:hover svg{transform:translateX(3px)}
+/* Featured card extra glow */
+.broadcast-card.featured .bc-title{color:var(--gold-b)}
+.broadcast-card.featured .bc-cta{border-color:var(--gold-b);background:rgba(245,197,24,.08)}
+/* Divider between grid and embed */
+.live-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(245,197,24,.3),transparent);margin:0 0 2.5rem}
 .live-embed{position:relative;width:100%;aspect-ratio:16/9;background:#000;border:2px solid rgba(245,197,24,.2);overflow:hidden;cursor:pointer;max-width:760px;margin:0 auto}
 .live-embed:hover{border-color:rgba(245,197,24,.5)}
 .yt-facade{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;background:linear-gradient(135deg,#1a0f00,#0a0700);position:relative;padding:2rem}
@@ -210,28 +271,12 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .yt-label{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);text-align:center}
 .live-badge-row{display:flex;align-items:center;gap:.5rem;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(224,90,78,.85);padding:.28rem .7rem;width:fit-content}
 .live-dot-sm{width:6px;height:6px;border-radius:50%;background:#fff;animation:livePulse 1.8s ease-in-out infinite;flex-shrink:0}
-/* stream service cards */
-.gks-stream-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.5rem;margin-bottom:3rem}
-.gks-stream-card{background:rgba(255,255,255,.05);border:1px solid rgba(245,197,24,.2);border-radius:8px;padding:1.8rem;display:flex;flex-direction:column;gap:.8rem;transition:border-color .2s}
-.gks-stream-card:hover{border-color:rgba(245,197,24,.6)}
-.gks-stream-card.featured{background:rgba(245,197,24,.08);border-color:rgba(245,197,24,.4);position:relative}
-.gks-stream-card.featured:hover{border-color:rgba(245,197,24,.9)}
-.gks-featured-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--bg-dk2);font-size:.58rem;font-weight:800;letter-spacing:.12em;padding:3px 12px;text-transform:uppercase;white-space:nowrap}
-.gks-card-day{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,230,.4);font-weight:600}
-.gks-card-title{font-family:var(--serif);font-size:1.2rem;color:#fff;font-weight:600;margin:0}
-.gks-card-sub{font-size:.8rem;color:rgba(245,240,230,.6);margin:0}
-.gks-time-row{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.06);padding:.6rem 1rem;border-radius:6px}
-.gks-time-label{font-size:.72rem;color:rgba(245,240,230,.5);font-weight:500}
-.gks-time-val{font-size:.88rem;color:var(--gold-b);font-weight:700}
-.gks-watch-btn{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(245,197,24,.5);color:var(--gold-b);padding:.65rem 1.2rem;border-radius:4px;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-decoration:none;text-transform:uppercase;transition:background .2s;margin-top:.4rem}
-.gks-watch-btn:hover{background:rgba(245,197,24,.12)}
-.gks-watch-btn:focus-visible{outline:2px solid var(--gold-b);outline-offset:2px}
 .gks-social-row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem}
 .btn-yt{display:inline-flex;align-items:center;gap:.8rem;background:#ff0000;color:#fff;padding:.85rem 1.8rem;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:opacity .2s;min-height:44px}
 .btn-yt:hover{opacity:.88}
 .btn-fb{display:inline-flex;align-items:center;gap:.8rem;background:#1877f2;color:#fff;padding:.85rem 1.8rem;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:opacity .2s;min-height:44px}
 .btn-fb:hover{opacity:.88}
-/* ── SOCIAL CONNECT SECTION ── */
+/* ── SOCIAL CONNECT ── */
 .social-connect{background:#111a26;padding:5rem 4rem;text-align:center;border-top:1px solid rgba(245,197,24,.15)}
 .social-connect h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;color:#fff;margin-bottom:.8rem}
 .social-connect h2 em{color:var(--gold-b);font-style:italic}
@@ -254,8 +299,9 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:3
 .board-section{background:var(--bg3);border-top:1px solid var(--bdr)}
 .board-intro{max-width:580px;margin-bottom:3.5rem}
 .board-intro p{font-size:.86rem;color:var(--txt-m);line-height:1.9}
-.founder-row{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:center;margin-bottom:4rem;padding:3rem;background:#fff;border:1px solid var(--bdr)}
-.founder-img{width:100%;max-width:420px}
+/* Founder row — solo, no paired image */
+.founder-row{display:grid;grid-template-columns:380px 1fr;gap:4rem;align-items:center;margin-bottom:4rem;padding:3rem;background:#fff;border:1px solid var(--bdr)}
+.founder-img{width:100%}
 .founder-img-inner{position:relative;width:100%;padding-top:133.33%;overflow:hidden}
 .founder-img-inner img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 .founder-label{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-aa);margin-bottom:1rem;font-weight:600}
@@ -317,11 +363,18 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
 .reveal.visible{opacity:1;transform:translateY(0)}
 @keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .stat-animated{animation:countUp .6s ease both}
+/* Broadcast card entrance animation */
+@keyframes bcReveal{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.broadcast-card{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease,background .4s}
+.broadcast-card.bc-visible{opacity:1;transform:translateY(0)}
+.broadcast-card:nth-child(1){transition-delay:.1s}
+.broadcast-card:nth-child(2){transition-delay:.22s}
+.broadcast-card:nth-child(3){transition-delay:.34s}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.hero-slide{transition:none}}
 @media(min-width:769px){.nav-links{display:flex!important}.nav-ham{display:none!important}}
-@media(max-width:1080px){.nav-links{gap:.55rem}.nav-links a{font-size:.56rem;letter-spacing:.07em}.pillars-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:900px){.about-body{grid-template-columns:1fr;gap:2.5rem}.about-stats{grid-template-columns:repeat(2,1fr)}.about-stat:nth-child(2){border-right:none}.about-stat:nth-child(3){border-top:1px solid var(--bdr)}.about-img-col{display:none}.sched-grid,.founder-row,.footer-grid{grid-template-columns:1fr;gap:2rem}.quick-links{grid-template-columns:1fr}.ql-item{border-right:none;border-bottom:1px solid rgba(245,197,24,.15)}.prayer-grid{grid-template-columns:repeat(2,1fr)}.media-grid,.news-grid,.leader-grid{grid-template-columns:1fr}.s-pad{padding:3.5rem 1.5rem}.founder-img{max-width:100%}.pillars-grid{grid-template-columns:1fr 1fr}.gks-stream-grid{grid-template-columns:1fr}.social-cards{flex-direction:column;align-items:stretch}.social-connect{padding:4rem 1.5rem}.about-scripture-band{margin:0 -1.5rem}}
-@media(max-width:768px){.nav-links{display:none!important}.nav-ham{display:flex!important;align-items:center;justify-content:center}.hero-content{padding:0 1.5rem}.hero-img-wrap{width:100%;opacity:.35}.pillars-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.s-pad{padding:3.5rem 1.5rem}.about-stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1080px){.nav-links{gap:.55rem}.nav-links a{font-size:.56rem;letter-spacing:.07em}.pillars-grid{grid-template-columns:repeat(2,1fr)}.broadcast-grid{grid-template-columns:1fr}}
+@media(max-width:900px){.about-body{grid-template-columns:1fr;gap:2.5rem}.about-stats{grid-template-columns:repeat(2,1fr)}.about-stat:nth-child(2){border-right:none}.about-stat:nth-child(3){border-top:1px solid var(--bdr)}.about-img-col{display:none}.sched-grid,.founder-row,.footer-grid{grid-template-columns:1fr;gap:2rem}.quick-links{grid-template-columns:1fr}.ql-item{border-right:none;border-bottom:1px solid rgba(245,197,24,.15)}.prayer-grid{grid-template-columns:repeat(2,1fr)}.media-grid,.news-grid,.leader-grid{grid-template-columns:1fr}.s-pad{padding:3.5rem 1.5rem}.founder-img{max-width:100%}.pillars-grid{grid-template-columns:1fr 1fr}.social-cards{flex-direction:column;align-items:stretch}.social-connect{padding:4rem 1.5rem}.about-scripture-band{margin:0 -1.5rem}.founder-feature-inner{grid-template-columns:1fr}.founder-feature-img{height:280px}.founder-feature-img img{object-fit:cover;object-position:top}.founder-feature-content{padding:2rem 1.5rem}.founder-feature-est{display:none}}
+@media(max-width:768px){.nav-links{display:none!important}.nav-ham{display:flex!important;align-items:center;justify-content:center}.hero-content{padding:0 1.5rem}.hero-img-wrap{width:100%;opacity:.35}.pillars-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.s-pad{padding:3.5rem 1.5rem}.about-stats{grid-template-columns:repeat(2,1fr)}.broadcast-grid{grid-template-columns:1fr}.broadcast-card{min-height:auto}}
 @media(max-width:480px){.prayer-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}.hero-content{padding:0 1.2rem}.s-pad{padding:3rem 1.2rem}.about-stats{grid-template-columns:1fr}.about-stat{border-right:none;border-bottom:1px solid var(--bdr)}.about-stat:last-child{border-bottom:none}}
 </style>
 </head>
@@ -376,15 +429,15 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
   <div class="hero-slides" id="heroSlides">
   <div class="hero-slide active" id="heroSlide0">
     <div class="hero-img-wrap">
-      <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/F.E.ADEDOKUN.webp"
-           alt="Bro. F. E. Adedokun — President, God's Kingdom Society"
+      <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
+           alt="St. G. M. Urhobo — Founding Instrument of God's Kingdom Society"
            width="800" height="1000"
            fetchpriority="high"
            decoding="async">
     </div>
     <div class="hero-slide-caption">
-      <div class="cap-name">Bro. F. E. Adedokun</div>
-      <div class="cap-title">President</div>
+      <div class="cap-name">St. G. M. Urhobo</div>
+      <div class="cap-title">Founding Instrument</div>
     </div>
   </div>
 </div>
@@ -422,7 +475,9 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
   </a>
 </nav>
 
-<!-- ═══ ABOUT — REDESIGNED ═══ -->
+<!-- ═══════════════════════════════════════════
+     ABOUT — REDESIGNED AS STANDALONE PAGE FEEL
+═══════════════════════════════════════════ -->
 <section class="about-section s-pad" id="about" aria-labelledby="about-h">
 
   <!-- Masthead -->
@@ -435,7 +490,7 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
   <!-- Stats Bar -->
   <div class="about-stats reveal">
     <div class="about-stat">
-      <span class="stat-number" data-target="90">90+</span>
+      <span class="stat-number">90+</span>
       <span class="stat-label">Years of Ministry</span>
     </div>
     <div class="about-stat">
@@ -448,7 +503,29 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
     </div>
     <div class="about-stat">
       <span class="stat-number">Daily</span>
-      <span class="stat-label">Watch &amp; Pray — 7 AM &amp; 7 PM</span>
+      <span class="stat-label">Watch &amp; Pray — 7 AM &amp; 7:30 PM</span>
+    </div>
+  </div>
+
+  <!-- ═══ FOUNDER FEATURE — editorial dark spread ═══ -->
+  <div class="founder-feature reveal">
+    <div class="founder-feature-inner">
+      <div class="founder-feature-img">
+        <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
+          alt="St. G. M. Urhobo — Founding Instrument of God's Kingdom Society"
+          width="380" height="520"
+          onerror="this.parentElement.style.background='#2a1f06'">
+      </div>
+      <div class="founder-feature-content">
+        <div class="founder-feature-eyebrow">Founding Instrument</div>
+        <div class="founder-feature-name">St G. M. Urhobo</div>
+        <div class="founder-feature-role">The Vessel of Honour · Established GKS in the 1930s</div>
+        <div class="founder-feature-text">
+          <p>God's Kingdom Society was established through the life and labours of St. G. M. Urhobo, a man wholly consecrated to the service of Almighty God. Under his leadership, a fellowship was born — one rooted not in the traditions of men, but in the pure and undefiled Word of God.</p>
+          <p>His vision was singular: to raise a people who would seek first the Kingdom of God, who would worship in spirit and in truth, and who would carry the undiluted Gospel of Christ to every corner of the earth. That vision endures to this day.</p>
+        </div>
+        <div class="founder-feature-est" aria-hidden="true">1930s</div>
+      </div>
     </div>
   </div>
 
@@ -458,7 +535,7 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
     <cite class="scripture-ref">Matthew 6:33</cite>
   </div>
 
-  <!-- Body Copy + Image Stack -->
+  <!-- Body Copy -->
   <div class="about-body" style="margin-top:4.5rem">
     <div class="about-text-col reveal">
       <p>God's Kingdom Society (GKS) is a worldwide Christian fellowship founded on the uncompromising truth of God's Holy Word. We are a people called to worship in spirit and in truth, to study the Scriptures diligently, and to live as ambassadors of Christ's coming Kingdom.</p>
@@ -470,15 +547,10 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
     <div class="about-img-col reveal">
       <div class="about-img-stack">
         <img class="about-img-main"
-          src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
-          alt="St. G. M. Urhobo — Founding Instrument of GKS"
-          width="420" height="560"
-          onerror="this.parentElement.style.background='var(--bg3)'">
-        <img class="about-img-accent"
           src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/F.E.ADEDOKUN.webp"
           alt="Bro. F. E. Adedokun — President, GKS"
-          width="220" height="165"
-          onerror="this.style.display='none'">
+          width="420" height="560"
+          onerror="this.parentElement.style.background='var(--bg3)'">
         <div class="about-img-badge">Est. 1930s</div>
       </div>
     </div>
@@ -498,7 +570,7 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
         <span class="pillar-number" aria-hidden="true">02</span>
         <svg class="pillar-icon" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="14"/><path d="M20 10v10l6 4"/></svg>
         <h3 class="pillar-title">Fervent Prayer</h3>
-        <p class="pillar-text">Prayer is the heartbeat of our fellowship — continuous, corporate, and personal. We gather daily at 7 AM and 7 PM to seek God together.</p>
+        <p class="pillar-text">Prayer is the heartbeat of our fellowship — continuous, corporate, and personal. We gather daily at 7 AM and 7:30 PM to seek God together.</p>
       </div>
       <div class="pillar reveal">
         <span class="pillar-number" aria-hidden="true">03</span>
@@ -530,7 +602,7 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
       </div>
       <div class="sched-item">
         <div class="s-day" aria-hidden="true">Daily</div>
-        <div><div class="s-name">Watch and Pray — Evening Prayer</div><div class="s-time">7:00 PM (streamed live)</div></div>
+        <div><div class="s-name">Watch and Pray — Evening Prayer</div><div class="s-time">7:30 PM (streamed live)</div></div>
       </div>
       <div class="sched-item">
         <div class="s-day" aria-hidden="true">Wed</div>
@@ -565,13 +637,16 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
   <p style="text-align:center;margin-top:1.5rem;font-size:.74rem;color:rgba(245,240,230,.45);font-style:italic" aria-hidden="true">Gallery photos will appear here once uploaded to the repository.</p>
 </section>
 
-<!-- ═══ MEDIA / SERMONS — with embedded YouTube ═══ -->
+<!-- ═══ MEDIA / SERMONS ═══ -->
 <section class="media-section s-pad" id="media" aria-labelledby="media-h">
-  <div class="s-tag" aria-hidden="true">Messages &amp; Sermons</div>
-  <h2 class="s-title" id="media-h">Some of <em>Our Sermons</em></h2>
+  <div class="media-section-head">
+    <div class="s-tag" aria-hidden="true">Messages &amp; Sermons</div>
+    <h2 class="media-section-title" id="media-h">Our Recent <em>Sermons</em></h2>
+    <p class="media-section-sub">Watch the latest messages from God's Kingdom Society — powerful, undiluted teachings from the Word of God.</p>
+  </div>
   <div class="media-grid">
 
-    <!-- Card 1 — Sunday Divine Service -->
+    <!-- Card 1 -->
     <article class="media-card reveal">
       <div class="media-thumb">
         <img src="https://i.ytimg.com/vi/qIbIoHYLrhk/maxresdefault.jpg"
@@ -593,13 +668,12 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
       </div>
     </article>
 
-    <!-- Card 2 — Feast of Tabernacles 2025 -->
+    <!-- Card 2 — fixed thumbnail fallback -->
     <article class="media-card reveal">
       <div class="media-thumb">
-        <img src="https://i.ytimg.com/vi/nD0EgXf1p_c/maxresdefault.jpg"
+        <img src="https://i.ytimg.com/vi/nD0EgXf1p_c/hqdefault.jpg"
              alt="Feast of Tabernacles 2025 — Last and Great Day Holy Convocation thumbnail"
-             loading="lazy" width="480" height="270"
-             onerror="this.src='https://i.ytimg.com/vi/nD0EgXf1p_c/hqdefault.jpg'">
+             loading="lazy" width="480" height="270">
         <div class="media-thumb-overlay">
           <button class="play-btn"
             onclick="openYTModal('nD0EgXf1p_c')"
@@ -615,7 +689,7 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
       </div>
     </article>
 
-    <!-- Card 3 — Mid-Week Bible Study -->
+    <!-- Card 3 -->
     <article class="media-card reveal">
       <div class="media-thumb">
         <img src="https://i.ytimg.com/vi/6zs_gCponz0/maxresdefault.jpg"
@@ -643,68 +717,114 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
   </div>
 </section>
 
-<!-- ═══ LIVE STREAM ═══ -->
+<!-- ═══════════════════════════════════════════
+     LIVE BROADCASTS — SCROLL-STOPPING REDESIGN
+═══════════════════════════════════════════ -->
 <section class="live-section s-pad" id="live" aria-labelledby="live-h">
 
-  <div style="text-align:center;margin-bottom:3rem">
-    <div class="live-badge-row" style="justify-content:center;width:auto;margin:0 auto 1.2rem">
+  <div class="live-hero-head" style="text-align:center;margin-bottom:3.5rem">
+    <div class="live-badge-row" style="justify-content:center;width:auto;margin:0 auto 1.5rem">
       <span class="live-dot-sm" aria-hidden="true"></span> Live Broadcasts
     </div>
-    <h2 id="live-h" style="font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;color:#fff;margin-bottom:.8rem">
-      Watch GKS <em style="color:var(--gold-b);font-style:italic">Live on YouTube</em>
+    <h2 id="live-h" style="font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:#fff;margin-bottom:.8rem;letter-spacing:.02em">
+      Join Us <em style="color:var(--gold-b);font-style:italic">Live</em> — Every Week
     </h2>
-    <p style="font-size:.85rem;color:rgba(245,240,230,.7);max-width:580px;margin:0 auto;line-height:1.85">
-      Join thousands of brethren worldwide as we gather in spirit to hear the undiluted Word of God.
-      Stream live every Sunday, Wednesday, and daily from our official YouTube channel
-      <strong style="color:var(--gold-b)">@gkswatchpray</strong>.
+    <p style="font-size:.88rem;color:rgba(245,240,230,.65);max-width:560px;margin:0 auto;line-height:1.9">
+      Thousands of brethren gather in spirit to hear the undiluted Word of God. 
+      Stream live on <strong style="color:var(--gold-b)">@gkswatchpray</strong> — wherever you are in the world.
     </p>
   </div>
 
-  <div class="gks-stream-grid">
-    <div class="gks-stream-card">
-      <div class="live-badge-row"><span class="live-dot-sm" aria-hidden="true"></span>Live Daily</div>
-      <div class="gks-card-day">Monday – Saturday</div>
-      <h3 class="gks-card-title">Daily Watch &amp; Pray</h3>
-      <p class="gks-card-sub">Corporate Prayer Meeting</p>
-      <div style="display:flex;flex-direction:column;gap:.5rem;margin:.4rem 0">
-        <div class="gks-time-row"><span class="gks-time-label">Morning</span><span class="gks-time-val">7:00 AM</span></div>
-        <div class="gks-time-row"><span class="gks-time-label">Evening</span><span class="gks-time-val">7:00 PM</span></div>
+  <!-- Three bold broadcast cards -->
+  <div class="broadcast-grid" role="list">
+
+    <!-- Card 1: Daily Prayer -->
+    <div class="broadcast-card" role="listitem" aria-label="Daily Watch and Pray">
+      <div class="bc-number" aria-hidden="true">01</div>
+      <div>
+        <div class="bc-status">
+          <div class="bc-live-pill"><span class="bc-pulse" aria-hidden="true"></span>Live Daily</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-day-tag">Monday – Saturday</div>
+          <h3 class="bc-title">Daily Watch<br>&amp; Pray</h3>
+          <p class="bc-subtitle">Corporate Prayer — Morning &amp; Evening</p>
+          <div class="bc-times">
+            <div class="bc-time-row">
+              <span class="bc-time-label">Morning</span>
+              <span class="bc-time-val">7:00 AM</span>
+            </div>
+            <div class="bc-time-row">
+              <span class="bc-time-label">Evening</span>
+              <span class="bc-time-val">7:30 PM</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer" class="gks-watch-btn" aria-label="Watch Daily Watch and Pray on YouTube">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        Go to YouTube Channel
+      <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer"
+         class="bc-cta" aria-label="Watch Daily Watch and Pray on YouTube">
+        Watch on YouTube
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
-    <div class="gks-stream-card featured">
-      <span class="gks-featured-badge" aria-hidden="true">Featured Service</span>
-      <div class="live-badge-row"><span class="live-dot-sm" aria-hidden="true"></span>Live Wednesday</div>
-      <div class="gks-card-day">Every Wednesday</div>
-      <h3 class="gks-card-title">Mid-Week Bible Study</h3>
-      <p class="gks-card-sub">In-depth Scripture Teaching</p>
-      <div style="display:flex;flex-direction:column;gap:.5rem;margin:.4rem 0">
-        <div class="gks-time-row"><span class="gks-time-label">Time</span><span class="gks-time-val">5:00 – 6:00 PM</span></div>
+
+    <!-- Card 2: Mid-Week Bible Study (featured) -->
+    <div class="broadcast-card featured" role="listitem" aria-label="Mid-Week Bible Study — Featured">
+      <div class="bc-number" aria-hidden="true">02</div>
+      <div>
+        <div class="bc-status">
+          <div class="bc-live-pill"><span class="bc-pulse" aria-hidden="true"></span>Live Wednesday</div>
+          <div class="bc-featured-pill">Featured</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-day-tag">Every Wednesday</div>
+          <h3 class="bc-title">Mid-Week<br>Bible Study</h3>
+          <p class="bc-subtitle">In-depth Scripture Teaching &amp; Exposition</p>
+          <div class="bc-times">
+            <div class="bc-time-row">
+              <span class="bc-time-label">Service Time</span>
+              <span class="bc-time-val">5:00 – 6:00 PM</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer" class="gks-watch-btn" aria-label="Watch Mid-Week Bible Study on YouTube">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        Go to YouTube Channel
+      <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer"
+         class="bc-cta" aria-label="Watch Mid-Week Bible Study on YouTube">
+        Watch on YouTube
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
-    <div class="gks-stream-card">
-      <div class="live-badge-row"><span class="live-dot-sm" aria-hidden="true"></span>Live Sunday</div>
-      <div class="gks-card-day">Every Sunday</div>
-      <h3 class="gks-card-title">Sunday Divine Service</h3>
-      <p class="gks-card-sub">Main Worship Service</p>
-      <div style="display:flex;flex-direction:column;gap:.5rem;margin:.4rem 0">
-        <div class="gks-time-row"><span class="gks-time-label">Time</span><span class="gks-time-val">9:00 – 11:00 AM</span></div>
+
+    <!-- Card 3: Sunday Divine Service -->
+    <div class="broadcast-card" role="listitem" aria-label="Sunday Divine Service">
+      <div class="bc-number" aria-hidden="true">03</div>
+      <div>
+        <div class="bc-status">
+          <div class="bc-live-pill"><span class="bc-pulse" aria-hidden="true"></span>Live Sunday</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-day-tag">Every Sunday</div>
+          <h3 class="bc-title">Sunday Divine<br>Service</h3>
+          <p class="bc-subtitle">Main Worship Service — Come &amp; Be Blessed</p>
+          <div class="bc-times">
+            <div class="bc-time-row">
+              <span class="bc-time-label">Service Time</span>
+              <span class="bc-time-val">9:00 – 11:00 AM</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer" class="gks-watch-btn" aria-label="Watch Sunday Divine Service on YouTube">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        Go to YouTube Channel
+      <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer"
+         class="bc-cta" aria-label="Watch Sunday Divine Service on YouTube">
+        Watch on YouTube
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
   </div>
 
-  <!-- Live Stream Embed — always shows the channel live/latest -->
+  <div class="live-divider"></div>
+
+  <!-- Live stream facade embed -->
   <div style="max-width:760px;margin:0 auto 2.5rem">
     <div class="live-embed" id="ytFacade"
          role="button" tabindex="0"
@@ -722,7 +842,7 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
         <div class="yt-play-btn" aria-hidden="true">
           <svg width="28" height="28" fill="#fff" viewBox="0 0 24 24" focusable="false"><path d="M8 5v14l11-7z"/></svg>
         </div>
-        <span class="yt-label">Click to load live stream · Broadcasts live Sunday 9AM · Wednesday 5PM · Daily 7AM &amp; 7PM (WAT)</span>
+        <span class="yt-label">Click to load live stream · Broadcasts live Sunday 9AM · Wednesday 5PM · Daily 7AM &amp; 7:30PM (WAT)</span>
       </div>
     </div>
   </div>
@@ -747,12 +867,14 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
   <div class="board-intro">
     <p>God's Kingdom Society is governed by dedicated leaders who have devoted their lives to advancing the Kingdom of God. Each member brings decades of spiritual service, administrative excellence, and unwavering commitment to the founding vision of GKS.</p>
   </div>
+
+  <!-- Founder — solo, no paired image -->
   <div class="founder-row reveal">
     <div class="founder-img">
       <div class="founder-img-inner">
         <img src="https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/ST.G.M.URHOBO.webp"
           alt="St. G. M. Urhobo — Founding Instrument of God's Kingdom Society"
-          width="420" height="560"
+          width="380" height="507"
           onerror="this.parentElement.style.background='var(--bg3)'">
       </div>
     </div>
@@ -762,6 +884,7 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
       <div class="founder-title">The Vessel of Honour Used by God to Establish the God's Kingdom Society</div>
     </div>
   </div>
+
   <h3 class="past-heading">Past Presidents of Blessed Memory</h3>
   <div class="leader-grid" style="margin-bottom:0">
     <div class="leader-card reveal">
@@ -938,7 +1061,7 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">&copy; 2025 God's Kingdom Society. All rights reserved. | mountaingks.org</p>
+    <p class="footer-copy">&copy; 2026 God's Kingdom Society. All rights reserved. | mountaingks.org</p>
     <div class="footer-socials">
       <a href="https://www.youtube.com/@gkswatchpray" target="_blank" rel="noopener noreferrer"
          class="footer-social" title="GKS Watch &amp; Pray — YouTube" aria-label="GKS YouTube channel @gkswatchpray">
@@ -953,20 +1076,19 @@ footer{background:var(--bg-dk2);border-top:2px solid var(--gold);padding:4rem 4r
 </footer>
 
 <script>
-// ── Hero slideshow — all 10 images ──────────────────────────
+// ── Hero slideshow — order: St Urhobo, past presidents, then exec board ──
 const BASE='https://raw.githubusercontent.com/Godskingdomsociety/gksdemo/main/';
-// Slide 0 is pre-rendered in HTML; remaining 9 built by JS
 const slides=[
-  {src:'F.E.ADEDOKUN.webp',  name:'Bro. F. E. Adedokun',   title:'President'},
-  {src:'T.M.EKISEOWEI.webp', name:'Bro. T. M. Ekiseowei',  title:'Vice President'},
-  {src:'B.T.HART.webp',      name:'Bro. B. T. Hart',        title:'General Secretary'},
-  {src:'O.D.AKINWALE.webp',  name:'Bro. O. D. Akinwale',   title:'Treasurer'},
-  {src:'A.A.ERHA.webp',      name:'Bro. A. A. Erha',        title:'Executive Board Member'},
-  {src:'J.N.W.CHUKWUDI.webp',name:'Bro. J. N. W. Chukwudi',title:'Executive Board Member'},
-  {src:'ST.G.M.URHOBO.webp', name:'St. G. M. Urhobo',       title:'Founding Instrument'},
-  {src:'E.T.OTOMEWO.webp',   name:'Late Bro. E. T. Otomewo',title:'2nd President · 1957–1997'},
-  {src:'O.E.AIGHALUA.webp',  name:'Late Bro. O. E. Aighalua',title:'3rd President · 2001–2011'},
-  {src:'G.O.IFEACHO.webp',   name:'Late Bro. G. O. Ifeacho',title:'4th President · 2016–2021'},
+  {src:'ST.G.M.URHOBO.webp',  name:'St. G. M. Urhobo',        title:'Founding Instrument'},
+  {src:'E.T.OTOMEWO.webp',   name:'Late Bro. E. T. Otomewo',  title:'2nd President · 1957–1997'},
+  {src:'O.E.AIGHALUA.webp',  name:'Late Bro. O. E. Aighalua', title:'3rd President · 2001–2011'},
+  {src:'G.O.IFEACHO.webp',   name:'Late Bro. G. O. Ifeacho',  title:'4th President · 2016–2021'},
+  {src:'F.E.ADEDOKUN.webp',  name:'Bro. F. E. Adedokun',      title:'President'},
+  {src:'T.M.EKISEOWEI.webp', name:'Bro. T. M. Ekiseowei',     title:'Vice President'},
+  {src:'B.T.HART.webp',      name:'Bro. B. T. Hart',           title:'General Secretary'},
+  {src:'O.D.AKINWALE.webp',  name:'Bro. O. D. Akinwale',      title:'Treasurer'},
+  {src:'A.A.ERHA.webp',      name:'Bro. A. A. Erha',           title:'Executive Board Member'},
+  {src:'J.N.W.CHUKWUDI.webp',name:'Bro. J. N. W. Chukwudi',   title:'Executive Board Member'},
 ];
 const slidesEl=document.getElementById('heroSlides');
 const dotsEl=document.getElementById('heroDots');
@@ -1002,7 +1124,7 @@ function goTo(n){
 function next(){goTo((cur+1)%slides.length);}
 timer=setInterval(next,5000);
 
-// ── Nav hamburger ─────────────────────────────────────────
+// ── Nav hamburger ──
 const ham=document.getElementById('navHam');
 const drawer=document.getElementById('navDrawer');
 ham.addEventListener('click',()=>{
@@ -1016,31 +1138,33 @@ drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
   ham.setAttribute('aria-label','Open navigation menu');
 }));
 
-// ── Scroll reveal ─────────────────────────────────────────
+// ── Scroll reveal ──
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
 }),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-// ── YouTube live stream facade ─────────────────────────────
-// Uses the official channel page — always shows live if broadcasting,
-// falls back to latest video otherwise. Never shows "video unavailable."
+// ── Broadcast cards scroll entrance ──
+const bcObs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('bc-visible');bcObs.unobserve(e.target);}
+}),{threshold:.12});
+document.querySelectorAll('.broadcast-card').forEach(el=>bcObs.observe(el));
+
+// ── YouTube live stream facade ──
 function gksLoadYT(){
   const el=document.getElementById('ytFacade');
-  // Embed the channel's live page; YouTube auto-detects live vs latest
   el.innerHTML='<iframe src="https://www.youtube.com/embed/live_stream?channel=UC3UdJu8Q1iWUDbWuZSsetbA&autoplay=1&rel=0&modestbranding=1" title="GKS Watch and Pray — Live Stream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe>';
   el.style.cursor='default';
   el.removeAttribute('tabindex');
 }
 
-// ── Sermon modal player ────────────────────────────────────
+// ── Sermon modal player ──
 function openYTModal(videoId){
   const overlay=document.getElementById('ytModalOverlay');
   const frame=document.getElementById('ytModalFrame');
   frame.innerHTML='<iframe src="https://www.youtube.com/embed/'+videoId+'?autoplay=1&rel=0&modestbranding=1" title="GKS Sermon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe>';
   overlay.classList.add('open');
   document.body.style.overflow='hidden';
-  // Trap focus on close btn
   document.querySelector('.yt-modal-close').focus();
 }
 function closeYTModalBtn(){
